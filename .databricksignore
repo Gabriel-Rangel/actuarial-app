@@ -1,0 +1,7 @@
+data/
+_setup.ipynb
+.env
+__pycache__/
+.git/
+.github/
+.vscode/

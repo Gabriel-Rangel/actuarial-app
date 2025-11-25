@@ -1,0 +1,3129 @@
+{
+  "datasets": [
+    {
+      "name": "28e66c90",
+      "displayName": "ltc_incidence_claim_specific",
+      "queryLines": [
+        "SELECT  Group_Indicator,\n",
+        "        Gender,\n",
+        "        Issue_Age_Bucket,\n",
+        "        Incurred_Age_Bucket,\n",
+        "        Issue_Year_Bucket,\n",
+        "        Policy_Year,\n",
+        "        Marital_Status,\n",
+        "        Premium_Class,\n",
+        "        Underwriting_Type,\n",
+        "        Coverage_Type_Bucket,\n",
+        "        Tax_Qualification_Status,\n",
+        "        Inflation_Rider,\n",
+        "        Rate_Increase_Flag,\n",
+        "        Restoration_of_Benefits,\n",
+        "        Region,\n",
+        "        CASE \n",
+        "          WHEN Issue_Year_Bucket = \" < 1991\" AND Policy_Year = \"10-12 years\" THEN \"1998-2000\"\n",
+        "          WHEN Issue_Year_Bucket = \" < 1991\" AND Policy_Year = \"15+ years\" THEN \"2004-2006\"\n",
+        "          WHEN Issue_Year_Bucket = \" < 1991\" AND Policy_Year = \"13-15 years\" THEN \"2001-2003\"\n",
+        "          WHEN Issue_Year_Bucket = \"1991-1993\" AND Policy_Year = \" 7-9 years\" THEN \"1998-2000\"\n",
+        "          WHEN Issue_Year_Bucket = \"1991-1993\" AND Policy_Year = \"10-12 years\" THEN \"2001-2003\"\n",
+        "          WHEN Issue_Year_Bucket = \"1991-1993\" AND Policy_Year = \"13-15 years\" THEN \"2004-2006\"\n",
+        "          WHEN Issue_Year_Bucket = \"1991-1993\" AND Policy_Year = \"15+ years\" THEN \"2007-2009\"\n",
+        "          WHEN Issue_Year_Bucket = \"1994-1996\" AND Policy_Year = \" 4-6 years\" THEN \"1998-2000\"\n",
+        "          WHEN Issue_Year_Bucket = \"1994-1996\" AND Policy_Year = \" 7-9 years\" THEN \"2001-2003\"\n",
+        "          WHEN Issue_Year_Bucket = \"1994-1996\" AND Policy_Year = \"10-12 years\" THEN \"2004-2006\"\n",
+        "          WHEN Issue_Year_Bucket = \"1994-1996\" AND Policy_Year = \"13-15 years\" THEN \"2007-2009\"\n",
+        "          WHEN Issue_Year_Bucket = \"1994-1996\" AND Policy_Year = \"15+ years\" THEN \"2010-2012\"\n",
+        "          WHEN Issue_Year_Bucket = \"1997-1999\" AND Policy_Year = \" 1-3 years\" THEN \"1998-2000\"\n",
+        "          WHEN Issue_Year_Bucket = \"1997-1999\" AND Policy_Year = \" 4-6 years\" THEN \"2001-2003\"\n",
+        "          WHEN Issue_Year_Bucket = \"1997-1999\" AND Policy_Year = \" 7-9 years\" THEN \"2004-2006\"\n",
+        "          WHEN Issue_Year_Bucket = \"1997-1999\" AND Policy_Year = \"10-12 years\" THEN \"2007-2009\"\n",
+        "          WHEN Issue_Year_Bucket = \"1997-1999\" AND Policy_Year = \"13-15 years\" THEN \"2010-2012\"\n",
+        "          WHEN Issue_Year_Bucket = \"1997-1999\" AND Policy_Year = \"15+ years\" THEN \"2013-2015\"\n",
+        "          WHEN Issue_Year_Bucket = \"2000-2002\" AND Policy_Year = \"15+ years\" THEN \"2016-2018\"\n",
+        "          WHEN Issue_Year_Bucket = \"2000-2002\" AND Policy_Year = \" 4-6 years\" THEN \"2004-2006\"\n",
+        "          WHEN Issue_Year_Bucket = \"2000-2002\" AND Policy_Year = \" 1-3 years\" THEN \"2001-2003\"\n",
+        "          WHEN Issue_Year_Bucket = \"2000-2002\" AND Policy_Year = \"10-12 years\" THEN \"2010-2012\"\n",
+        "          WHEN Issue_Year_Bucket = \"2000-2002\" AND Policy_Year = \" 7-9 years\" THEN \"2007-2009\"\n",
+        "          WHEN Issue_Year_Bucket = \"2000-2002\" AND Policy_Year = \"13-15 years\" THEN \"2013-2015\"\n",
+        "          WHEN Issue_Year_Bucket = \"2003-2005\" AND Policy_Year = \"13-15 years\" THEN \"2016-2018\"\n",
+        "          WHEN Issue_Year_Bucket = \"2003-2005\" AND Policy_Year = \"10-12 years\" THEN \"2013-2015\"\n",
+        "          WHEN Issue_Year_Bucket = \"2003-2005\" AND Policy_Year = \" 1-3 years\" THEN \"2004-2006\"\n",
+        "          WHEN Issue_Year_Bucket = \"2003-2005\" AND Policy_Year = \" 4-6 years\" THEN \"2007-2009\"\n",
+        "          WHEN Issue_Year_Bucket = \"2003-2005\" AND Policy_Year = \" 7-9 years\" THEN \"2010-2012\"\n",
+        "          WHEN Issue_Year_Bucket = \"2006-2008\" AND Policy_Year = \" 4-6 years\" THEN \"2010-2012\"\n",
+        "          WHEN Issue_Year_Bucket = \"2006-2008\" AND Policy_Year = \" 1-3 years\" THEN \"2007-2009\"\n",
+        "          WHEN Issue_Year_Bucket = \"2006-2008\" AND Policy_Year = \"10-12 years\" THEN \"2016-2018\"\n",
+        "          WHEN Issue_Year_Bucket = \"2006-2008\" AND Policy_Year = \" 7-9 years\" THEN \"2013-2015\"\n",
+        "          WHEN Issue_Year_Bucket = \"2009-2011\" AND Policy_Year = \" 4-6 years\" THEN \"2013-2015\"\n",
+        "          WHEN Issue_Year_Bucket = \"2009-2011\" AND Policy_Year = \" 1-3 years\" THEN \"2010-2012\"\n",
+        "          WHEN Issue_Year_Bucket = \"2009-2011\" AND Policy_Year = \" 7-9 years\" THEN \"2016-2018\"\n",
+        "          WHEN Issue_Year_Bucket = \"2012-2014\" AND Policy_Year = \" 1-3 years\" THEN \"2013-2015\"\n",
+        "          WHEN Issue_Year_Bucket = \"2012-2014\" AND Policy_Year = \" 4-6 years\" THEN \"2016-2018\"\n",
+        "          WHEN Issue_Year_Bucket = \"2015-2016\" AND Policy_Year = \" 1-3 years\" THEN \"2016-2018\"\n",
+        "        END AS Calendar_Year_Bucket,\n",
+        "        IDENTIFIER(concat(:claim_type, '_Orig_Daily_Ben_Bucket')) AS Orig_Daily_Ben_Bucket,\n",
+        "        IDENTIFIER(concat(:claim_type, '_Ben_Period_Bucket')) AS Ben_Period_Bucket,\n",
+        "        IDENTIFIER(concat(:claim_type, '_EP_Bucket')) AS EP_Bucket,\n",
+        "        Active_Exposure,\n",
+        "        Total_Exposure,\n",
+        "        IDENTIFIER(concat('Count_', :claim_type)) AS Claim_Count,\n",
+        "        Claim_Count / Total_Exposure * 1000 AS Incidence_Rate\n",
+        "  FROM IDENTIFIER(concat('actuarial_app_catalog.`long_term_care`.', :table_name))\n",
+        "  WHERE Incurred_Age_Bucket != 'Unknown' "
+      ],
+      "parameters": [
+        {
+          "displayName": "claim_type",
+          "keyword": "claim_type",
+          "dataType": "STRING",
+          "defaultSelection": {
+            "values": {
+              "dataType": "STRING",
+              "values": [
+                {
+                  "value": "NH"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "displayName": "table_name",
+          "keyword": "table_name",
+          "dataType": "STRING",
+          "defaultSelection": {
+            "values": {
+              "dataType": "STRING",
+              "values": [
+                {
+                  "value": "ltc_incidence_w_comment"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "82fcdbe8",
+      "displayName": "base_incidence",
+      "queryLines": [
+        "SELECT\n",
+        "  Incurred_Age_Bucket,\n",
+        "  Gender,\n",
+        "  SUM(CASE \n",
+        "        WHEN :claim_type = 'NH' THEN Count_NH\n",
+        "        WHEN :claim_type = 'ALF' THEN Count_ALF\n",
+        "        WHEN :claim_type = 'HHC' THEN Count_HHC\n",
+        "        ELSE 0\n",
+        "      END) / SUM(Total_Exposure) * 1000 AS Incidence_Rate\n",
+        "FROM\n",
+        "  IDENTIFIER(concat('actuarial_app_catalog.`long_term_care`.', :table_name))\n",
+        "WHERE\n",
+        "  Incurred_Age_Bucket != 'Unknown'\n",
+        "GROUP BY\n",
+        "  Incurred_Age_Bucket,\n",
+        "  Gender\n",
+        "ORDER BY\n",
+        "  Incurred_Age_Bucket,\n",
+        "  Gender"
+      ],
+      "parameters": [
+        {
+          "displayName": "claim_type",
+          "keyword": "claim_type",
+          "dataType": "STRING",
+          "defaultSelection": {
+            "values": {
+              "dataType": "STRING",
+              "values": [
+                {
+                  "value": "NH"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "displayName": "table_name",
+          "keyword": "table_name",
+          "dataType": "STRING",
+          "defaultSelection": {
+            "values": {
+              "dataType": "STRING",
+              "values": [
+                {
+                  "value": "ltc_incidence_w_comment"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "df11efc1",
+      "displayName": "calendar_year_ae",
+      "queryLines": [
+        "WITH actual_incidence AS (\n",
+        "  SELECT\n",
+        "    Incurred_Age_Bucket,\n",
+        "    Gender,\n",
+        "    CASE \n",
+        "      WHEN Issue_Year_Bucket = \" < 1991\" AND Policy_Year = \"10-12 years\" THEN \"1998-2000\"\n",
+        "      WHEN Issue_Year_Bucket = \" < 1991\" AND Policy_Year = \"15+ years\" THEN \"2004-2006\"\n",
+        "      WHEN Issue_Year_Bucket = \" < 1991\" AND Policy_Year = \"13-15 years\" THEN \"2001-2003\"\n",
+        "      WHEN Issue_Year_Bucket = \"1991-1993\" AND Policy_Year = \" 7-9 years\" THEN \"1998-2000\"\n",
+        "      WHEN Issue_Year_Bucket = \"1991-1993\" AND Policy_Year = \"10-12 years\" THEN \"2001-2003\"\n",
+        "      WHEN Issue_Year_Bucket = \"1991-1993\" AND Policy_Year = \"13-15 years\" THEN \"2004-2006\"\n",
+        "      WHEN Issue_Year_Bucket = \"1991-1993\" AND Policy_Year = \"15+ years\" THEN \"2007-2009\"\n",
+        "      WHEN Issue_Year_Bucket = \"1994-1996\" AND Policy_Year = \" 4-6 years\" THEN \"1998-2000\"\n",
+        "      WHEN Issue_Year_Bucket = \"1994-1996\" AND Policy_Year = \" 7-9 years\" THEN \"2001-2003\"\n",
+        "      WHEN Issue_Year_Bucket = \"1994-1996\" AND Policy_Year = \"10-12 years\" THEN \"2004-2006\"\n",
+        "      WHEN Issue_Year_Bucket = \"1994-1996\" AND Policy_Year = \"13-15 years\" THEN \"2007-2009\"\n",
+        "      WHEN Issue_Year_Bucket = \"1994-1996\" AND Policy_Year = \"15+ years\" THEN \"2010-2012\"\n",
+        "      WHEN Issue_Year_Bucket = \"1997-1999\" AND Policy_Year = \" 1-3 years\" THEN \"1998-2000\"\n",
+        "      WHEN Issue_Year_Bucket = \"1997-1999\" AND Policy_Year = \" 4-6 years\" THEN \"2001-2003\"\n",
+        "      WHEN Issue_Year_Bucket = \"1997-1999\" AND Policy_Year = \" 7-9 years\" THEN \"2004-2006\"\n",
+        "      WHEN Issue_Year_Bucket = \"1997-1999\" AND Policy_Year = \"10-12 years\" THEN \"2007-2009\"\n",
+        "      WHEN Issue_Year_Bucket = \"1997-1999\" AND Policy_Year = \"13-15 years\" THEN \"2010-2012\"\n",
+        "      WHEN Issue_Year_Bucket = \"1997-1999\" AND Policy_Year = \"15+ years\" THEN \"2013-2015\"\n",
+        "      WHEN Issue_Year_Bucket = \"2000-2002\" AND Policy_Year = \"15+ years\" THEN \"2016-2018\"\n",
+        "      WHEN Issue_Year_Bucket = \"2000-2002\" AND Policy_Year = \" 4-6 years\" THEN \"2004-2006\"\n",
+        "      WHEN Issue_Year_Bucket = \"2000-2002\" AND Policy_Year = \" 1-3 years\" THEN \"2001-2003\"\n",
+        "      WHEN Issue_Year_Bucket = \"2000-2002\" AND Policy_Year = \"10-12 years\" THEN \"2010-2012\"\n",
+        "      WHEN Issue_Year_Bucket = \"2000-2002\" AND Policy_Year = \" 7-9 years\" THEN \"2007-2009\"\n",
+        "      WHEN Issue_Year_Bucket = \"2000-2002\" AND Policy_Year = \"13-15 years\" THEN \"2013-2015\"\n",
+        "      WHEN Issue_Year_Bucket = \"2003-2005\" AND Policy_Year = \"13-15 years\" THEN \"2016-2018\"\n",
+        "      WHEN Issue_Year_Bucket = \"2003-2005\" AND Policy_Year = \"10-12 years\" THEN \"2013-2015\"\n",
+        "      WHEN Issue_Year_Bucket = \"2003-2005\" AND Policy_Year = \" 1-3 years\" THEN \"2004-2006\"\n",
+        "      WHEN Issue_Year_Bucket = \"2003-2005\" AND Policy_Year = \" 4-6 years\" THEN \"2007-2009\"\n",
+        "      WHEN Issue_Year_Bucket = \"2003-2005\" AND Policy_Year = \" 7-9 years\" THEN \"2010-2012\"\n",
+        "      WHEN Issue_Year_Bucket = \"2006-2008\" AND Policy_Year = \" 4-6 years\" THEN \"2010-2012\"\n",
+        "      WHEN Issue_Year_Bucket = \"2006-2008\" AND Policy_Year = \" 1-3 years\" THEN \"2007-2009\"\n",
+        "      WHEN Issue_Year_Bucket = \"2006-2008\" AND Policy_Year = \"10-12 years\" THEN \"2016-2018\"\n",
+        "      WHEN Issue_Year_Bucket = \"2006-2008\" AND Policy_Year = \" 7-9 years\" THEN \"2013-2015\"\n",
+        "      WHEN Issue_Year_Bucket = \"2009-2011\" AND Policy_Year = \" 4-6 years\" THEN \"2013-2015\"\n",
+        "      WHEN Issue_Year_Bucket = \"2009-2011\" AND Policy_Year = \" 1-3 years\" THEN \"2010-2012\"\n",
+        "      WHEN Issue_Year_Bucket = \"2009-2011\" AND Policy_Year = \" 7-9 years\" THEN \"2016-2018\"\n",
+        "      WHEN Issue_Year_Bucket = \"2012-2014\" AND Policy_Year = \" 1-3 years\" THEN \"2013-2015\"\n",
+        "      WHEN Issue_Year_Bucket = \"2012-2014\" AND Policy_Year = \" 4-6 years\" THEN \"2016-2018\"\n",
+        "      WHEN Issue_Year_Bucket = \"2015-2016\" AND Policy_Year = \" 1-3 years\" THEN \"2016-2018\"\n",
+        "    END AS Calendar_Year_Bucket,\n",
+        "    SUM(CASE \n",
+        "        WHEN :claim_type = 'NH' THEN Count_NH\n",
+        "        WHEN :claim_type = 'ALF' THEN Count_ALF\n",
+        "        WHEN :claim_type = 'HHC' THEN Count_HHC\n",
+        "        ELSE 0\n",
+        "        END) AS Total_Claims,\n",
+        "    SUM(Total_Exposure) AS Total_Exposure\n",
+        "  FROM\n",
+        "    IDENTIFIER(concat('actuarial_app_catalog.`long_term_care`.', :table_name))\n",
+        "  GROUP BY\n",
+        "    Incurred_Age_Bucket,\n",
+        "    Gender,\n",
+        "    CASE \n",
+        "      WHEN Issue_Year_Bucket = \" < 1991\" AND Policy_Year = \"10-12 years\" THEN \"1998-2000\"\n",
+        "      WHEN Issue_Year_Bucket = \" < 1991\" AND Policy_Year = \"15+ years\" THEN \"2004-2006\"\n",
+        "      WHEN Issue_Year_Bucket = \" < 1991\" AND Policy_Year = \"13-15 years\" THEN \"2001-2003\"\n",
+        "      WHEN Issue_Year_Bucket = \"1991-1993\" AND Policy_Year = \" 7-9 years\" THEN \"1998-2000\"\n",
+        "      WHEN Issue_Year_Bucket = \"1991-1993\" AND Policy_Year = \"10-12 years\" THEN \"2001-2003\"\n",
+        "      WHEN Issue_Year_Bucket = \"1991-1993\" AND Policy_Year = \"13-15 years\" THEN \"2004-2006\"\n",
+        "      WHEN Issue_Year_Bucket = \"1991-1993\" AND Policy_Year = \"15+ years\" THEN \"2007-2009\"\n",
+        "      WHEN Issue_Year_Bucket = \"1994-1996\" AND Policy_Year = \" 4-6 years\" THEN \"1998-2000\"\n",
+        "      WHEN Issue_Year_Bucket = \"1994-1996\" AND Policy_Year = \" 7-9 years\" THEN \"2001-2003\"\n",
+        "      WHEN Issue_Year_Bucket = \"1994-1996\" AND Policy_Year = \"10-12 years\" THEN \"2004-2006\"\n",
+        "      WHEN Issue_Year_Bucket = \"1994-1996\" AND Policy_Year = \"13-15 years\" THEN \"2007-2009\"\n",
+        "      WHEN Issue_Year_Bucket = \"1994-1996\" AND Policy_Year = \"15+ years\" THEN \"2010-2012\"\n",
+        "      WHEN Issue_Year_Bucket = \"1997-1999\" AND Policy_Year = \" 1-3 years\" THEN \"1998-2000\"\n",
+        "      WHEN Issue_Year_Bucket = \"1997-1999\" AND Policy_Year = \" 4-6 years\" THEN \"2001-2003\"\n",
+        "      WHEN Issue_Year_Bucket = \"1997-1999\" AND Policy_Year = \" 7-9 years\" THEN \"2004-2006\"\n",
+        "      WHEN Issue_Year_Bucket = \"1997-1999\" AND Policy_Year = \"10-12 years\" THEN \"2007-2009\"\n",
+        "      WHEN Issue_Year_Bucket = \"1997-1999\" AND Policy_Year = \"13-15 years\" THEN \"2010-2012\"\n",
+        "      WHEN Issue_Year_Bucket = \"1997-1999\" AND Policy_Year = \"15+ years\" THEN \"2013-2015\"\n",
+        "      WHEN Issue_Year_Bucket = \"2000-2002\" AND Policy_Year = \"15+ years\" THEN \"2016-2018\"\n",
+        "      WHEN Issue_Year_Bucket = \"2000-2002\" AND Policy_Year = \" 4-6 years\" THEN \"2004-2006\"\n",
+        "      WHEN Issue_Year_Bucket = \"2000-2002\" AND Policy_Year = \" 1-3 years\" THEN \"2001-2003\"\n",
+        "      WHEN Issue_Year_Bucket = \"2000-2002\" AND Policy_Year = \"10-12 years\" THEN \"2010-2012\"\n",
+        "      WHEN Issue_Year_Bucket = \"2000-2002\" AND Policy_Year = \" 7-9 years\" THEN \"2007-2009\"\n",
+        "      WHEN Issue_Year_Bucket = \"2000-2002\" AND Policy_Year = \"13-15 years\" THEN \"2013-2015\"\n",
+        "      WHEN Issue_Year_Bucket = \"2003-2005\" AND Policy_Year = \"13-15 years\" THEN \"2016-2018\"\n",
+        "      WHEN Issue_Year_Bucket = \"2003-2005\" AND Policy_Year = \"10-12 years\" THEN \"2013-2015\"\n",
+        "      WHEN Issue_Year_Bucket = \"2003-2005\" AND Policy_Year = \" 1-3 years\" THEN \"2004-2006\"\n",
+        "      WHEN Issue_Year_Bucket = \"2003-2005\" AND Policy_Year = \" 4-6 years\" THEN \"2007-2009\"\n",
+        "      WHEN Issue_Year_Bucket = \"2003-2005\" AND Policy_Year = \" 7-9 years\" THEN \"2010-2012\"\n",
+        "      WHEN Issue_Year_Bucket = \"2006-2008\" AND Policy_Year = \" 4-6 years\" THEN \"2010-2012\"\n",
+        "      WHEN Issue_Year_Bucket = \"2006-2008\" AND Policy_Year = \" 1-3 years\" THEN \"2007-2009\"\n",
+        "      WHEN Issue_Year_Bucket = \"2006-2008\" AND Policy_Year = \"10-12 years\" THEN \"2016-2018\"\n",
+        "      WHEN Issue_Year_Bucket = \"2006-2008\" AND Policy_Year = \" 7-9 years\" THEN \"2013-2015\"\n",
+        "      WHEN Issue_Year_Bucket = \"2009-2011\" AND Policy_Year = \" 4-6 years\" THEN \"2013-2015\"\n",
+        "      WHEN Issue_Year_Bucket = \"2009-2011\" AND Policy_Year = \" 1-3 years\" THEN \"2010-2012\"\n",
+        "      WHEN Issue_Year_Bucket = \"2009-2011\" AND Policy_Year = \" 7-9 years\" THEN \"2016-2018\"\n",
+        "      WHEN Issue_Year_Bucket = \"2012-2014\" AND Policy_Year = \" 1-3 years\" THEN \"2013-2015\"\n",
+        "      WHEN Issue_Year_Bucket = \"2012-2014\" AND Policy_Year = \" 4-6 years\" THEN \"2016-2018\"\n",
+        "      WHEN Issue_Year_Bucket = \"2015-2016\" AND Policy_Year = \" 1-3 years\" THEN \"2016-2018\"\n",
+        "    END\n",
+        "    ),\n",
+        "base_incidence AS (\n",
+        "  SELECT\n",
+        "  Incurred_Age_Bucket,\n",
+        "  Gender,\n",
+        "  SUM(CASE \n",
+        "        WHEN :claim_type = 'NH' THEN Count_NH\n",
+        "        WHEN :claim_type = 'ALF' THEN Count_ALF\n",
+        "        WHEN :claim_type = 'HHC' THEN Count_HHC\n",
+        "        ELSE 0\n",
+        "      END) / SUM(Total_Exposure) * 1000 AS Incidence_Rate\n",
+        "FROM\n",
+        "    IDENTIFIER(concat('actuarial_app_catalog.`long_term_care`.', :table_name))\n",
+        "WHERE\n",
+        "  Incurred_Age_Bucket != 'Unknown'\n",
+        "GROUP BY\n",
+        "  Incurred_Age_Bucket,\n",
+        "  Gender\n",
+        "ORDER BY\n",
+        "  Incurred_Age_Bucket\n",
+        ")\n",
+        "SELECT\n",
+        "  a.Incurred_Age_Bucket,\n",
+        "  Calendar_Year_Bucket,\n",
+        "  a.Gender,\n",
+        "  a. Total_Claims,\n",
+        "  a.Total_Claims / a.Total_Exposure * 1000 AS Base_Incidence_Rate,\n",
+        "  b.Incidence_Rate AS Expected_Incidence_Rate,\n",
+        "  Base_Incidence_Rate / b.Incidence_Rate AS AtoE\n",
+        "FROM\n",
+        "  actual_incidence a\n",
+        "  JOIN base_incidence b ON a.Incurred_Age_Bucket = b.Incurred_Age_Bucket \n",
+        "  AND a.Gender = b.Gender\n",
+        "\n"
+      ],
+      "parameters": [
+        {
+          "displayName": "claim_type",
+          "keyword": "claim_type",
+          "dataType": "STRING",
+          "defaultSelection": {
+            "values": {
+              "dataType": "STRING",
+              "values": [
+                {
+                  "value": "ALF"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "displayName": "table_name",
+          "keyword": "table_name",
+          "dataType": "STRING",
+          "defaultSelection": {
+            "values": {
+              "dataType": "STRING",
+              "values": [
+                {
+                  "value": "ltc_incidence_w_comment"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "24158ffb",
+      "displayName": "claim_type",
+      "queryLines": [
+        "SELECT\n",
+        "  *\n",
+        "FROM\n",
+        "  (\n",
+        "    VALUES\n",
+        "      ('NH'),\n",
+        "      ('ALF'),\n",
+        "      ('HHC')\n",
+        "  ) AS data(available_choices)\n"
+      ]
+    },
+    {
+      "name": "0fba8b1e",
+      "displayName": "dataset_choices",
+      "queryLines": [
+        "SELECT\n",
+        "  *\n",
+        "FROM\n",
+        "  (\n",
+        "    VALUES\n",
+        "      ('ltc_incidence_w_comment')\n",
+        "  ) AS data(available_choices)\n"
+      ]
+    },
+    {
+      "name": "6548b24c",
+      "displayName": "dynamic_ae_1",
+      "queryLines": [
+        "WITH actual_incidence AS (\n",
+        "  SELECT\n",
+        "    Incurred_Age_Bucket,\n",
+        "    Gender,\n",
+        "    IDENTIFIER(CASE \n",
+        "                WHEN :variable_name IN ('Orig_Daily_Ben_Bucket', 'Ben_Period_Bucket', 'EP_Bucket')\n",
+        "                  THEN concat(:claim_type, '_', :variable_name)\n",
+        "                ELSE :variable_name\n",
+        "               END) AS SPLIT,\n",
+        "    SUM(CASE \n",
+        "        WHEN :claim_type = 'NH' THEN Count_NH\n",
+        "        WHEN :claim_type = 'ALF' THEN Count_ALF\n",
+        "        WHEN :claim_type = 'HHC' THEN Count_HHC\n",
+        "        ELSE 0\n",
+        "        END) AS Total_Claims,\n",
+        "    SUM(Total_Exposure) AS Total_Exposure\n",
+        "  FROM\n",
+        "    IDENTIFIER(concat('actuarial_app_catalog.`long_term_care`.', :table_name))\n",
+        "  GROUP BY\n",
+        "    Incurred_Age_Bucket,\n",
+        "    Gender,\n",
+        "    IDENTIFIER(CASE \n",
+        "                WHEN :variable_name IN ('Orig_Daily_Ben_Bucket', 'Ben_Period_Bucket', 'EP_Bucket')\n",
+        "                  THEN concat(:claim_type, '_', :variable_name)\n",
+        "                ELSE :variable_name\n",
+        "               END)),\n",
+        "base_incidence AS (\n",
+        "  SELECT\n",
+        "  Incurred_Age_Bucket,\n",
+        "  Gender,\n",
+        "  SUM(CASE \n",
+        "        WHEN :claim_type = 'NH' THEN Count_NH\n",
+        "        WHEN :claim_type = 'ALF' THEN Count_ALF\n",
+        "        WHEN :claim_type = 'HHC' THEN Count_HHC\n",
+        "        ELSE 0\n",
+        "      END) / SUM(Total_Exposure) * 1000 AS Incidence_Rate\n",
+        "FROM\n",
+        "    IDENTIFIER(concat('actuarial_app_catalog.`long_term_care`.', :table_name))\n",
+        "WHERE\n",
+        "  Incurred_Age_Bucket != 'Unknown'\n",
+        "GROUP BY\n",
+        "  Incurred_Age_Bucket,\n",
+        "  Gender\n",
+        "ORDER BY\n",
+        "  Incurred_Age_Bucket\n",
+        ")\n",
+        "SELECT\n",
+        "  a.Incurred_Age_Bucket,\n",
+        "  SPLIT,\n",
+        "  a.Gender,\n",
+        "  a. Total_Claims,\n",
+        "  a.Total_Claims / a.Total_Exposure * 1000 AS Base_Incidence_Rate,\n",
+        "  b.Incidence_Rate AS Expected_Incidence_Rate,\n",
+        "  Base_Incidence_Rate / b.Incidence_Rate AS AtoE\n",
+        "FROM\n",
+        "  actual_incidence a\n",
+        "  JOIN base_incidence b ON a.Incurred_Age_Bucket = b.Incurred_Age_Bucket \n",
+        "  AND a.Gender = b.Gender\n",
+        "\n",
+        "\n"
+      ],
+      "parameters": [
+        {
+          "displayName": "claim_type",
+          "keyword": "claim_type",
+          "dataType": "STRING",
+          "defaultSelection": {
+            "values": {
+              "dataType": "STRING",
+              "values": [
+                {
+                  "value": "NH"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "displayName": "table_name",
+          "keyword": "table_name",
+          "dataType": "STRING",
+          "defaultSelection": {
+            "values": {
+              "dataType": "STRING",
+              "values": [
+                {
+                  "value": "ltc_incidence_w_comment"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "displayName": "variable_name",
+          "keyword": "variable_name",
+          "dataType": "STRING",
+          "defaultSelection": {
+            "values": {
+              "dataType": "STRING",
+              "values": [
+                {
+                  "value": "Policy_Year"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "21c2fba2",
+      "displayName": "factor_choices",
+      "queryLines": [
+        "SELECT\n",
+        "  *\n",
+        "FROM\n",
+        "  (\n",
+        "    VALUES\n",
+        "      ('Group_Indicator'),\n",
+        "      ('Issue_Age_Bucket'),\n",
+        "      ('Issue_Year_Bucket'),\n",
+        "      ('Policy_Year'),\n",
+        "      ('Marital_Status'),\n",
+        "      ('Premium_Class'),\n",
+        "      ('Underwriting_Type'),\n",
+        "      ('Coverage_Type_Bucket'),\n",
+        "      ('Tax_Qualification_Status'),\n",
+        "      ('Inflation_Rider'),\n",
+        "      ('Rate_Increase_Flag'),\n",
+        "      ('Restoration_of_Benefits'),\n",
+        "      ('Orig_Daily_Ben_Bucket'),\n",
+        "      ('Ben_Period_Bucket'),\n",
+        "      ('EP_Bucket'),\n",
+        "      ('Region')\n",
+        "  ) AS data(available_choices)\n"
+      ]
+    },
+    {
+      "name": "70ef7eae",
+      "displayName": "dynamic_ae_2",
+      "queryLines": [
+        "WITH actual_incidence AS (\n",
+        "  SELECT\n",
+        "    Incurred_Age_Bucket,\n",
+        "    Gender,\n",
+        "    IDENTIFIER(CASE \n",
+        "                WHEN :variable_name IN ('Orig_Daily_Ben_Bucket', 'Ben_Period_Bucket', 'EP_Bucket')\n",
+        "                  THEN concat(:claim_type, '_', :variable_name)\n",
+        "                ELSE :variable_name\n",
+        "               END) AS SPLIT,\n",
+        "    SUM(CASE \n",
+        "        WHEN :claim_type = 'NH' THEN Count_NH\n",
+        "        WHEN :claim_type = 'ALF' THEN Count_ALF\n",
+        "        WHEN :claim_type = 'HHC' THEN Count_HHC\n",
+        "        ELSE 0\n",
+        "        END) AS Total_Claims,\n",
+        "    SUM(Total_Exposure) AS Total_Exposure\n",
+        "  FROM\n",
+        "    IDENTIFIER(concat('actuarial_app_catalog.`long_term_care`.', :table_name))\n",
+        "  GROUP BY\n",
+        "    Incurred_Age_Bucket,\n",
+        "    Gender,\n",
+        "    IDENTIFIER(CASE \n",
+        "                WHEN :variable_name IN ('Orig_Daily_Ben_Bucket', 'Ben_Period_Bucket', 'EP_Bucket')\n",
+        "                  THEN concat(:claim_type, '_', :variable_name)\n",
+        "                ELSE :variable_name\n",
+        "               END)),\n",
+        "base_incidence AS (\n",
+        "  SELECT\n",
+        "  Incurred_Age_Bucket,\n",
+        "  Gender,\n",
+        "  SUM(CASE \n",
+        "        WHEN :claim_type = 'NH' THEN Count_NH\n",
+        "        WHEN :claim_type = 'ALF' THEN Count_ALF\n",
+        "        WHEN :claim_type = 'HHC' THEN Count_HHC\n",
+        "        ELSE 0\n",
+        "      END) / SUM(Total_Exposure) * 1000 AS Incidence_Rate\n",
+        "FROM\n",
+        "    IDENTIFIER(concat('actuarial_app_catalog.`long_term_care`.', :table_name))\n",
+        "WHERE\n",
+        "  Incurred_Age_Bucket != 'Unknown'\n",
+        "GROUP BY\n",
+        "  Incurred_Age_Bucket,\n",
+        "  Gender\n",
+        "ORDER BY\n",
+        "  Incurred_Age_Bucket\n",
+        ")\n",
+        "SELECT\n",
+        "  a.Incurred_Age_Bucket,\n",
+        "  SPLIT,\n",
+        "  a.Gender,\n",
+        "  a. Total_Claims,\n",
+        "  a.Total_Claims / a.Total_Exposure * 1000 AS Base_Incidence_Rate,\n",
+        "  b.Incidence_Rate AS Expected_Incidence_Rate,\n",
+        "  Base_Incidence_Rate / b.Incidence_Rate AS AtoE\n",
+        "FROM\n",
+        "  actual_incidence a\n",
+        "  JOIN base_incidence b ON a.Incurred_Age_Bucket = b.Incurred_Age_Bucket \n",
+        "  AND a.Gender = b.Gender\n",
+        "\n"
+      ],
+      "parameters": [
+        {
+          "displayName": "claim_type",
+          "keyword": "claim_type",
+          "dataType": "STRING",
+          "defaultSelection": {
+            "values": {
+              "dataType": "STRING",
+              "values": [
+                {
+                  "value": "NH"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "displayName": "table_name",
+          "keyword": "table_name",
+          "dataType": "STRING",
+          "defaultSelection": {
+            "values": {
+              "dataType": "STRING",
+              "values": [
+                {
+                  "value": "ltc_incidence_w_comment"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "displayName": "variable_name",
+          "keyword": "variable_name",
+          "dataType": "STRING",
+          "defaultSelection": {
+            "values": {
+              "dataType": "STRING",
+              "values": [
+                {
+                  "value": "Policy_Year"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "60fe7ad8",
+      "displayName": "dynamic_ae_3",
+      "queryLines": [
+        "WITH actual_incidence AS (\n",
+        "  SELECT\n",
+        "    Incurred_Age_Bucket,\n",
+        "    Gender,\n",
+        "    IDENTIFIER(CASE \n",
+        "                WHEN :variable_name IN ('Orig_Daily_Ben_Bucket', 'Ben_Period_Bucket', 'EP_Bucket')\n",
+        "                  THEN concat(:claim_type, '_', :variable_name)\n",
+        "                ELSE :variable_name\n",
+        "               END) AS SPLIT,\n",
+        "    SUM(CASE \n",
+        "        WHEN :claim_type = 'NH' THEN Count_NH\n",
+        "        WHEN :claim_type = 'ALF' THEN Count_ALF\n",
+        "        WHEN :claim_type = 'HHC' THEN Count_HHC\n",
+        "        ELSE 0\n",
+        "        END) AS Total_Claims,\n",
+        "    SUM(Total_Exposure) AS Total_Exposure\n",
+        "  FROM\n",
+        "    IDENTIFIER(concat('actuarial_app_catalog.`long_term_care`.', :table_name))\n",
+        "  GROUP BY\n",
+        "    Incurred_Age_Bucket,\n",
+        "    Gender,\n",
+        "    IDENTIFIER(CASE \n",
+        "                WHEN :variable_name IN ('Orig_Daily_Ben_Bucket', 'Ben_Period_Bucket', 'EP_Bucket')\n",
+        "                  THEN concat(:claim_type, '_', :variable_name)\n",
+        "                ELSE :variable_name\n",
+        "               END)),\n",
+        "base_incidence AS (\n",
+        "  SELECT\n",
+        "  Incurred_Age_Bucket,\n",
+        "  Gender,\n",
+        "  SUM(CASE \n",
+        "        WHEN :claim_type = 'NH' THEN Count_NH\n",
+        "        WHEN :claim_type = 'ALF' THEN Count_ALF\n",
+        "        WHEN :claim_type = 'HHC' THEN Count_HHC\n",
+        "        ELSE 0\n",
+        "      END) / SUM(Total_Exposure) * 1000 AS Incidence_Rate\n",
+        "FROM\n",
+        "    IDENTIFIER(concat('actuarial_app_catalog.`long_term_care`.', :table_name))\n",
+        "WHERE\n",
+        "  Incurred_Age_Bucket != 'Unknown'\n",
+        "GROUP BY\n",
+        "  Incurred_Age_Bucket,\n",
+        "  Gender\n",
+        "ORDER BY\n",
+        "  Incurred_Age_Bucket\n",
+        ")\n",
+        "SELECT\n",
+        "  a.Incurred_Age_Bucket,\n",
+        "  SPLIT,\n",
+        "  a.Gender,\n",
+        "  a. Total_Claims,\n",
+        "  a.Total_Claims / a.Total_Exposure * 1000 AS Base_Incidence_Rate,\n",
+        "  b.Incidence_Rate AS Expected_Incidence_Rate,\n",
+        "  Base_Incidence_Rate / b.Incidence_Rate AS AtoE\n",
+        "FROM\n",
+        "  actual_incidence a\n",
+        "  JOIN base_incidence b ON a.Incurred_Age_Bucket = b.Incurred_Age_Bucket \n",
+        "  AND a.Gender = b.Gender\n",
+        "\n"
+      ],
+      "parameters": [
+        {
+          "displayName": "claim_type",
+          "keyword": "claim_type",
+          "dataType": "STRING",
+          "defaultSelection": {
+            "values": {
+              "dataType": "STRING",
+              "values": [
+                {
+                  "value": "NH"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "displayName": "table_name",
+          "keyword": "table_name",
+          "dataType": "STRING",
+          "defaultSelection": {
+            "values": {
+              "dataType": "STRING",
+              "values": [
+                {
+                  "value": "ltc_incidence_w_comment"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "displayName": "variable_name",
+          "keyword": "variable_name",
+          "dataType": "STRING",
+          "defaultSelection": {
+            "values": {
+              "dataType": "STRING",
+              "values": [
+                {
+                  "value": "Policy_Year"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "23b47206",
+      "displayName": "dynamic_ae_4",
+      "queryLines": [
+        "WITH actual_incidence AS (\n",
+        "  SELECT\n",
+        "    Incurred_Age_Bucket,\n",
+        "    Gender,\n",
+        "    IDENTIFIER(CASE \n",
+        "                WHEN :variable_name IN ('Orig_Daily_Ben_Bucket', 'Ben_Period_Bucket', 'EP_Bucket')\n",
+        "                  THEN concat(:claim_type, '_', :variable_name)\n",
+        "                ELSE :variable_name\n",
+        "               END) AS SPLIT,\n",
+        "    SUM(CASE \n",
+        "        WHEN :claim_type = 'NH' THEN Count_NH\n",
+        "        WHEN :claim_type = 'ALF' THEN Count_ALF\n",
+        "        WHEN :claim_type = 'HHC' THEN Count_HHC\n",
+        "        ELSE 0\n",
+        "        END) AS Total_Claims,\n",
+        "    SUM(Total_Exposure) AS Total_Exposure\n",
+        "  FROM\n",
+        "    IDENTIFIER(concat('actuarial_app_catalog.`long_term_care`.', :table_name))\n",
+        "  GROUP BY\n",
+        "    Incurred_Age_Bucket,\n",
+        "    Gender,\n",
+        "    IDENTIFIER(CASE \n",
+        "                WHEN :variable_name IN ('Orig_Daily_Ben_Bucket', 'Ben_Period_Bucket', 'EP_Bucket')\n",
+        "                  THEN concat(:claim_type, '_', :variable_name)\n",
+        "                ELSE :variable_name\n",
+        "               END)),\n",
+        "base_incidence AS (\n",
+        "  SELECT\n",
+        "  Incurred_Age_Bucket,\n",
+        "  Gender,\n",
+        "  SUM(CASE \n",
+        "        WHEN :claim_type = 'NH' THEN Count_NH\n",
+        "        WHEN :claim_type = 'ALF' THEN Count_ALF\n",
+        "        WHEN :claim_type = 'HHC' THEN Count_HHC\n",
+        "        ELSE 0\n",
+        "      END) / SUM(Total_Exposure) * 1000 AS Incidence_Rate\n",
+        "FROM\n",
+        "    IDENTIFIER(concat('actuarial_app_catalog.`long_term_care`.', :table_name))\n",
+        "WHERE\n",
+        "  Incurred_Age_Bucket != 'Unknown'\n",
+        "GROUP BY\n",
+        "  Incurred_Age_Bucket,\n",
+        "  Gender\n",
+        "ORDER BY\n",
+        "  Incurred_Age_Bucket\n",
+        ")\n",
+        "SELECT\n",
+        "  a.Incurred_Age_Bucket,\n",
+        "  SPLIT,\n",
+        "  a.Gender,\n",
+        "  a. Total_Claims,\n",
+        "  a.Total_Claims / a.Total_Exposure * 1000 AS Base_Incidence_Rate,\n",
+        "  b.Incidence_Rate AS Expected_Incidence_Rate,\n",
+        "  Base_Incidence_Rate / b.Incidence_Rate AS AtoE\n",
+        "FROM\n",
+        "  actual_incidence a\n",
+        "  JOIN base_incidence b ON a.Incurred_Age_Bucket = b.Incurred_Age_Bucket \n",
+        "  AND a.Gender = b.Gender\n",
+        "\n"
+      ],
+      "parameters": [
+        {
+          "displayName": "claim_type",
+          "keyword": "claim_type",
+          "dataType": "STRING",
+          "defaultSelection": {
+            "values": {
+              "dataType": "STRING",
+              "values": [
+                {
+                  "value": "NH"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "displayName": "table_name",
+          "keyword": "table_name",
+          "dataType": "STRING",
+          "defaultSelection": {
+            "values": {
+              "dataType": "STRING",
+              "values": [
+                {
+                  "value": "ltc_incidence_w_comment"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "displayName": "variable_name",
+          "keyword": "variable_name",
+          "dataType": "STRING",
+          "defaultSelection": {
+            "values": {
+              "dataType": "STRING",
+              "values": [
+                {
+                  "value": "Policy_Year"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "pages": [
+    {
+      "name": "663d4d0b",
+      "displayName": "New Page",
+      "layout": [
+        {
+          "widget": {
+            "name": "5f52c852",
+            "queries": [
+              {
+                "name": "dashboards/01ef7e8ad87d162280b17219111e81a6/datasets/01ef7e8ad89e1e4c994a8ab1642e658c_available_choices",
+                "query": {
+                  "datasetName": "24158ffb",
+                  "fields": [
+                    {
+                      "name": "available_choices",
+                      "expression": "`available_choices`"
+                    },
+                    {
+                      "name": "available_choices_associativity",
+                      "expression": "COUNT_IF(`associative_filter_predicate_group`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              },
+              {
+                "name": "parameter_dashboards/01ef7e8ad87d162280b17219111e81a6/datasets/01ef7e8ad8801f5a897f47ae78f64aee_claim_type",
+                "query": {
+                  "datasetName": "28e66c90",
+                  "parameters": [
+                    {
+                      "name": "claim_type",
+                      "keyword": "claim_type"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              },
+              {
+                "name": "parameter_dashboards/01ef7e8ad87d162280b17219111e81a6/datasets/01ef7e8ad8841713aa0d94f8f19a2689_claim_type",
+                "query": {
+                  "datasetName": "82fcdbe8",
+                  "parameters": [
+                    {
+                      "name": "claim_type",
+                      "keyword": "claim_type"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              },
+              {
+                "name": "parameter_dashboards/01ef7e8ad87d162280b17219111e81a6/datasets/01ef7e8ad89b193192f28c379497044d_claim_type",
+                "query": {
+                  "datasetName": "df11efc1",
+                  "parameters": [
+                    {
+                      "name": "claim_type",
+                      "keyword": "claim_type"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              },
+              {
+                "name": "parameter_dashboards/01ef7e8ad87d162280b17219111e81a6/datasets/01ef7e8ad8a512cc841a79c93818a7c3_claim_type",
+                "query": {
+                  "datasetName": "6548b24c",
+                  "parameters": [
+                    {
+                      "name": "claim_type",
+                      "keyword": "claim_type"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              },
+              {
+                "name": "parameter_dashboards/01ef7e8ad87d162280b17219111e81a6/datasets/01ef7e8ad8b01f3580a2055629121a47_claim_type",
+                "query": {
+                  "datasetName": "70ef7eae",
+                  "parameters": [
+                    {
+                      "name": "claim_type",
+                      "keyword": "claim_type"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              },
+              {
+                "name": "parameter_dashboards/01ef7e8ad87d162280b17219111e81a6/datasets/01ef7e8ad8b418588b890370322c1f7a_claim_type",
+                "query": {
+                  "datasetName": "60fe7ad8",
+                  "parameters": [
+                    {
+                      "name": "claim_type",
+                      "keyword": "claim_type"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              },
+              {
+                "name": "parameter_dashboards/01ef7e8ad87d162280b17219111e81a6/datasets/01ef7e8ad8b8119cbd56353647b52826_claim_type",
+                "query": {
+                  "datasetName": "23b47206",
+                  "parameters": [
+                    {
+                      "name": "claim_type",
+                      "keyword": "claim_type"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "widgetType": "filter-single-select",
+              "encodings": {
+                "fields": [
+                  {
+                    "parameterName": "claim_type",
+                    "queryName": "parameter_dashboards/01ef7e8ad87d162280b17219111e81a6/datasets/01ef7e8ad8801f5a897f47ae78f64aee_claim_type"
+                  },
+                  {
+                    "parameterName": "claim_type",
+                    "queryName": "parameter_dashboards/01ef7e8ad87d162280b17219111e81a6/datasets/01ef7e8ad8841713aa0d94f8f19a2689_claim_type"
+                  },
+                  {
+                    "parameterName": "claim_type",
+                    "queryName": "parameter_dashboards/01ef7e8ad87d162280b17219111e81a6/datasets/01ef7e8ad89b193192f28c379497044d_claim_type"
+                  },
+                  {
+                    "fieldName": "available_choices",
+                    "displayName": "available_choices",
+                    "queryName": "dashboards/01ef7e8ad87d162280b17219111e81a6/datasets/01ef7e8ad89e1e4c994a8ab1642e658c_available_choices"
+                  },
+                  {
+                    "parameterName": "claim_type",
+                    "queryName": "parameter_dashboards/01ef7e8ad87d162280b17219111e81a6/datasets/01ef7e8ad8a512cc841a79c93818a7c3_claim_type"
+                  },
+                  {
+                    "parameterName": "claim_type",
+                    "queryName": "parameter_dashboards/01ef7e8ad87d162280b17219111e81a6/datasets/01ef7e8ad8b01f3580a2055629121a47_claim_type"
+                  },
+                  {
+                    "parameterName": "claim_type",
+                    "queryName": "parameter_dashboards/01ef7e8ad87d162280b17219111e81a6/datasets/01ef7e8ad8b418588b890370322c1f7a_claim_type"
+                  },
+                  {
+                    "parameterName": "claim_type",
+                    "queryName": "parameter_dashboards/01ef7e8ad87d162280b17219111e81a6/datasets/01ef7e8ad8b8119cbd56353647b52826_claim_type"
+                  }
+                ]
+              },
+              "selection": {
+                "defaultSelection": {
+                  "values": {
+                    "dataType": "STRING",
+                    "values": [
+                      {
+                        "value": "NH"
+                      }
+                    ]
+                  }
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "Claim Type",
+                "showDescription": true
+              }
+            }
+          },
+          "position": {
+            "x": 3,
+            "y": 4,
+            "width": 3,
+            "height": 1
+          }
+        },
+        {
+          "widget": {
+            "name": "513c0fb2",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "28e66c90",
+                  "fields": [
+                    {
+                      "name": "Gender",
+                      "expression": "`Gender`"
+                    },
+                    {
+                      "name": "Incurred_Age_Bucket",
+                      "expression": "`Incurred_Age_Bucket`"
+                    },
+                    {
+                      "name": "sum(Claim_Count)",
+                      "expression": "SUM(`Claim_Count`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "bar",
+              "encodings": {
+                "x": {
+                  "fieldName": "Incurred_Age_Bucket",
+                  "scale": {
+                    "type": "categorical",
+                    "sort": {
+                      "by": "natural-order"
+                    }
+                  },
+                  "displayName": "Incurred_Age_Bucket"
+                },
+                "y": {
+                  "fieldName": "sum(Claim_Count)",
+                  "scale": {
+                    "type": "quantitative"
+                  },
+                  "displayName": "Claim Count"
+                },
+                "color": {
+                  "fieldName": "Gender",
+                  "scale": {
+                    "type": "categorical"
+                  },
+                  "displayName": "Gender"
+                }
+              },
+              "frame": {
+                "title": "Claim Count by Incurred Age",
+                "showTitle": true
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 5,
+            "width": 3,
+            "height": 5
+          }
+        },
+        {
+          "widget": {
+            "name": "c60881be",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "82fcdbe8",
+                  "fields": [
+                    {
+                      "name": "Gender",
+                      "expression": "`Gender`"
+                    },
+                    {
+                      "name": "Incurred_Age_Bucket",
+                      "expression": "`Incurred_Age_Bucket`"
+                    },
+                    {
+                      "name": "Incidence_Rate",
+                      "expression": "`Incidence_Rate`"
+                    }
+                  ],
+                  "disaggregated": true
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "line",
+              "encodings": {
+                "x": {
+                  "fieldName": "Incurred_Age_Bucket",
+                  "scale": {
+                    "type": "categorical"
+                  },
+                  "displayName": "Incurred_Age_Bucket"
+                },
+                "y": {
+                  "fieldName": "Incidence_Rate",
+                  "scale": {
+                    "type": "quantitative"
+                  },
+                  "displayName": "Incidence_Rate"
+                },
+                "color": {
+                  "fieldName": "Gender",
+                  "scale": {
+                    "type": "categorical"
+                  },
+                  "displayName": "Gender"
+                }
+              },
+              "frame": {
+                "title": "Base Incidence Rate (per 1000)",
+                "showTitle": true
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 24,
+            "width": 6,
+            "height": 5
+          }
+        },
+        {
+          "widget": {
+            "name": "2c773eb9",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "70ef7eae",
+                  "fields": [
+                    {
+                      "name": "avg(AtoE)",
+                      "expression": "AVG(`AtoE`)"
+                    },
+                    {
+                      "name": "Incurred_Age_Bucket",
+                      "expression": "`Incurred_Age_Bucket`"
+                    },
+                    {
+                      "name": "SPLIT",
+                      "expression": "`SPLIT`"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "heatmap",
+              "encodings": {
+                "x": {
+                  "fieldName": "Incurred_Age_Bucket",
+                  "scale": {
+                    "type": "categorical"
+                  },
+                  "displayName": "Incurred_Age_Bucket"
+                },
+                "y": {
+                  "fieldName": "SPLIT",
+                  "scale": {
+                    "type": "categorical"
+                  },
+                  "displayName": " "
+                },
+                "color": {
+                  "fieldName": "avg(AtoE)",
+                  "scale": {
+                    "type": "quantitative",
+                    "reverse": false,
+                    "domain": {
+                      "min": 0,
+                      "max": 2
+                    }
+                  },
+                  "legend": {
+                    "title": "A/E"
+                  },
+                  "format": {
+                    "type": "number-plain",
+                    "abbreviation": "none",
+                    "decimalPlaces": {
+                      "type": "max",
+                      "places": 2
+                    }
+                  },
+                  "displayName": "A/E"
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "title": ""
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 53,
+            "width": 3,
+            "height": 6
+          }
+        },
+        {
+          "widget": {
+            "name": "e990b9e5",
+            "multilineTextboxSpec": {
+              "lines": [
+                "### A/E for Additional Splits\n",
+                "Actual-to-expected ratio for other demographic and policy characteristics that can be used to determine adjustment factors"
+              ]
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 50,
+            "width": 6,
+            "height": 2
+          }
+        },
+        {
+          "widget": {
+            "name": "95b4c906",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "60fe7ad8",
+                  "fields": [
+                    {
+                      "name": "avg(AtoE)",
+                      "expression": "AVG(`AtoE`)"
+                    },
+                    {
+                      "name": "Incurred_Age_Bucket",
+                      "expression": "`Incurred_Age_Bucket`"
+                    },
+                    {
+                      "name": "SPLIT",
+                      "expression": "`SPLIT`"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "heatmap",
+              "encodings": {
+                "x": {
+                  "fieldName": "Incurred_Age_Bucket",
+                  "scale": {
+                    "type": "categorical"
+                  },
+                  "displayName": "Incurred_Age_Bucket"
+                },
+                "y": {
+                  "fieldName": "SPLIT",
+                  "scale": {
+                    "type": "categorical"
+                  },
+                  "displayName": " "
+                },
+                "color": {
+                  "fieldName": "avg(AtoE)",
+                  "scale": {
+                    "type": "quantitative",
+                    "reverse": false,
+                    "domain": {
+                      "min": 0,
+                      "max": 2
+                    }
+                  },
+                  "legend": {
+                    "title": "A/E"
+                  },
+                  "format": {
+                    "type": "number-plain",
+                    "abbreviation": "none",
+                    "decimalPlaces": {
+                      "type": "max",
+                      "places": 2
+                    }
+                  },
+                  "displayName": "A/E"
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "title": ""
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 60,
+            "width": 3,
+            "height": 6
+          }
+        },
+        {
+          "widget": {
+            "name": "7c3525d4",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "82fcdbe8",
+                  "fields": [
+                    {
+                      "name": "Incidence_Rate",
+                      "expression": "`Incidence_Rate`"
+                    },
+                    {
+                      "name": "Incurred_Age_Bucket",
+                      "expression": "`Incurred_Age_Bucket`"
+                    },
+                    {
+                      "name": "Gender",
+                      "expression": "`Gender`"
+                    }
+                  ],
+                  "cubeGroupingSets": {
+                    "sets": [
+                      {
+                        "fieldNames": [
+                          "Gender"
+                        ]
+                      },
+                      {
+                        "fieldNames": [
+                          "Incurred_Age_Bucket"
+                        ]
+                      }
+                    ]
+                  },
+                  "disaggregated": true,
+                  "orders": [
+                    {
+                      "direction": "ASC",
+                      "expression": "`Gender`"
+                    },
+                    {
+                      "direction": "ASC",
+                      "expression": "`Incurred_Age_Bucket`"
+                    }
+                  ]
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "pivot",
+              "encodings": {
+                "rows": [
+                  {
+                    "fieldName": "Gender",
+                    "displayName": "Gender"
+                  }
+                ],
+                "columns": [
+                  {
+                    "fieldName": "Incurred_Age_Bucket",
+                    "displayName": "Incurred_Age_Bucket"
+                  }
+                ],
+                "cell": {
+                  "type": "multi-cell",
+                  "fields": [
+                    {
+                      "fieldName": "Incidence_Rate",
+                      "cellType": "text",
+                      "format": {
+                        "type": "number-plain",
+                        "abbreviation": "none",
+                        "decimalPlaces": {
+                          "type": "exact",
+                          "places": 7
+                        },
+                        "hideGroupSeparator": true
+                      },
+                      "displayName": "Incidence_Rate"
+                    }
+                  ]
+                }
+              },
+              "frame": {
+                "title": "Base incidence rate (per 1000) by age bucket and gender",
+                "showTitle": true
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 29,
+            "width": 6,
+            "height": 4
+          }
+        },
+        {
+          "widget": {
+            "name": "6ac7c143",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "6548b24c",
+                  "fields": [
+                    {
+                      "name": "sum(Total_Claims)",
+                      "expression": "SUM(`Total_Claims`)"
+                    },
+                    {
+                      "name": "Incurred_Age_Bucket",
+                      "expression": "`Incurred_Age_Bucket`"
+                    },
+                    {
+                      "name": "SPLIT",
+                      "expression": "`SPLIT`"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "heatmap",
+              "encodings": {
+                "x": {
+                  "fieldName": "Incurred_Age_Bucket",
+                  "scale": {
+                    "type": "categorical"
+                  },
+                  "displayName": "Incurred_Age_Bucket"
+                },
+                "y": {
+                  "fieldName": "SPLIT",
+                  "scale": {
+                    "type": "categorical"
+                  },
+                  "displayName": "Policy Year"
+                },
+                "color": {
+                  "fieldName": "sum(Total_Claims)",
+                  "scale": {
+                    "type": "quantitative",
+                    "colorRamp": {
+                      "mode": "scheme",
+                      "scheme": "reds"
+                    },
+                    "domain": {
+                      "min": 0,
+                      "max": 5000
+                    }
+                  },
+                  "displayName": "Claims"
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "title": ""
+              }
+            }
+          },
+          "position": {
+            "x": 3,
+            "y": 36,
+            "width": 3,
+            "height": 6
+          }
+        },
+        {
+          "widget": {
+            "name": "3e8f6e14",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "60fe7ad8",
+                  "fields": [
+                    {
+                      "name": "sum(Total_Claims)",
+                      "expression": "SUM(`Total_Claims`)"
+                    },
+                    {
+                      "name": "Incurred_Age_Bucket",
+                      "expression": "`Incurred_Age_Bucket`"
+                    },
+                    {
+                      "name": "SPLIT",
+                      "expression": "`SPLIT`"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "heatmap",
+              "encodings": {
+                "x": {
+                  "fieldName": "Incurred_Age_Bucket",
+                  "scale": {
+                    "type": "categorical"
+                  },
+                  "displayName": "Incurred_Age_Bucket"
+                },
+                "y": {
+                  "fieldName": "SPLIT",
+                  "scale": {
+                    "type": "categorical"
+                  },
+                  "displayName": " "
+                },
+                "color": {
+                  "fieldName": "sum(Total_Claims)",
+                  "scale": {
+                    "type": "quantitative",
+                    "colorRamp": {
+                      "mode": "scheme",
+                      "scheme": "reds"
+                    },
+                    "domain": {
+                      "max": 3000,
+                      "min": 0
+                    }
+                  },
+                  "displayName": "Claims"
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "title": ""
+              }
+            }
+          },
+          "position": {
+            "x": 3,
+            "y": 60,
+            "width": 3,
+            "height": 6
+          }
+        },
+        {
+          "widget": {
+            "name": "4d98b04e",
+            "multilineTextboxSpec": {
+              "lines": [
+                "### Underwriting Selection Effect\n"
+              ]
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 35,
+            "width": 6,
+            "height": 1
+          }
+        },
+        {
+          "widget": {
+            "name": "6aa44604",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "6548b24c",
+                  "fields": [
+                    {
+                      "name": "avg(AtoE)",
+                      "expression": "AVG(`AtoE`)"
+                    },
+                    {
+                      "name": "Incurred_Age_Bucket",
+                      "expression": "`Incurred_Age_Bucket`"
+                    },
+                    {
+                      "name": "SPLIT",
+                      "expression": "`SPLIT`"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "heatmap",
+              "encodings": {
+                "x": {
+                  "fieldName": "Incurred_Age_Bucket",
+                  "scale": {
+                    "type": "categorical"
+                  },
+                  "displayName": "Incurred_Age_Bucket"
+                },
+                "y": {
+                  "fieldName": "SPLIT",
+                  "scale": {
+                    "type": "categorical"
+                  },
+                  "displayName": "Policy Year"
+                },
+                "color": {
+                  "fieldName": "avg(AtoE)",
+                  "scale": {
+                    "type": "quantitative",
+                    "reverse": false,
+                    "domain": {
+                      "min": 0,
+                      "max": 2
+                    }
+                  },
+                  "legend": {
+                    "title": "A/E"
+                  },
+                  "format": {
+                    "type": "number-plain",
+                    "abbreviation": "none",
+                    "decimalPlaces": {
+                      "type": "max",
+                      "places": 2
+                    }
+                  },
+                  "displayName": "A/E"
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "title": ""
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 36,
+            "width": 3,
+            "height": 6
+          }
+        },
+        {
+          "widget": {
+            "name": "790e26a5",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "70ef7eae",
+                  "fields": [
+                    {
+                      "name": "sum(Total_Claims)",
+                      "expression": "SUM(`Total_Claims`)"
+                    },
+                    {
+                      "name": "Incurred_Age_Bucket",
+                      "expression": "`Incurred_Age_Bucket`"
+                    },
+                    {
+                      "name": "SPLIT",
+                      "expression": "`SPLIT`"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "heatmap",
+              "encodings": {
+                "x": {
+                  "fieldName": "Incurred_Age_Bucket",
+                  "scale": {
+                    "type": "categorical"
+                  },
+                  "displayName": "Incurred_Age_Bucket"
+                },
+                "y": {
+                  "fieldName": "SPLIT",
+                  "scale": {
+                    "type": "categorical"
+                  },
+                  "displayName": " "
+                },
+                "color": {
+                  "fieldName": "sum(Total_Claims)",
+                  "scale": {
+                    "type": "quantitative",
+                    "colorRamp": {
+                      "mode": "scheme",
+                      "scheme": "reds"
+                    },
+                    "domain": {
+                      "min": 0,
+                      "max": 3000
+                    }
+                  },
+                  "displayName": "Claims"
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "title": ""
+              }
+            }
+          },
+          "position": {
+            "x": 3,
+            "y": 53,
+            "width": 3,
+            "height": 6
+          }
+        },
+        {
+          "widget": {
+            "name": "32823fcd",
+            "multilineTextboxSpec": {
+              "lines": [
+                "### Morbidity Improvement\n",
+                "Significant morbidity improvement over calendar years"
+              ]
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 42,
+            "width": 6,
+            "height": 2
+          }
+        },
+        {
+          "widget": {
+            "name": "52daca16",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "df11efc1",
+                  "fields": [
+                    {
+                      "name": "Incurred_Age_Bucket",
+                      "expression": "`Incurred_Age_Bucket`"
+                    },
+                    {
+                      "name": "Calendar_Year_Bucket",
+                      "expression": "`Calendar_Year_Bucket`"
+                    },
+                    {
+                      "name": "avg(AtoE)",
+                      "expression": "AVG(`AtoE`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "line",
+              "encodings": {
+                "x": {
+                  "fieldName": "Calendar_Year_Bucket",
+                  "scale": {
+                    "type": "categorical"
+                  },
+                  "displayName": "Calendar_Year_Bucket"
+                },
+                "y": {
+                  "fieldName": "avg(AtoE)",
+                  "scale": {
+                    "type": "quantitative"
+                  },
+                  "displayName": "A/E"
+                },
+                "color": {
+                  "fieldName": "Incurred_Age_Bucket",
+                  "scale": {
+                    "type": "categorical"
+                  },
+                  "displayName": "Incurred_Age_Bucket"
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "title": ""
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 44,
+            "width": 3,
+            "height": 6
+          }
+        },
+        {
+          "widget": {
+            "name": "7a44864d",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "df11efc1",
+                  "fields": [
+                    {
+                      "name": "sum(Total_Claims)",
+                      "expression": "SUM(`Total_Claims`)"
+                    },
+                    {
+                      "name": "Calendar_Year_Bucket",
+                      "expression": "`Calendar_Year_Bucket`"
+                    },
+                    {
+                      "name": "Incurred_Age_Bucket",
+                      "expression": "`Incurred_Age_Bucket`"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "heatmap",
+              "encodings": {
+                "x": {
+                  "fieldName": "Calendar_Year_Bucket",
+                  "scale": {
+                    "type": "categorical"
+                  },
+                  "displayName": "Calendar_Year_Bucket"
+                },
+                "y": {
+                  "fieldName": "Incurred_Age_Bucket",
+                  "scale": {
+                    "type": "categorical"
+                  },
+                  "displayName": "Incurred_Age_Bucket"
+                },
+                "color": {
+                  "fieldName": "sum(Total_Claims)",
+                  "scale": {
+                    "type": "quantitative",
+                    "colorRamp": {
+                      "mode": "scheme",
+                      "scheme": "reds"
+                    },
+                    "domain": {
+                      "min": 0,
+                      "max": 3000
+                    }
+                  },
+                  "displayName": "Claims"
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "title": ""
+              }
+            }
+          },
+          "position": {
+            "x": 3,
+            "y": 44,
+            "width": 3,
+            "height": 6
+          }
+        },
+        {
+          "widget": {
+            "name": "7cce994b",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "28e66c90",
+                  "fields": [
+                    {
+                      "name": "sum(Total_Exposure)",
+                      "expression": "SUM(`Total_Exposure`)"
+                    },
+                    {
+                      "name": "Tax_Qualification_Status",
+                      "expression": "`Tax_Qualification_Status`"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "pie",
+              "encodings": {
+                "angle": {
+                  "fieldName": "sum(Total_Exposure)",
+                  "scale": {
+                    "type": "quantitative"
+                  },
+                  "displayName": "Sum of Total_Exposure"
+                },
+                "color": {
+                  "fieldName": "Tax_Qualification_Status",
+                  "scale": {
+                    "type": "categorical"
+                  },
+                  "displayName": "Tax_Qualification_Status"
+                }
+              }
+            }
+          },
+          "position": {
+            "x": 2,
+            "y": 16,
+            "width": 2,
+            "height": 6
+          }
+        },
+        {
+          "widget": {
+            "name": "af4ad551",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "28e66c90",
+                  "fields": [
+                    {
+                      "name": "sum(Total_Exposure)",
+                      "expression": "SUM(`Total_Exposure`)"
+                    },
+                    {
+                      "name": "Coverage_Type_Bucket",
+                      "expression": "`Coverage_Type_Bucket`"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "pie",
+              "encodings": {
+                "angle": {
+                  "fieldName": "sum(Total_Exposure)",
+                  "scale": {
+                    "type": "quantitative"
+                  },
+                  "displayName": "Sum of Total_Exposure"
+                },
+                "color": {
+                  "fieldName": "Coverage_Type_Bucket",
+                  "scale": {
+                    "type": "categorical"
+                  },
+                  "displayName": "Coverage_Type_Bucket"
+                }
+              }
+            }
+          },
+          "position": {
+            "x": 4,
+            "y": 16,
+            "width": 2,
+            "height": 6
+          }
+        },
+        {
+          "widget": {
+            "name": "10ea48c9",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "28e66c90",
+                  "fields": [
+                    {
+                      "name": "Gender",
+                      "expression": "`Gender`"
+                    },
+                    {
+                      "name": "Incurred_Age_Bucket",
+                      "expression": "`Incurred_Age_Bucket`"
+                    },
+                    {
+                      "name": "sum(Total_Exposure)",
+                      "expression": "SUM(`Total_Exposure`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "bar",
+              "encodings": {
+                "x": {
+                  "fieldName": "Incurred_Age_Bucket",
+                  "scale": {
+                    "type": "categorical",
+                    "sort": {
+                      "by": "natural-order"
+                    }
+                  },
+                  "displayName": "Incurred_Age_Bucket"
+                },
+                "y": {
+                  "fieldName": "sum(Total_Exposure)",
+                  "scale": {
+                    "type": "quantitative"
+                  },
+                  "displayName": "Total Exposure"
+                },
+                "color": {
+                  "fieldName": "Gender",
+                  "scale": {
+                    "type": "categorical"
+                  },
+                  "displayName": "Gender"
+                }
+              },
+              "frame": {
+                "title": "Total Exposure by Incurred Age",
+                "showTitle": true
+              }
+            }
+          },
+          "position": {
+            "x": 3,
+            "y": 5,
+            "width": 3,
+            "height": 5
+          }
+        },
+        {
+          "widget": {
+            "name": "66527f00",
+            "multilineTextboxSpec": {
+              "lines": [
+                "## Base Incidence Rate\n",
+                "For the purpose of this study, base incidence rate is set by incurred age and gender"
+              ]
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 22,
+            "width": 6,
+            "height": 2
+          }
+        },
+        {
+          "widget": {
+            "name": "8730f182",
+            "multilineTextboxSpec": {
+              "lines": [
+                "## Exposure and Claim Distribution"
+              ]
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 2,
+            "width": 6,
+            "height": 1
+          }
+        },
+        {
+          "widget": {
+            "name": "69875dff",
+            "multilineTextboxSpec": {
+              "lines": [
+                "Select the dataset and claim type for analysis:\n",
+                "* NH - nursing home\n",
+                "* ALF - alternative living facility\n",
+                "* HHC - home health care"
+              ]
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 3,
+            "width": 3,
+            "height": 2
+          }
+        },
+        {
+          "widget": {
+            "name": "6047258e",
+            "multilineTextboxSpec": {
+              "lines": [
+                "# LTC Incidece Experience Study\n"
+              ]
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 0,
+            "width": 6,
+            "height": 1
+          }
+        },
+        {
+          "widget": {
+            "name": "d4e7ff61",
+            "multilineTextboxSpec": {
+              "lines": [
+                "This dashboard is designed to facilitate LTC incidence rate assumption setting"
+              ]
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 1,
+            "width": 6,
+            "height": 1
+          }
+        },
+        {
+          "widget": {
+            "name": "cbd50638",
+            "queries": [
+              {
+                "name": "dashboards/01ef7b5a63d212b7a3766a6adcca757e/datasets/01ef7b81b1db15e9a8a28c269f5f8137_Gender",
+                "query": {
+                  "datasetName": "df11efc1",
+                  "fields": [
+                    {
+                      "name": "Gender",
+                      "expression": "`Gender`"
+                    },
+                    {
+                      "name": "Gender_associativity",
+                      "expression": "COUNT_IF(`associative_filter_predicate_group`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              },
+              {
+                "name": "dashboards/01ef7b5a63d212b7a3766a6adcca757e/datasets/01ef7c7468fb16fab38b9e2a6e771146_Gender",
+                "query": {
+                  "datasetName": "6548b24c",
+                  "fields": [
+                    {
+                      "name": "Gender",
+                      "expression": "`Gender`"
+                    },
+                    {
+                      "name": "Gender_associativity",
+                      "expression": "COUNT_IF(`associative_filter_predicate_group`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              },
+              {
+                "name": "dashboards/01ef7b5a63d212b7a3766a6adcca757e/datasets/01ef7cfeca311812bf49eb7bd9ffa002_Gender",
+                "query": {
+                  "datasetName": "70ef7eae",
+                  "fields": [
+                    {
+                      "name": "Gender",
+                      "expression": "`Gender`"
+                    },
+                    {
+                      "name": "Gender_associativity",
+                      "expression": "COUNT_IF(`associative_filter_predicate_group`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              },
+              {
+                "name": "dashboards/01ef7b5a63d212b7a3766a6adcca757e/datasets/01ef7cfecdc215df8b435329833380dc_Gender",
+                "query": {
+                  "datasetName": "60fe7ad8",
+                  "fields": [
+                    {
+                      "name": "Gender",
+                      "expression": "`Gender`"
+                    },
+                    {
+                      "name": "Gender_associativity",
+                      "expression": "COUNT_IF(`associative_filter_predicate_group`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              },
+              {
+                "name": "dashboards/01ef7b5a63d212b7a3766a6adcca757e/datasets/01ef7cfed1471c00a499fe11e0fc5239_Gender",
+                "query": {
+                  "datasetName": "23b47206",
+                  "fields": [
+                    {
+                      "name": "Gender",
+                      "expression": "`Gender`"
+                    },
+                    {
+                      "name": "Gender_associativity",
+                      "expression": "COUNT_IF(`associative_filter_predicate_group`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "widgetType": "filter-single-select",
+              "encodings": {
+                "fields": [
+                  {
+                    "fieldName": "Gender",
+                    "displayName": "Gender",
+                    "queryName": "dashboards/01ef7b5a63d212b7a3766a6adcca757e/datasets/01ef7b81b1db15e9a8a28c269f5f8137_Gender"
+                  },
+                  {
+                    "fieldName": "Gender",
+                    "displayName": "Gender",
+                    "queryName": "dashboards/01ef7b5a63d212b7a3766a6adcca757e/datasets/01ef7c7468fb16fab38b9e2a6e771146_Gender"
+                  },
+                  {
+                    "fieldName": "Gender",
+                    "displayName": "Gender",
+                    "queryName": "dashboards/01ef7b5a63d212b7a3766a6adcca757e/datasets/01ef7cfeca311812bf49eb7bd9ffa002_Gender"
+                  },
+                  {
+                    "fieldName": "Gender",
+                    "displayName": "Gender",
+                    "queryName": "dashboards/01ef7b5a63d212b7a3766a6adcca757e/datasets/01ef7cfecdc215df8b435329833380dc_Gender"
+                  },
+                  {
+                    "fieldName": "Gender",
+                    "displayName": "Gender",
+                    "queryName": "dashboards/01ef7b5a63d212b7a3766a6adcca757e/datasets/01ef7cfed1471c00a499fe11e0fc5239_Gender"
+                  }
+                ]
+              },
+              "frame": {
+                "showTitle": true,
+                "title": ""
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 34,
+            "width": 3,
+            "height": 1
+          }
+        },
+        {
+          "widget": {
+            "name": "0b3d516c",
+            "queries": [
+              {
+                "name": "dashboards/01ef7e8ad87d162280b17219111e81a6/datasets/01ef7e8ad89b193192f28c379497044d_Incurred_Age_Bucket",
+                "query": {
+                  "datasetName": "df11efc1",
+                  "fields": [
+                    {
+                      "name": "Incurred_Age_Bucket",
+                      "expression": "`Incurred_Age_Bucket`"
+                    },
+                    {
+                      "name": "Incurred_Age_Bucket_associativity",
+                      "expression": "COUNT_IF(`associative_filter_predicate_group`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              },
+              {
+                "name": "dashboards/01ef7e8ad87d162280b17219111e81a6/datasets/01ef7e8ad8a512cc841a79c93818a7c3_Incurred_Age_Bucket",
+                "query": {
+                  "datasetName": "6548b24c",
+                  "fields": [
+                    {
+                      "name": "Incurred_Age_Bucket",
+                      "expression": "`Incurred_Age_Bucket`"
+                    },
+                    {
+                      "name": "Incurred_Age_Bucket_associativity",
+                      "expression": "COUNT_IF(`associative_filter_predicate_group`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              },
+              {
+                "name": "dashboards/01ef7e8ad87d162280b17219111e81a6/datasets/01ef7e8ad8b01f3580a2055629121a47_Incurred_Age_Bucket",
+                "query": {
+                  "datasetName": "70ef7eae",
+                  "fields": [
+                    {
+                      "name": "Incurred_Age_Bucket",
+                      "expression": "`Incurred_Age_Bucket`"
+                    },
+                    {
+                      "name": "Incurred_Age_Bucket_associativity",
+                      "expression": "COUNT_IF(`associative_filter_predicate_group`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              },
+              {
+                "name": "dashboards/01ef7e8ad87d162280b17219111e81a6/datasets/01ef7e8ad8b418588b890370322c1f7a_Incurred_Age_Bucket",
+                "query": {
+                  "datasetName": "60fe7ad8",
+                  "fields": [
+                    {
+                      "name": "Incurred_Age_Bucket",
+                      "expression": "`Incurred_Age_Bucket`"
+                    },
+                    {
+                      "name": "Incurred_Age_Bucket_associativity",
+                      "expression": "COUNT_IF(`associative_filter_predicate_group`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              },
+              {
+                "name": "dashboards/01ef7e8ad87d162280b17219111e81a6/datasets/01ef7e8ad8b8119cbd56353647b52826_Incurred_Age_Bucket",
+                "query": {
+                  "datasetName": "23b47206",
+                  "fields": [
+                    {
+                      "name": "Incurred_Age_Bucket",
+                      "expression": "`Incurred_Age_Bucket`"
+                    },
+                    {
+                      "name": "Incurred_Age_Bucket_associativity",
+                      "expression": "COUNT_IF(`associative_filter_predicate_group`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "widgetType": "filter-single-select",
+              "encodings": {
+                "fields": [
+                  {
+                    "fieldName": "Incurred_Age_Bucket",
+                    "displayName": "Incurred_Age_Bucket",
+                    "queryName": "dashboards/01ef7e8ad87d162280b17219111e81a6/datasets/01ef7e8ad89b193192f28c379497044d_Incurred_Age_Bucket"
+                  },
+                  {
+                    "fieldName": "Incurred_Age_Bucket",
+                    "displayName": "Incurred_Age_Bucket",
+                    "queryName": "dashboards/01ef7e8ad87d162280b17219111e81a6/datasets/01ef7e8ad8a512cc841a79c93818a7c3_Incurred_Age_Bucket"
+                  },
+                  {
+                    "fieldName": "Incurred_Age_Bucket",
+                    "displayName": "Incurred_Age_Bucket",
+                    "queryName": "dashboards/01ef7e8ad87d162280b17219111e81a6/datasets/01ef7e8ad8b01f3580a2055629121a47_Incurred_Age_Bucket"
+                  },
+                  {
+                    "fieldName": "Incurred_Age_Bucket",
+                    "displayName": "Incurred_Age_Bucket",
+                    "queryName": "dashboards/01ef7e8ad87d162280b17219111e81a6/datasets/01ef7e8ad8b418588b890370322c1f7a_Incurred_Age_Bucket"
+                  },
+                  {
+                    "fieldName": "Incurred_Age_Bucket",
+                    "displayName": "Incurred_Age_Bucket",
+                    "queryName": "dashboards/01ef7e8ad87d162280b17219111e81a6/datasets/01ef7e8ad8b8119cbd56353647b52826_Incurred_Age_Bucket"
+                  }
+                ]
+              },
+              "disallowAll": false,
+              "frame": {
+                "showTitle": true,
+                "title": "Incurred Age"
+              }
+            }
+          },
+          "position": {
+            "x": 3,
+            "y": 34,
+            "width": 3,
+            "height": 1
+          }
+        },
+        {
+          "widget": {
+            "name": "adf4c470",
+            "multilineTextboxSpec": {
+              "lines": [
+                "## Adjustment Factors"
+              ]
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 33,
+            "width": 6,
+            "height": 1
+          }
+        },
+        {
+          "widget": {
+            "name": "90c38ba4",
+            "queries": [
+              {
+                "name": "dashboards/01ef7e8ad87d162280b17219111e81a6/datasets/01ef7e8ad8a210f1961d134c40eaf629_available_choices",
+                "query": {
+                  "datasetName": "0fba8b1e",
+                  "fields": [
+                    {
+                      "name": "available_choices",
+                      "expression": "`available_choices`"
+                    },
+                    {
+                      "name": "available_choices_associativity",
+                      "expression": "COUNT_IF(`associative_filter_predicate_group`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              },
+              {
+                "name": "parameter_dashboards/01ef7e8ad87d162280b17219111e81a6/datasets/01ef7e8ad8801f5a897f47ae78f64aee_table_name",
+                "query": {
+                  "datasetName": "28e66c90",
+                  "parameters": [
+                    {
+                      "name": "table_name",
+                      "keyword": "table_name"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              },
+              {
+                "name": "parameter_dashboards/01ef7e8ad87d162280b17219111e81a6/datasets/01ef7e8ad8841713aa0d94f8f19a2689_table_name",
+                "query": {
+                  "datasetName": "82fcdbe8",
+                  "parameters": [
+                    {
+                      "name": "table_name",
+                      "keyword": "table_name"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              },
+              {
+                "name": "parameter_dashboards/01ef7e8ad87d162280b17219111e81a6/datasets/01ef7e8ad89b193192f28c379497044d_table_name",
+                "query": {
+                  "datasetName": "df11efc1",
+                  "parameters": [
+                    {
+                      "name": "table_name",
+                      "keyword": "table_name"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              },
+              {
+                "name": "parameter_dashboards/01ef7e8ad87d162280b17219111e81a6/datasets/01ef7e8ad8a512cc841a79c93818a7c3_table_name",
+                "query": {
+                  "datasetName": "6548b24c",
+                  "parameters": [
+                    {
+                      "name": "table_name",
+                      "keyword": "table_name"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              },
+              {
+                "name": "parameter_dashboards/01ef7e8ad87d162280b17219111e81a6/datasets/01ef7e8ad8b01f3580a2055629121a47_table_name",
+                "query": {
+                  "datasetName": "70ef7eae",
+                  "parameters": [
+                    {
+                      "name": "table_name",
+                      "keyword": "table_name"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              },
+              {
+                "name": "parameter_dashboards/01ef7e8ad87d162280b17219111e81a6/datasets/01ef7e8ad8b418588b890370322c1f7a_table_name",
+                "query": {
+                  "datasetName": "60fe7ad8",
+                  "parameters": [
+                    {
+                      "name": "table_name",
+                      "keyword": "table_name"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              },
+              {
+                "name": "parameter_dashboards/01ef7e8ad87d162280b17219111e81a6/datasets/01ef7e8ad8b8119cbd56353647b52826_table_name",
+                "query": {
+                  "datasetName": "23b47206",
+                  "parameters": [
+                    {
+                      "name": "table_name",
+                      "keyword": "table_name"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "widgetType": "filter-single-select",
+              "encodings": {
+                "fields": [
+                  {
+                    "fieldName": "available_choices",
+                    "displayName": "available_choices",
+                    "queryName": "dashboards/01ef7e8ad87d162280b17219111e81a6/datasets/01ef7e8ad8a210f1961d134c40eaf629_available_choices"
+                  },
+                  {
+                    "parameterName": "table_name",
+                    "queryName": "parameter_dashboards/01ef7e8ad87d162280b17219111e81a6/datasets/01ef7e8ad8801f5a897f47ae78f64aee_table_name"
+                  },
+                  {
+                    "parameterName": "table_name",
+                    "queryName": "parameter_dashboards/01ef7e8ad87d162280b17219111e81a6/datasets/01ef7e8ad8841713aa0d94f8f19a2689_table_name"
+                  },
+                  {
+                    "parameterName": "table_name",
+                    "queryName": "parameter_dashboards/01ef7e8ad87d162280b17219111e81a6/datasets/01ef7e8ad89b193192f28c379497044d_table_name"
+                  },
+                  {
+                    "parameterName": "table_name",
+                    "queryName": "parameter_dashboards/01ef7e8ad87d162280b17219111e81a6/datasets/01ef7e8ad8a512cc841a79c93818a7c3_table_name"
+                  },
+                  {
+                    "parameterName": "table_name",
+                    "queryName": "parameter_dashboards/01ef7e8ad87d162280b17219111e81a6/datasets/01ef7e8ad8b01f3580a2055629121a47_table_name"
+                  },
+                  {
+                    "parameterName": "table_name",
+                    "queryName": "parameter_dashboards/01ef7e8ad87d162280b17219111e81a6/datasets/01ef7e8ad8b418588b890370322c1f7a_table_name"
+                  },
+                  {
+                    "parameterName": "table_name",
+                    "queryName": "parameter_dashboards/01ef7e8ad87d162280b17219111e81a6/datasets/01ef7e8ad8b8119cbd56353647b52826_table_name"
+                  }
+                ]
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "Dataset"
+              }
+            }
+          },
+          "position": {
+            "x": 3,
+            "y": 3,
+            "width": 3,
+            "height": 1
+          }
+        },
+        {
+          "widget": {
+            "name": "1eec3b20",
+            "queries": [
+              {
+                "name": "dashboards/01ef7b5a63d212b7a3766a6adcca757e/datasets/01ef7cf0b7d518b5bc38d7b07b1c2f9c_available_choices",
+                "query": {
+                  "datasetName": "21c2fba2",
+                  "fields": [
+                    {
+                      "name": "available_choices",
+                      "expression": "`available_choices`"
+                    },
+                    {
+                      "name": "available_choices_associativity",
+                      "expression": "COUNT_IF(`associative_filter_predicate_group`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              },
+              {
+                "name": "parameter_dashboards/01ef7b5a63d212b7a3766a6adcca757e/datasets/01ef7cfeca311812bf49eb7bd9ffa002_variable_name",
+                "query": {
+                  "datasetName": "70ef7eae",
+                  "parameters": [
+                    {
+                      "name": "variable_name",
+                      "keyword": "variable_name"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "widgetType": "filter-single-select",
+              "encodings": {
+                "fields": [
+                  {
+                    "parameterName": "variable_name",
+                    "queryName": "parameter_dashboards/01ef7b5a63d212b7a3766a6adcca757e/datasets/01ef7cfeca311812bf49eb7bd9ffa002_variable_name"
+                  },
+                  {
+                    "fieldName": "available_choices",
+                    "displayName": "available_choices",
+                    "queryName": "dashboards/01ef7b5a63d212b7a3766a6adcca757e/datasets/01ef7cf0b7d518b5bc38d7b07b1c2f9c_available_choices"
+                  }
+                ]
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "Split By",
+                "showDescription": false
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 52,
+            "width": 6,
+            "height": 1
+          }
+        },
+        {
+          "widget": {
+            "name": "724269d2",
+            "queries": [
+              {
+                "name": "dashboards/01ef7b5a63d212b7a3766a6adcca757e/datasets/01ef7cf0b7d518b5bc38d7b07b1c2f9c_available_choices",
+                "query": {
+                  "datasetName": "21c2fba2",
+                  "fields": [
+                    {
+                      "name": "available_choices",
+                      "expression": "`available_choices`"
+                    },
+                    {
+                      "name": "available_choices_associativity",
+                      "expression": "COUNT_IF(`associative_filter_predicate_group`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              },
+              {
+                "name": "parameter_dashboards/01ef7b5a63d212b7a3766a6adcca757e/datasets/01ef7cfecdc215df8b435329833380dc_variable_name",
+                "query": {
+                  "datasetName": "60fe7ad8",
+                  "parameters": [
+                    {
+                      "name": "variable_name",
+                      "keyword": "variable_name"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "widgetType": "filter-single-select",
+              "encodings": {
+                "fields": [
+                  {
+                    "parameterName": "variable_name",
+                    "queryName": "parameter_dashboards/01ef7b5a63d212b7a3766a6adcca757e/datasets/01ef7cfecdc215df8b435329833380dc_variable_name"
+                  },
+                  {
+                    "fieldName": "available_choices",
+                    "displayName": "available_choices",
+                    "queryName": "dashboards/01ef7b5a63d212b7a3766a6adcca757e/datasets/01ef7cf0b7d518b5bc38d7b07b1c2f9c_available_choices"
+                  }
+                ]
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "Split By"
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 59,
+            "width": 6,
+            "height": 1
+          }
+        },
+        {
+          "widget": {
+            "name": "362f8774",
+            "queries": [
+              {
+                "name": "dashboards/01ef7b5a63d212b7a3766a6adcca757e/datasets/01ef7cf0b7d518b5bc38d7b07b1c2f9c_available_choices",
+                "query": {
+                  "datasetName": "21c2fba2",
+                  "fields": [
+                    {
+                      "name": "available_choices",
+                      "expression": "`available_choices`"
+                    },
+                    {
+                      "name": "available_choices_associativity",
+                      "expression": "COUNT_IF(`associative_filter_predicate_group`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              },
+              {
+                "name": "parameter_dashboards/01ef7b5a63d212b7a3766a6adcca757e/datasets/01ef7cfed1471c00a499fe11e0fc5239_variable_name",
+                "query": {
+                  "datasetName": "23b47206",
+                  "parameters": [
+                    {
+                      "name": "variable_name",
+                      "keyword": "variable_name"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "widgetType": "filter-single-select",
+              "encodings": {
+                "fields": [
+                  {
+                    "fieldName": "available_choices",
+                    "displayName": "available_choices",
+                    "queryName": "dashboards/01ef7b5a63d212b7a3766a6adcca757e/datasets/01ef7cf0b7d518b5bc38d7b07b1c2f9c_available_choices"
+                  },
+                  {
+                    "parameterName": "variable_name",
+                    "queryName": "parameter_dashboards/01ef7b5a63d212b7a3766a6adcca757e/datasets/01ef7cfed1471c00a499fe11e0fc5239_variable_name"
+                  }
+                ]
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "Split By"
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 66,
+            "width": 6,
+            "height": 1
+          }
+        },
+        {
+          "widget": {
+            "name": "d1b6f152",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "23b47206",
+                  "fields": [
+                    {
+                      "name": "avg(AtoE)",
+                      "expression": "AVG(`AtoE`)"
+                    },
+                    {
+                      "name": "Incurred_Age_Bucket",
+                      "expression": "`Incurred_Age_Bucket`"
+                    },
+                    {
+                      "name": "SPLIT",
+                      "expression": "`SPLIT`"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "heatmap",
+              "encodings": {
+                "x": {
+                  "fieldName": "Incurred_Age_Bucket",
+                  "scale": {
+                    "type": "categorical"
+                  },
+                  "displayName": "Incurred_Age_Bucket"
+                },
+                "y": {
+                  "fieldName": "SPLIT",
+                  "scale": {
+                    "type": "categorical",
+                    "sort": {
+                      "by": "natural-order"
+                    }
+                  },
+                  "displayName": " "
+                },
+                "color": {
+                  "fieldName": "avg(AtoE)",
+                  "scale": {
+                    "type": "quantitative",
+                    "reverse": false,
+                    "domain": {
+                      "min": 0,
+                      "max": 2
+                    }
+                  },
+                  "legend": {
+                    "title": "A/E"
+                  },
+                  "format": {
+                    "type": "number-plain",
+                    "abbreviation": "none",
+                    "decimalPlaces": {
+                      "type": "max",
+                      "places": 2
+                    }
+                  },
+                  "displayName": "A/E"
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "title": ""
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 67,
+            "width": 3,
+            "height": 6
+          }
+        },
+        {
+          "widget": {
+            "name": "9fa48e66",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "23b47206",
+                  "fields": [
+                    {
+                      "name": "sum(Total_Claims)",
+                      "expression": "SUM(`Total_Claims`)"
+                    },
+                    {
+                      "name": "Incurred_Age_Bucket",
+                      "expression": "`Incurred_Age_Bucket`"
+                    },
+                    {
+                      "name": "SPLIT",
+                      "expression": "`SPLIT`"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "heatmap",
+              "encodings": {
+                "x": {
+                  "fieldName": "Incurred_Age_Bucket",
+                  "scale": {
+                    "type": "categorical"
+                  },
+                  "displayName": "Incurred_Age_Bucket"
+                },
+                "y": {
+                  "fieldName": "SPLIT",
+                  "scale": {
+                    "type": "categorical"
+                  },
+                  "displayName": " "
+                },
+                "color": {
+                  "fieldName": "sum(Total_Claims)",
+                  "scale": {
+                    "type": "quantitative",
+                    "colorRamp": {
+                      "mode": "scheme",
+                      "scheme": "reds"
+                    },
+                    "domain": {
+                      "max": 3000,
+                      "min": 0
+                    }
+                  },
+                  "displayName": "Claims"
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "title": ""
+              }
+            }
+          },
+          "position": {
+            "x": 3,
+            "y": 67,
+            "width": 3,
+            "height": 6
+          }
+        },
+        {
+          "widget": {
+            "name": "bfcae963",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "28e66c90",
+                  "fields": [
+                    {
+                      "name": "Issue_Year_Bucket",
+                      "expression": "`Issue_Year_Bucket`"
+                    },
+                    {
+                      "name": "sum(Total_Exposure)",
+                      "expression": "SUM(`Total_Exposure`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "bar",
+              "encodings": {
+                "x": {
+                  "fieldName": "Issue_Year_Bucket",
+                  "scale": {
+                    "type": "categorical"
+                  },
+                  "displayName": "Issue_Year_Bucket"
+                },
+                "y": {
+                  "fieldName": "sum(Total_Exposure)",
+                  "scale": {
+                    "type": "quantitative"
+                  },
+                  "displayName": "Total Exposure"
+                }
+              },
+              "frame": {
+                "title": "Total Exposure by Issue Year",
+                "showTitle": true
+              }
+            }
+          },
+          "position": {
+            "x": 3,
+            "y": 10,
+            "width": 3,
+            "height": 6
+          }
+        },
+        {
+          "widget": {
+            "name": "4c8cee3e",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "28e66c90",
+                  "fields": [
+                    {
+                      "name": "sum(Total_Exposure)",
+                      "expression": "SUM(`Total_Exposure`)"
+                    },
+                    {
+                      "name": "Inflation_Rider",
+                      "expression": "`Inflation_Rider`"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "pie",
+              "encodings": {
+                "angle": {
+                  "fieldName": "sum(Total_Exposure)",
+                  "scale": {
+                    "type": "quantitative"
+                  },
+                  "displayName": "Sum of Total_Exposure"
+                },
+                "color": {
+                  "fieldName": "Inflation_Rider",
+                  "scale": {
+                    "type": "categorical"
+                  },
+                  "displayName": "Inflation_Rider"
+                },
+                "label": {
+                  "show": true
+                }
+              },
+              "frame": {
+                "title": "Total exposure per inflation rider",
+                "showTitle": true
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 16,
+            "width": 2,
+            "height": 6
+          }
+        },
+        {
+          "widget": {
+            "name": "850719b0",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "28e66c90",
+                  "fields": [
+                    {
+                      "name": "Issue_Age_Bucket",
+                      "expression": "`Issue_Age_Bucket`"
+                    },
+                    {
+                      "name": "sum(Total_Exposure)",
+                      "expression": "SUM(`Total_Exposure`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "bar",
+              "encodings": {
+                "x": {
+                  "fieldName": "Issue_Age_Bucket",
+                  "scale": {
+                    "type": "categorical"
+                  },
+                  "displayName": "Issue_Age_Bucket"
+                },
+                "y": {
+                  "fieldName": "sum(Total_Exposure)",
+                  "scale": {
+                    "type": "quantitative"
+                  },
+                  "displayName": "Total Exposure"
+                }
+              },
+              "frame": {
+                "title": "Total Exposure by Issue Age",
+                "showTitle": true
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 10,
+            "width": 3,
+            "height": 6
+          }
+        }
+      ],
+      "pageType": "PAGE_TYPE_CANVAS"
+    }
+  ]
+}

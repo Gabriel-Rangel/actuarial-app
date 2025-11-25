@@ -1,0 +1,92 @@
+<!-- templates/layout.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Databricks for Actuaries</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='logo.png') }}">
+</head>
+<body style="background-color: #f6f6f6;">
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <nav class="sidebar d-md-block bg-light" style="width:260px;">
+                <div class="sidebar-sticky d-flex flex-column h-100">
+                    <!-- Logo and Title -->
+                    <div>
+                        <div class="text-center">
+                            <img src="/static/images/logo.png" alt="BrickStore Logo" class="logo mb-3">
+                            <h4>Databricks Actuarial Demos</h4>
+                        </div>
+                        <hr>
+                        <!-- Navigation Links -->
+                        <ul class="nav flex-column">
+                            <!-- Dropdown Parent -->
+                            <li class="nav-item">
+                                <a class="nav-link dropdown-toggle" href="#vaValuation" data-bs-toggle="collapse" role="button" aria-expanded="true" aria-controls="vaValuation">
+                                    <strong>Variable Annuity Valuation</strong>
+                                </a>
+                                <ul class="collapse show list-unstyled ps-3" id="vaValuation">
+                                    <li>
+                                        <a class="nav-link {% if request.path == '/analytics' and request.args.get('app') == 'va' %}active{% endif %}" href="/analytics?app=va">Analytics</a>
+                                    </li>
+                                    <li>
+                                        <a class="nav-link {% if request.path == '/genie' and request.args.get('app') == 'va' %}active{% endif %}" href="https://e2-demo-west.cloud.databricks.com/genie/rooms/01f0116d36a815c2b4d3cf61d19349b6?o=2556758628403379" target="_blank">Data Assistant</a>
+                                    </li>
+                                    </li>
+                                        <a class="nav-link {% if request.path == '/approval' %}active{% endif %}" href="/approval">Approval</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link dropdown-toggle" href="#ltcIncidence" data-bs-toggle="collapse" role="button" aria-expanded="true" aria-controls="ltcIncidence">
+                                    <strong>Long Term Care Incidence</strong> 
+                                </a>
+                                <ul class="collapse show list-unstyled ps-3" id="ltcIncidence">
+                                    <li>
+                                        <a class="nav-link {% if request.path == '/analytics' and request.args.get('app') == 'ltc' %}active{% endif %}" href="/analytics?app=ltc">Analytics</a>
+                                    </li>
+                                    <li>
+                                        <a class="nav-link {% if request.path == '/genie' and request.args.get('app') == 'ltc' %}active{% endif %}" href="https://e2-demo-west.cloud.databricks.com/genie/rooms/01ef7e8be4991ba3a06fdbf392979992?o=2556758628403379" target="_blank">Data Assistant</a>
+                                    </li>
+                                    </li>
+                                        <a class="nav-link {% if request.path == '/approval_ltc' %}active{% endif %}" href="/approval_ltc">Approval</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                        <!-- Additional Links -->
+                    </div>
+
+                    <!-- Footer Section -->
+                    <div class="mt-auto p-3 bg-light rounded">
+                        <p><strong>Powered by Databricks</strong></p>
+                        <p>The Data & AI Company</p>
+                        <button class="btn btn-dark btn-sm" onclick="window.location.href='https://www.databricks.com';">
+                            Databricks Site
+                        </button>
+
+                        <hr>
+
+                        <p><strong>Logged in as:</strong></p>
+                        <p>{{ user }}</p>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- Main Content -->
+            {% block content %}{% endblock %}
+        </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <script src="/static/js/scripts.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

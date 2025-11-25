@@ -1,0 +1,335 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<style>
+    /* Hide number input spinners */
+    input[type="number"]::-webkit-inner-spin-button,
+    input[type="number"]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+    input[type="number"] {
+        -moz-appearance: textfield;
+    }
+</style>
+<main role="main" class="col-md-9 col-lg-10 px-md-4">
+    <!-- Header -->
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">
+        <h1 class="h1">Approval 💯</h1>
+        <hr></hr>
+    </div>
+
+    <!-- Welcome Message -->
+    <div id="welcome-message" class="alert alert-light rounded shadow-sm p-4 mb-4">
+        Hi {{ user_name }}! 👋 Welcome to your LTC Incidence Assumptions Approval Form. Here, you can review and modify incidence assumptions!
+    </div>
+
+    <section>
+        <form action="/submit_approval_ltc" method="post" class="col-md-9 col-lg-10 mx-auto d-flex flex-column h-100">
+        <div class="mt-3">
+            <h3 class="h3">Base Incidence</h3>
+            <hr></hr>
+            <h4 class="h4">Existing Assumption</h4>
+            <div class="table-responsive" style="overflow-y: auto;">
+                <table id="table1" class="table table-striped table-bordered h-100">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th style="width:9%;">Gender</th>
+                            <th style="width:9%;">0-49</th>
+                            <th style="width:9%;">50-54</th>
+                            <th style="width:9%;">55-59</th>
+                            <th style="width:9%;">60-64</th>
+                            <th style="width:9%;">65-69</th>
+                            <th style="width:9%;">70-74</th>   
+                            <th style="width:9%;">75-79</th>
+                            <th style="width:9%;">80-84</th>
+                            <th style="width:9%;">85-89</th>
+                            <th style="width:9%;">90+</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for item in base_old %}
+                        <tr>
+                            <td><strong>{{ item.Gender }}</strong></td>
+                            <td style="text-align: right;">{{ item['0-49'] }}</td>
+                            <td style="text-align: right;">{{ item['50-54'] }}</td>
+                            <td style="text-align: right;">{{ item['55-59'] }}</td>
+                            <td style="text-align: right;">{{ item['60-64'] }}</td>
+                            <td style="text-align: right;">{{ item['65-69'] }}</td>
+                            <td style="text-align: right;">{{ item['70-74'] }}</td>
+                            <td style="text-align: right;">{{ item['75-79'] }}</td>
+                            <td style="text-align: right;">{{ item['80-84'] }}</td>
+                            <td style="text-align: right;">{{ item['85-89'] }}</td>
+                            <td style="text-align: right;">{{ item['90+'] }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+            <h4 class="h4">Actuals</h4>
+            <div class="table-responsive" style="overflow-y: auto;">
+                <table id="table2" class="table table-striped table-bordered h-100">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th style="width:9%;">Gender</th>
+                            <th style="width:9%;">0-49</th>
+                            <th style="width:9%;">50-54</th>
+                            <th style="width:9%;">55-59</th>
+                            <th style="width:9%;">60-64</th>
+                            <th style="width:9%;">65-69</th>
+                            <th style="width:9%;">70-74</th>
+                            <th style="width:9%;">75-79</th>
+                            <th style="width:9%;">80-84</th>
+                            <th style="width:9%;">85-89</th>
+                            <th style="width:9%;">90+</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for item in base_actual %}
+                        <tr>
+                            <td>{{ item.Gender }}</td>
+                            <td style="text-align: right;">{{ item['0-49'] }}</td>
+                            <td style="text-align: right;">{{ item['50-54'] }}</td>
+                            <td style="text-align: right;">{{ item['55-59'] }}</td>
+                            <td style="text-align: right;">{{ item['60-64'] }}</td>
+                            <td style="text-align: right;">{{ item['65-69'] }}</td>
+                            <td style="text-align: right;">{{ item['70-74'] }}</td>
+                            <td style="text-align: right;">{{ item['75-79'] }}</td>
+                            <td style="text-align: right;">{{ item['80-84'] }}</td>
+                            <td style="text-align: right;">{{ item['85-89'] }}</td>
+                            <td style="text-align: right;">{{ item['90+'] }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+            <h4 class="h4">New Assumptions</h4>
+            <div class="table-responsive" style="overflow-y: auto;">
+                <table id="table3" class="table table-striped table-bordered h-100">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th style="width:9%;">Gender</th>
+                            <th style="width:9%;">0-49</th>
+                            <th style="width:9%;">50-54</th>
+                            <th style="width:9%;">55-59</th>
+                            <th style="width:9%;">60-64</th>
+                            <th style="width:9%;">65-69</th>
+                            <th style="width:9%;">70-74</th>
+                            <th style="width:9%;">75-79</th>
+                            <th style="width:9%;">80-84</th>
+                            <th style="width:9%;">85-89</th>
+                            <th style="width:9%;">90+</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for item in base_new %}
+                        <tr>
+                            <td><strong>{{ item.Gender }}</strong></td>
+                            <td><input type="number" step="any" class="form-control" name="base_0_49_{{ item.Gender }}" value="{{ item['0-49'] }}"></td>
+                            <td><input type="number" step="any" class="form-control" name="base_50_54_{{ item.Gender }}" value="{{ item['50-54'] }}"></td>
+                            <td><input type="number" step="any" class="form-control" name="base_55_59_{{ item.Gender }}" value="{{ item['55-59'] }}"></td>
+                            <td><input type="number" step="any" class="form-control" name="base_60_64_{{ item.Gender }}" value="{{ item['60-64'] }}"></td>
+                            <td><input type="number" step="any" class="form-control" name="base_65_69_{{ item.Gender }}" value="{{ item['65-69'] }}"></td>
+                            <td><input type="number" step="any" class="form-control" name="base_70_74_{{ item.Gender }}" value="{{ item['70-74'] }}"></td>
+                            <td><input type="number" step="any" class="form-control" name="base_75_79_{{ item.Gender }}" value="{{ item['75-79'] }}"></td>
+                            <td><input type="number" step="any" class="form-control" name="base_80_84_{{ item.Gender }}" value="{{ item['80-84'] }}"></td>
+                            <td><input type="number" step="any" class="form-control" name="base_85_89_{{ item.Gender }}" value="{{ item['85-89'] }}"></td>
+                            <td><input type="number" step="any" class="form-control" name="base_90_{{ item.Gender }}" value="{{ item['90+'] }}"></td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="form-group mt-3">
+                <label for="action_base"><strong>Action: </strong><span class="text-danger">*</span></label>
+                <select class="form-control" id="action_base" name="action_base" required>
+                    <option value="">Select Action</option>
+                    <option value="Remain unchanged">Keep current assumptions</option>
+                    <option value="New assumptions">Use new assumptions</option>
+                </select>
+            </div>
+            <div class="form-group mt-3">
+                <label for="comment_base"><strong>Comments: </strong></label>
+                <textarea class="form-control" id="comment_base" name="comment_base" rows="3" style="width: 100%;"></textarea>
+            </div>
+        </div>
+
+        <div class="mt-5">
+            <h3 class="h3">Selection Effect</h3>
+            <hr>
+            <div class="table-responsive" style="overflow-y: auto;">
+                <table class="table table-striped table-bordered h-100">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Policy Duration</th>
+                            <th>Current Selection Factor</th>
+                            <th>Actual Selection Factor</th>
+                            <th>New Selection Factor</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for item in selection_fac %}
+                        <tr>
+                            <td><strong>{{ item['Policy Duration'] }}</strong></td>
+                            <td>{{ item['Current Selection Factor'] }}</td>
+                            <td>{{ item['Actual Selection Factor'] }}</td>
+                            <td><input type="number" step="any" class="form-control" name="selection_fac_new_{{ item['Policy Duration'] }}" value="{{ item['New Selection Factor'] }}"></td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="form-group mt-3">
+                <label for="action_selection"><strong>Action: </strong><span class="text-danger">*</span></label>
+                <select class="form-control" id="action_selection" name="action_selection" required>
+                    <option value="">Select Action</option>
+                    <option value="Remain unchanged">Keep current assumptions</option>
+                    <option value="New assumptions">Use new assumptions</option>
+                </select>
+            </div>
+            <div class="form-group mt-3">
+                <label for="comment_selection"><strong>Comments: </strong></label>
+                <textarea class="form-control" id="comment_selection" name="comment_selection" rows="3" style="width: 100%;"></textarea>
+            </div>
+        </div>
+
+        <div class="mt-5">
+            <h3 class="h3">Morbidity Improvement</h3>
+            <hr>
+            <div class="table-responsive" style="overflow-y: auto;">
+                <table class="table table-striped table-bordered h-100">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Current Assumption</th>
+                            <th>Actual</th>
+                            <th>New Assumption</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>0.01</td>
+                            <td>0.012</td>
+                            <td><input type="number" step="any" class="form-control" name="morb_new" value="{{ oth_assumptions.morb_imp }}"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="form-group mt-3">
+                <label for="action_imp"><strong>Action: </strong><span class="text-danger">*</span></label>
+                <select class="form-control" id="action_imp" name="action_imp" required>
+                    <option value="">Select Action</option>
+                    <option value="Remain unchanged">Keep current assumptions</option>
+                    <option value="New assumptions">Use new assumptions</option>
+                </select>
+            </div>
+            <div class="form-group mt-3">
+                <label for="comment_imp"><strong>Comments: </strong></label>
+                <textarea class="form-control" id="comment_imp" name="comment_imp" rows="3" style="width: 100%;"></textarea>
+            </div>
+        </div>
+
+        <div class="mt-5">
+            <h3 class="h3">Marital Status Adjustment</h3>
+            <hr>
+            <div class="table-responsive" style="overflow-y: auto;">
+                <table class="table table-striped table-bordered h-100">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Marital Status</th>
+                            <th>Current Assumption</th>
+                            <th>Actual</th>
+                            <th>New Assumption</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Single</strong></td>
+                            <td>1.1</td>
+                            <td>1.2</td>
+                            <td><input type="number" step="any" class="form-control" name="marital_new_single" value="{{ oth_assumptions.marital_single }}"></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Married</strong></td>
+                            <td>0.9</td>
+                            <td>0.85</td>
+                            <td><input type="number" step="any" class="form-control" name="marital_new_married" value="{{ oth_assumptions.marital_married }}"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="form-group mt-3">
+                <label for="action_marital"><strong>Action: </strong><span class="text-danger">*</span></label>
+                <select class="form-control" id="action_marital" name="action_marital" required>
+                    <option value="">Select Action</option>
+                    <option value="Remain unchanged">Keep current assumptions</option>
+                    <option value="New assumptions">Use new assumptions</option>
+                </select>
+            </div>
+            <div class="form-group mt-3">
+                <label for="comment_marital"><strong>Comments: </strong></label>
+                <textarea class="form-control" id="comment_marital" name="comment_marital" rows="3" style="width: 100%;"></textarea>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary mt-3" style="width: 80px;">Submit</button>
+
+        <div  id="changes_table" class="mt-5">
+            <h2 class="h2">Change Log</h2>
+            <table class="table table-striped table-bordered">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Category</th>
+                        <th>User</th>
+                        <th>Changes</th>
+                        <th>Comments</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Base Incidence</td>
+                        <td>{{ change_log.user }}</td>
+                        <td>{{ change_log.action_base}}</td>
+                        <td>{{ change_log.comment_base}}</td>
+                    </tr>
+                    <tr>
+                        <td>Selection Effect</td>
+                        <td>{{ change_log.user }}</td>
+                        <td>{{ change_log.action_selection}}</td>
+                        <td>{{ change_log.comment_selection}}</td>
+                    </tr>
+                    <tr>
+                        <td>Morbidity Improvement</td>
+                        <td>{{ change_log.user }}</td>
+                        <td>{{ change_log.action_imp}}</td>
+                        <td>{{ change_log.comment_imp}}</td>
+                    </tr>
+                    <tr>
+                        <td>Marital Status Adjustment</td>
+                        <td>{{ change_log.user }}</td>
+                        <td>{{ change_log.action_marital}}</td>
+                        <td>{{ change_log.comment_marital}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </form>
+
+    </section>
+
+    {% if scroll_to %}
+    <script>
+    window.onload = function() {
+        var el = document.getElementById("{{ scroll_to }}");
+        if (el) {
+        el.scrollIntoView({behavior: "smooth"});
+        }
+    }
+    </script>
+    {% endif %}
+</main>
+{% endblock %}

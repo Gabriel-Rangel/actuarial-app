@@ -1,0 +1,3356 @@
+{
+  "datasets": [
+    {
+      "name": "5099c69c",
+      "displayName": "va_inforce",
+      "queryLines": [
+        "WITH unpvt AS (\n",
+        "  SELECT *\n",
+        "  FROM actuarial_app_catalog.`variable_annuity`.va_inforce\n",
+        "  UNPIVOT (\n",
+        "    FundValue\n",
+        "    FOR FundNum IN (Fund1, Fund2, Fund3, Fund4, Fund5, Fund6, Fund7, Fund8, Fund9, Fund10)\n",
+        "  )\n",
+        "),\n",
+        "fund_val_assets AS (\n",
+        "SELECT unpvt.* except(FundValue),\n",
+        "       FundValue * LargeCapEquity AS LargeCapEquity,\n",
+        "       FundValue * SmallCapEquity AS SmallCapEquity,\n",
+        "       FundValue * IntlEquity AS IntlEquity,\n",
+        "       FundValue * FixedIncome AS FixedIncome,\n",
+        "       FundValue * Money AS Money\n",
+        "FROM unpvt\n",
+        "JOIN actuarial_app_catalog.`variable_annuity`.va_fund_map\n",
+        "ON unpvt.FundNum = actuarial_app_catalog.`variable_annuity`.va_fund_map.FundNum\n",
+        "),\n",
+        "fund_val_all AS\n",
+        "(SELECT prod.*,\n",
+        "      fv.* except(fv.productType)\n",
+        "FROM fund_val_assets fv\n",
+        "LEFT JOIN actuarial_app_catalog.`variable_annuity`.va_products prod\n",
+        "ON fv.productType = prod.productType\n",
+        ")\n",
+        "\n",
+        "SELECT *, ROUND(DATEDIFF(currentDate, issueDate) / 365.25, 0) AS Duration,\n",
+        "       ROUND(DATEDIFF(issueDate, birthDate) / 365.25, 0) AS IssueAge,\n",
+        "       ROUND(DATEDIFF(currentDate, birthDate) / 365.25, 0) AS AttainedAge\n",
+        "FROM fund_val_all\n",
+        "UNPIVOT (\n",
+        "  AssetValue\n",
+        "  FOR AssetClass IN (LargeCapEquity, SmallCapEquity, IntlEquity, FixedIncome, Money)\n",
+        ")"
+      ]
+    },
+    {
+      "name": "29545b54",
+      "displayName": "va_pv_seriatim",
+      "queryLines": [
+        "SELECT pv.*, inf.* EXCEPT (inf.recordID, inf.productType, inf.Fund1, inf.Fund2, inf.Fund3, inf.Fund4, inf.Fund5, inf.Fund6, inf.Fund7, inf.Fund8, inf.Fund9, inf.Fund10),\n",
+        "       prod.* EXCEPT (prod.description),\n",
+        "       ROUND(DATEDIFF(currentDate, issueDate) / 365.25, 0) AS Duration,\n",
+        "       ROUND(DATEDIFF(issueDate, birthDate) / 365.25, 0) AS IssueAge,\n",
+        "       ROUND(DATEDIFF(currentDate, birthDate) / 365.25, 0) AS AttainedAge\n",
+        "FROM actuarial_app_catalog.`variable_annuity`.va_pv_seriatim_long pv\n",
+        "JOIN actuarial_app_catalog.`variable_annuity`.va_inforce inf\n",
+        "ON pv.recordID = inf.recordID\n",
+        "JOIN actuarial_app_catalog.`variable_annuity`.va_products prod\n",
+        "ON inf.productType = prod.productType"
+      ]
+    },
+    {
+      "name": "62860eac",
+      "displayName": "va_scenarios_cumulative",
+      "queryLines": [
+        "SELECT * FROM actuarial_app_catalog.`variable_annuity`.va_scenarios_cumulative"
+      ]
+    },
+    {
+      "name": "e4c9fc60",
+      "displayName": "va_products",
+      "queryLines": [
+        "SELECT * FROM actuarial_app_catalog.`variable_annuity`.va_products"
+      ]
+    },
+    {
+      "name": "7be39bb8",
+      "displayName": "va_scenarios_cumulative_all",
+      "queryLines": [
+        "SELECT * FROM actuarial_app_catalog.`variable_annuity`.va_scenarios_cumulative\n",
+        "WHERE Month % 20 = 0 and rwpath <= 500"
+      ]
+    },
+    {
+      "name": "88772dbd",
+      "displayName": "va_pv_agg",
+      "queryLines": [
+        "with pv_agg as (\n",
+        "  SELECT rwpath, sum(sumPV) as pv_payoff FROM actuarial_app_catalog.`variable_annuity`.va_pv_seriatim_long pv\n",
+        "  JOIN actuarial_app_catalog.`variable_annuity`.va_inforce inf\n",
+        "  ON pv.recordID = inf.recordID\n",
+        "  JOIN actuarial_app_catalog.`variable_annuity`.va_products prod\n",
+        "  ON inf.productType = prod.productType\n",
+        "  WHERE prod.productType = :product_type\n",
+        "  GROUP BY rwpath\n",
+        ")\n",
+        "SELECT *, rank() OVER (ORDER BY pv_payoff DESC) as rank, rank < 500 * (1- :var_pct / 100) as in_top_pct\n",
+        "FROM pv_agg"
+      ],
+      "parameters": [
+        {
+          "displayName": "var_pct",
+          "keyword": "var_pct",
+          "dataType": "STRING",
+          "defaultSelection": {
+            "values": {
+              "dataType": "STRING",
+              "values": [
+                {
+                  "value": "90"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "displayName": "product_type",
+          "keyword": "product_type",
+          "dataType": "STRING",
+          "defaultSelection": {
+            "values": {
+              "dataType": "STRING",
+              "values": [
+                {
+                  "value": "DBIB"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "6be58135",
+      "displayName": "va_scenarios_cumulative 1",
+      "queryLines": [
+        "SELECT * FROM actuarial_app_catalog.`variable_annuity`.va_scenarios_cumulative"
+      ]
+    },
+    {
+      "name": "2c15fe9d",
+      "displayName": "va_scenarios_cumulative 2",
+      "queryLines": [
+        "SELECT * FROM actuarial_app_catalog.`variable_annuity`.va_scenarios_cumulative"
+      ]
+    },
+    {
+      "name": "7cba9100",
+      "displayName": "va_disc_fac",
+      "queryLines": [
+        "SELECT * FROM actuarial_app_catalog.`variable_annuity`.va_disc_fac_long"
+      ]
+    },
+    {
+      "name": "5f0b4736",
+      "displayName": "va_pv_by_product",
+      "queryLines": [
+        "with pv_agg as (\n",
+        "  SELECT rwpath, inf.productType as productType, sum(sumPV) as pv_payoff \n",
+        "  FROM actuarial_app_catalog.`variable_annuity`.va_pv_seriatim_long pv\n",
+        "  JOIN actuarial_app_catalog.`variable_annuity`.va_inforce inf\n",
+        "  ON pv.recordID = inf.recordID\n",
+        "  JOIN actuarial_app_catalog.`variable_annuity`.va_products prod\n",
+        "  ON inf.productType = prod.productType\n",
+        "  GROUP BY rwpath, inf.productType\n",
+        "),\n",
+        "pv_rank as (\n",
+        "    SELECT *, \n",
+        "    rank() OVER (partition by productType ORDER BY pv_payoff DESC) as rank, \n",
+        "    CASE WHEN rank < 500 * (1- 75 / 100) THEN 1 ELSE 0 END as in_cte_75,\n",
+        "    CASE WHEN rank < 500 * (1- 90 / 100) THEN 1 ELSE 0 END as in_cte_90,\n",
+        "    CASE WHEN rank < 500 * (1- 95 / 100) THEN 1 ELSE 0 END as in_cte_95\n",
+        "    FROM pv_agg\n",
+        ")\n",
+        "\n",
+        "SELECT productType, \n",
+        "      round(sum(pv_payoff * in_cte_75)/124000000)*1000000 as CTE_75, \n",
+        "      round(sum(pv_payoff * in_cte_90)/49000000)*1000000 as CTE_90, \n",
+        "      round(sum(pv_payoff * in_cte_95)/25000000)*1000000 as CTE_95\n",
+        "from pv_rank\n",
+        "GROUP BY productType"
+      ]
+    }
+  ],
+  "pages": [
+    {
+      "name": "1d2d5920",
+      "displayName": "Inforce",
+      "layout": [
+        {
+          "widget": {
+            "name": "4d30854c",
+            "multilineTextboxSpec": {
+              "lines": [
+                "# Variable Annuities Inforce\n"
+              ]
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 0,
+            "width": 6,
+            "height": 1
+          }
+        },
+        {
+          "widget": {
+            "name": "38da5b5c",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "5099c69c",
+                  "fields": [
+                    {
+                      "name": "sum(AssetValue)",
+                      "expression": "SUM(`AssetValue`)"
+                    },
+                    {
+                      "name": "productType",
+                      "expression": "`productType`"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "pie",
+              "encodings": {
+                "angle": {
+                  "fieldName": "sum(AssetValue)",
+                  "scale": {
+                    "type": "quantitative"
+                  },
+                  "displayName": "Sum of AssetValue"
+                },
+                "color": {
+                  "fieldName": "productType",
+                  "scale": {
+                    "type": "categorical"
+                  },
+                  "displayName": "productType"
+                }
+              },
+              "frame": {
+                "title": "Total account value by Product Type",
+                "showTitle": true
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 9,
+            "width": 2,
+            "height": 7
+          }
+        },
+        {
+          "widget": {
+            "name": "1018df79",
+            "queries": [
+              {
+                "name": "dashboards/01ef9fe0214e1e94955a36806d4a810d/datasets/01ef9fe02b661403b8586f4ec2482231_currentDate",
+                "query": {
+                  "datasetName": "5099c69c",
+                  "fields": [
+                    {
+                      "name": "currentDate",
+                      "expression": "`currentDate`"
+                    },
+                    {
+                      "name": "currentDate_associativity",
+                      "expression": "COUNT_IF(`associative_filter_predicate_group`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "widgetType": "filter-single-select",
+              "encodings": {
+                "fields": [
+                  {
+                    "fieldName": "currentDate",
+                    "displayName": "currentDate",
+                    "queryName": "dashboards/01ef9fe0214e1e94955a36806d4a810d/datasets/01ef9fe02b661403b8586f4ec2482231_currentDate"
+                  }
+                ]
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "Valuation Date"
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 1,
+            "width": 3,
+            "height": 1
+          }
+        },
+        {
+          "widget": {
+            "name": "1e2163c8",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "5099c69c",
+                  "fields": [
+                    {
+                      "name": "sum(AssetValue)",
+                      "expression": "SUM(`AssetValue`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "sum(AssetValue)",
+                  "displayName": "Sum of AssetValue"
+                }
+              },
+              "frame": {
+                "title": "Total Fund Value",
+                "showTitle": true
+              }
+            }
+          },
+          "position": {
+            "x": 3,
+            "y": 5,
+            "width": 2,
+            "height": 2
+          }
+        },
+        {
+          "widget": {
+            "name": "5be9d31e",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "5099c69c",
+                  "fields": [
+                    {
+                      "name": "sum(gmwbBalance)",
+                      "expression": "SUM(`gmwbBalance`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "sum(gmwbBalance)",
+                  "displayName": "Sum of gmwbBalance"
+                }
+              },
+              "frame": {
+                "title": "GMWB Base",
+                "showTitle": true
+              }
+            }
+          },
+          "position": {
+            "x": 5,
+            "y": 5,
+            "width": 1,
+            "height": 2
+          }
+        },
+        {
+          "widget": {
+            "name": "be2665a2",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "5099c69c",
+                  "fields": [
+                    {
+                      "name": "sum(AssetValue)",
+                      "expression": "SUM(`AssetValue`)"
+                    },
+                    {
+                      "name": "AssetClass",
+                      "expression": "`AssetClass`"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "pie",
+              "encodings": {
+                "angle": {
+                  "fieldName": "sum(AssetValue)",
+                  "scale": {
+                    "type": "quantitative"
+                  },
+                  "displayName": "Sum of AssetValue"
+                },
+                "color": {
+                  "fieldName": "AssetClass",
+                  "scale": {
+                    "type": "categorical"
+                  },
+                  "displayName": "AssetClass"
+                }
+              },
+              "frame": {
+                "title": "Total account value by Asset Class",
+                "showTitle": true
+              }
+            }
+          },
+          "position": {
+            "x": 4,
+            "y": 9,
+            "width": 2,
+            "height": 7
+          }
+        },
+        {
+          "widget": {
+            "name": "22548783",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "5099c69c",
+                  "fields": [
+                    {
+                      "name": "sum(AssetValue)",
+                      "expression": "SUM(`AssetValue`)"
+                    },
+                    {
+                      "name": "FundNum",
+                      "expression": "`FundNum`"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "pie",
+              "encodings": {
+                "angle": {
+                  "fieldName": "sum(AssetValue)",
+                  "scale": {
+                    "type": "quantitative"
+                  },
+                  "displayName": "Sum of AssetValue"
+                },
+                "color": {
+                  "fieldName": "FundNum",
+                  "scale": {
+                    "type": "categorical"
+                  },
+                  "displayName": "FundNum"
+                }
+              },
+              "frame": {
+                "title": "Total account value by Fund",
+                "showTitle": true
+              }
+            }
+          },
+          "position": {
+            "x": 2,
+            "y": 9,
+            "width": 2,
+            "height": 7
+          }
+        },
+        {
+          "widget": {
+            "name": "d19209f2",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "5099c69c",
+                  "fields": [
+                    {
+                      "name": "AssetClass",
+                      "expression": "`AssetClass`"
+                    },
+                    {
+                      "name": "monthly(issueDate)",
+                      "expression": "DATE_TRUNC(\"MONTH\", `issueDate`)"
+                    },
+                    {
+                      "name": "sum(AssetValue)",
+                      "expression": "SUM(`AssetValue`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "bar",
+              "encodings": {
+                "x": {
+                  "fieldName": "monthly(issueDate)",
+                  "scale": {
+                    "type": "temporal"
+                  },
+                  "displayName": "issueDate"
+                },
+                "y": {
+                  "fieldName": "sum(AssetValue)",
+                  "scale": {
+                    "type": "quantitative"
+                  },
+                  "displayName": "Sum of AssetValue"
+                },
+                "color": {
+                  "fieldName": "AssetClass",
+                  "scale": {
+                    "type": "categorical"
+                  },
+                  "displayName": "AssetClass"
+                }
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 16,
+            "width": 3,
+            "height": 6
+          }
+        },
+        {
+          "widget": {
+            "name": "887f5336",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "5099c69c",
+                  "fields": [
+                    {
+                      "name": "gender",
+                      "expression": "`gender`"
+                    },
+                    {
+                      "name": "min(IssueAge)",
+                      "expression": "MIN(`IssueAge`)"
+                    },
+                    {
+                      "name": "q1(IssueAge)",
+                      "expression": "PERCENTILE(`IssueAge`, 0.25)"
+                    },
+                    {
+                      "name": "median(IssueAge)",
+                      "expression": "MEDIAN(`IssueAge`)"
+                    },
+                    {
+                      "name": "q3(IssueAge)",
+                      "expression": "PERCENTILE(`IssueAge`, 0.75)"
+                    },
+                    {
+                      "name": "max(IssueAge)",
+                      "expression": "MAX(`IssueAge`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "box",
+              "encodings": {
+                "x": {
+                  "fieldName": "gender",
+                  "scale": {
+                    "type": "categorical"
+                  },
+                  "displayName": "gender"
+                },
+                "y": {
+                  "whiskerStart": {
+                    "fieldName": "min(IssueAge)",
+                    "displayName": "Minimum IssueAge"
+                  },
+                  "boxStart": {
+                    "fieldName": "q1(IssueAge)",
+                    "displayName": "First Quartile of IssueAge"
+                  },
+                  "boxMid": {
+                    "fieldName": "median(IssueAge)",
+                    "displayName": "Median of IssueAge"
+                  },
+                  "boxEnd": {
+                    "fieldName": "q3(IssueAge)",
+                    "displayName": "Third Quartile of IssueAge"
+                  },
+                  "whiskerEnd": {
+                    "fieldName": "max(IssueAge)",
+                    "displayName": "Maximum IssueAge"
+                  },
+                  "axis": {
+                    "title": "IssueAge"
+                  },
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                }
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 22,
+            "width": 3,
+            "height": 6
+          }
+        },
+        {
+          "widget": {
+            "name": "9575dc1d",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "5099c69c",
+                  "fields": [
+                    {
+                      "name": "sum(AssetValue)",
+                      "expression": "SUM(`AssetValue`)"
+                    },
+                    {
+                      "name": "IssueAge",
+                      "expression": "`IssueAge`"
+                    },
+                    {
+                      "name": "Duration",
+                      "expression": "`Duration`"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "heatmap",
+              "encodings": {
+                "x": {
+                  "fieldName": "IssueAge",
+                  "scale": {
+                    "type": "categorical"
+                  },
+                  "displayName": "IssueAge"
+                },
+                "y": {
+                  "fieldName": "Duration",
+                  "scale": {
+                    "type": "quantitative"
+                  },
+                  "displayName": "Duration"
+                },
+                "color": {
+                  "fieldName": "sum(AssetValue)",
+                  "scale": {
+                    "type": "quantitative"
+                  },
+                  "displayName": "FV"
+                }
+              }
+            }
+          },
+          "position": {
+            "x": 3,
+            "y": 16,
+            "width": 3,
+            "height": 6
+          }
+        },
+        {
+          "widget": {
+            "name": "e524e01a",
+            "queries": [
+              {
+                "name": "dashboards/01ef9fe0214e1e94955a36806d4a810d/datasets/01ef9fe02b661403b8586f4ec2482231_GMDB",
+                "query": {
+                  "datasetName": "5099c69c",
+                  "fields": [
+                    {
+                      "name": "GMDB",
+                      "expression": "`GMDB`"
+                    },
+                    {
+                      "name": "GMDB_associativity",
+                      "expression": "COUNT_IF(`associative_filter_predicate_group`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "widgetType": "filter-single-select",
+              "encodings": {
+                "fields": [
+                  {
+                    "fieldName": "GMDB",
+                    "displayName": "GMDB",
+                    "queryName": "dashboards/01ef9fe0214e1e94955a36806d4a810d/datasets/01ef9fe02b661403b8586f4ec2482231_GMDB"
+                  }
+                ]
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "GMDB"
+              }
+            }
+          },
+          "position": {
+            "x": 3,
+            "y": 1,
+            "width": 3,
+            "height": 1
+          }
+        },
+        {
+          "widget": {
+            "name": "fa2d7b76",
+            "queries": [
+              {
+                "name": "dashboards/01ef9fe0214e1e94955a36806d4a810d/datasets/01ef9fe02b661403b8586f4ec2482231_GMWB",
+                "query": {
+                  "datasetName": "5099c69c",
+                  "fields": [
+                    {
+                      "name": "GMWB",
+                      "expression": "`GMWB`"
+                    },
+                    {
+                      "name": "GMWB_associativity",
+                      "expression": "COUNT_IF(`associative_filter_predicate_group`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "widgetType": "filter-single-select",
+              "encodings": {
+                "fields": [
+                  {
+                    "fieldName": "GMWB",
+                    "displayName": "GMWB",
+                    "queryName": "dashboards/01ef9fe0214e1e94955a36806d4a810d/datasets/01ef9fe02b661403b8586f4ec2482231_GMWB"
+                  }
+                ]
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "GMWB"
+              }
+            }
+          },
+          "position": {
+            "x": 3,
+            "y": 2,
+            "width": 3,
+            "height": 1
+          }
+        },
+        {
+          "widget": {
+            "name": "ab6573dd",
+            "queries": [
+              {
+                "name": "dashboards/01ef9fe0214e1e94955a36806d4a810d/datasets/01ef9fe02b661403b8586f4ec2482231_GMIB",
+                "query": {
+                  "datasetName": "5099c69c",
+                  "fields": [
+                    {
+                      "name": "GMIB",
+                      "expression": "`GMIB`"
+                    },
+                    {
+                      "name": "GMIB_associativity",
+                      "expression": "COUNT_IF(`associative_filter_predicate_group`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "widgetType": "filter-single-select",
+              "encodings": {
+                "fields": [
+                  {
+                    "fieldName": "GMIB",
+                    "displayName": "GMIB",
+                    "queryName": "dashboards/01ef9fe0214e1e94955a36806d4a810d/datasets/01ef9fe02b661403b8586f4ec2482231_GMIB"
+                  }
+                ]
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "GMIB"
+              }
+            }
+          },
+          "position": {
+            "x": 3,
+            "y": 3,
+            "width": 3,
+            "height": 1
+          }
+        },
+        {
+          "widget": {
+            "name": "9a3f45a6",
+            "queries": [
+              {
+                "name": "dashboards/01ef9fe0214e1e94955a36806d4a810d/datasets/01ef9fe02b661403b8586f4ec2482231_GMMB",
+                "query": {
+                  "datasetName": "5099c69c",
+                  "fields": [
+                    {
+                      "name": "GMMB",
+                      "expression": "`GMMB`"
+                    },
+                    {
+                      "name": "GMMB_associativity",
+                      "expression": "COUNT_IF(`associative_filter_predicate_group`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "widgetType": "filter-single-select",
+              "encodings": {
+                "fields": [
+                  {
+                    "fieldName": "GMMB",
+                    "displayName": "GMMB",
+                    "queryName": "dashboards/01ef9fe0214e1e94955a36806d4a810d/datasets/01ef9fe02b661403b8586f4ec2482231_GMMB"
+                  }
+                ]
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "GMMB"
+              }
+            }
+          },
+          "position": {
+            "x": 3,
+            "y": 4,
+            "width": 3,
+            "height": 1
+          }
+        },
+        {
+          "widget": {
+            "name": "59b0e49e",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "e4c9fc60",
+                  "fields": [
+                    {
+                      "name": "productType",
+                      "expression": "`productType`"
+                    },
+                    {
+                      "name": "description",
+                      "expression": "`description`"
+                    }
+                  ],
+                  "disaggregated": true
+                }
+              }
+            ],
+            "spec": {
+              "version": 1,
+              "widgetType": "table",
+              "encodings": {
+                "columns": [
+                  {
+                    "fieldName": "productType",
+                    "booleanValues": [
+                      "false",
+                      "true"
+                    ],
+                    "imageUrlTemplate": "{{ @ }}",
+                    "imageTitleTemplate": "{{ @ }}",
+                    "imageWidth": "",
+                    "imageHeight": "",
+                    "linkUrlTemplate": "{{ @ }}",
+                    "linkTextTemplate": "{{ @ }}",
+                    "linkTitleTemplate": "{{ @ }}",
+                    "linkOpenInNewTab": true,
+                    "type": "string",
+                    "displayAs": "string",
+                    "visible": true,
+                    "order": 100000,
+                    "title": "ProductType",
+                    "allowSearch": false,
+                    "alignContent": "left",
+                    "allowHTML": false,
+                    "highlightLinks": false,
+                    "useMonospaceFont": false,
+                    "preserveWhitespace": false,
+                    "displayName": "productType"
+                  },
+                  {
+                    "fieldName": "description",
+                    "booleanValues": [
+                      "false",
+                      "true"
+                    ],
+                    "imageUrlTemplate": "{{ @ }}",
+                    "imageTitleTemplate": "{{ @ }}",
+                    "imageWidth": "",
+                    "imageHeight": "",
+                    "linkUrlTemplate": "{{ @ }}",
+                    "linkTextTemplate": "{{ @ }}",
+                    "linkTitleTemplate": "{{ @ }}",
+                    "linkOpenInNewTab": true,
+                    "type": "string",
+                    "displayAs": "string",
+                    "visible": true,
+                    "order": 100001,
+                    "title": "Description",
+                    "allowSearch": false,
+                    "alignContent": "left",
+                    "allowHTML": false,
+                    "highlightLinks": false,
+                    "useMonospaceFont": false,
+                    "preserveWhitespace": false,
+                    "displayName": "description"
+                  }
+                ]
+              },
+              "invisibleColumns": [
+                {
+                  "booleanValues": [
+                    "false",
+                    "true"
+                  ],
+                  "imageUrlTemplate": "{{ @ }}",
+                  "imageTitleTemplate": "{{ @ }}",
+                  "imageWidth": "",
+                  "imageHeight": "",
+                  "linkUrlTemplate": "{{ @ }}",
+                  "linkTextTemplate": "{{ @ }}",
+                  "linkTitleTemplate": "{{ @ }}",
+                  "linkOpenInNewTab": true,
+                  "name": "GMDB",
+                  "type": "string",
+                  "displayAs": "string",
+                  "order": 100002,
+                  "title": "GMDB",
+                  "allowSearch": false,
+                  "alignContent": "left",
+                  "allowHTML": false,
+                  "highlightLinks": false,
+                  "useMonospaceFont": false,
+                  "preserveWhitespace": false
+                },
+                {
+                  "booleanValues": [
+                    "false",
+                    "true"
+                  ],
+                  "imageUrlTemplate": "{{ @ }}",
+                  "imageTitleTemplate": "{{ @ }}",
+                  "imageWidth": "",
+                  "imageHeight": "",
+                  "linkUrlTemplate": "{{ @ }}",
+                  "linkTextTemplate": "{{ @ }}",
+                  "linkTitleTemplate": "{{ @ }}",
+                  "linkOpenInNewTab": true,
+                  "name": "GMIB",
+                  "type": "string",
+                  "displayAs": "string",
+                  "order": 100003,
+                  "title": "GMIB",
+                  "allowSearch": false,
+                  "alignContent": "left",
+                  "allowHTML": false,
+                  "highlightLinks": false,
+                  "useMonospaceFont": false,
+                  "preserveWhitespace": false
+                },
+                {
+                  "booleanValues": [
+                    "false",
+                    "true"
+                  ],
+                  "imageUrlTemplate": "{{ @ }}",
+                  "imageTitleTemplate": "{{ @ }}",
+                  "imageWidth": "",
+                  "imageHeight": "",
+                  "linkUrlTemplate": "{{ @ }}",
+                  "linkTextTemplate": "{{ @ }}",
+                  "linkTitleTemplate": "{{ @ }}",
+                  "linkOpenInNewTab": true,
+                  "name": "GMMB",
+                  "type": "string",
+                  "displayAs": "string",
+                  "order": 100004,
+                  "title": "GMMB",
+                  "allowSearch": false,
+                  "alignContent": "left",
+                  "allowHTML": false,
+                  "highlightLinks": false,
+                  "useMonospaceFont": false,
+                  "preserveWhitespace": false
+                },
+                {
+                  "booleanValues": [
+                    "false",
+                    "true"
+                  ],
+                  "imageUrlTemplate": "{{ @ }}",
+                  "imageTitleTemplate": "{{ @ }}",
+                  "imageWidth": "",
+                  "imageHeight": "",
+                  "linkUrlTemplate": "{{ @ }}",
+                  "linkTextTemplate": "{{ @ }}",
+                  "linkTitleTemplate": "{{ @ }}",
+                  "linkOpenInNewTab": true,
+                  "name": "GMWB",
+                  "type": "string",
+                  "displayAs": "string",
+                  "order": 100005,
+                  "title": "GMWB",
+                  "allowSearch": false,
+                  "alignContent": "left",
+                  "allowHTML": false,
+                  "highlightLinks": false,
+                  "useMonospaceFont": false,
+                  "preserveWhitespace": false
+                }
+              ],
+              "allowHTMLByDefault": false,
+              "itemsPerPage": 25,
+              "paginationSize": "default",
+              "condensed": true,
+              "withRowNumber": false
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 2,
+            "width": 3,
+            "height": 7
+          }
+        },
+        {
+          "widget": {
+            "name": "0d1e7f16",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "5099c69c",
+                  "fields": [
+                    {
+                      "name": "countdistinct(recordID)",
+                      "expression": "COUNT(DISTINCT `recordID`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "countdistinct(recordID)",
+                  "displayName": "Count of Unique recordID"
+                }
+              },
+              "frame": {
+                "title": "Policy Count",
+                "showTitle": true
+              }
+            }
+          },
+          "position": {
+            "x": 3,
+            "y": 7,
+            "width": 2,
+            "height": 2
+          }
+        },
+        {
+          "widget": {
+            "name": "6861228f",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "5099c69c",
+                  "fields": [
+                    {
+                      "name": "sum(gbAmt)",
+                      "expression": "SUM(`gbAmt`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "sum(gbAmt)",
+                  "displayName": "Sum of gbAmt"
+                }
+              },
+              "frame": {
+                "title": "GB Amount",
+                "showTitle": true
+              }
+            }
+          },
+          "position": {
+            "x": 5,
+            "y": 7,
+            "width": 1,
+            "height": 2
+          }
+        },
+        {
+          "widget": {
+            "name": "3c4d2182",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "5099c69c",
+                  "fields": [
+                    {
+                      "name": "IssueAge",
+                      "expression": "`IssueAge`"
+                    },
+                    {
+                      "name": "sum(AssetValue)",
+                      "expression": "SUM(`AssetValue`)"
+                    },
+                    {
+                      "name": "countdistinct(recordID)",
+                      "expression": "COUNT(DISTINCT `recordID`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 1,
+              "widgetType": "combo",
+              "encodings": {
+                "x": {
+                  "fieldName": "IssueAge",
+                  "scale": {
+                    "type": "quantitative"
+                  },
+                  "displayName": "IssueAge"
+                },
+                "y": {
+                  "primary": {
+                    "fields": [
+                      {
+                        "fieldName": "sum(AssetValue)",
+                        "displayName": "Sum of AssetValue"
+                      }
+                    ],
+                    "scale": {
+                      "type": "quantitative"
+                    }
+                  },
+                  "secondary": {
+                    "fields": [
+                      {
+                        "fieldName": "countdistinct(recordID)",
+                        "displayName": "Count of Unique recordID"
+                      }
+                    ],
+                    "scale": {
+                      "type": "quantitative"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "position": {
+            "x": 3,
+            "y": 22,
+            "width": 3,
+            "height": 6
+          }
+        }
+      ],
+      "pageType": "PAGE_TYPE_CANVAS"
+    },
+    {
+      "name": "4e745aef",
+      "displayName": "Scenarios",
+      "layout": [
+        {
+          "widget": {
+            "name": "f9640519",
+            "multilineTextboxSpec": {
+              "lines": [
+                "# Real-World Scenarios\n",
+                "\n"
+              ]
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 0,
+            "width": 6,
+            "height": 1
+          }
+        },
+        {
+          "widget": {
+            "name": "34e082c5",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "7be39bb8",
+                  "fields": [
+                    {
+                      "name": "rwpath",
+                      "expression": "`rwpath`"
+                    },
+                    {
+                      "name": "Month",
+                      "expression": "`Month`"
+                    },
+                    {
+                      "name": "cumulativeReturn",
+                      "expression": "`cumulativeReturn`"
+                    }
+                  ],
+                  "disaggregated": true
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "line",
+              "encodings": {
+                "x": {
+                  "fieldName": "Month",
+                  "scale": {
+                    "type": "quantitative"
+                  },
+                  "displayName": "Month"
+                },
+                "y": {
+                  "fieldName": "cumulativeReturn",
+                  "scale": {
+                    "type": "quantitative"
+                  },
+                  "displayName": "cumulativeReturn"
+                },
+                "color": {
+                  "fieldName": "rwpath",
+                  "scale": {
+                    "type": "categorical"
+                  },
+                  "displayName": "rwpath"
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "title": ""
+              }
+            }
+          },
+          "position": {
+            "x": 1,
+            "y": 1,
+            "width": 5,
+            "height": 6
+          }
+        },
+        {
+          "widget": {
+            "name": "7d86550f",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "7be39bb8",
+                  "fields": [
+                    {
+                      "name": "Month",
+                      "expression": "`Month`"
+                    },
+                    {
+                      "name": "min(cumulativeReturn)",
+                      "expression": "MIN(`cumulativeReturn`)"
+                    },
+                    {
+                      "name": "percentile(cumulativeReturn, percentage=0_25)",
+                      "expression": "PERCENTILE(`cumulativeReturn`, 0.25)"
+                    },
+                    {
+                      "name": "median(cumulativeReturn)",
+                      "expression": "MEDIAN(`cumulativeReturn`)"
+                    },
+                    {
+                      "name": "percentile(cumulativeReturn, percentage=0_75)",
+                      "expression": "PERCENTILE(`cumulativeReturn`, 0.75)"
+                    },
+                    {
+                      "name": "max(cumulativeReturn)",
+                      "expression": "MAX(`cumulativeReturn`)"
+                    },
+                    {
+                      "name": "stddev(cumulativeReturn)",
+                      "expression": "STDDEV(`cumulativeReturn`)"
+                    }
+                  ],
+                  "filters": [
+                    {
+                      "expression": "`Month` IN (120, 240, 360)"
+                    }
+                  ],
+                  "cubeGroupingSets": {
+                    "sets": [
+                      {},
+                      {
+                        "fieldNames": [
+                          "Month"
+                        ]
+                      }
+                    ]
+                  },
+                  "disaggregated": false,
+                  "orders": [
+                    {
+                      "direction": "ASC",
+                      "expression": "`Month`"
+                    }
+                  ]
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "pivot",
+              "encodings": {
+                "columns": [
+                  {
+                    "fieldName": "Month",
+                    "displayName": "Month"
+                  }
+                ],
+                "cell": {
+                  "type": "multi-cell",
+                  "fields": [
+                    {
+                      "fieldName": "min(cumulativeReturn)",
+                      "cellType": "text",
+                      "displayName": "Min"
+                    },
+                    {
+                      "fieldName": "percentile(cumulativeReturn, percentage=0_25)",
+                      "cellType": "text",
+                      "displayName": "1st Quantile"
+                    },
+                    {
+                      "fieldName": "median(cumulativeReturn)",
+                      "cellType": "text",
+                      "displayName": "Median"
+                    },
+                    {
+                      "fieldName": "percentile(cumulativeReturn, percentage=0_75)",
+                      "cellType": "text",
+                      "displayName": "3rd Quantile"
+                    },
+                    {
+                      "fieldName": "max(cumulativeReturn)",
+                      "cellType": "text",
+                      "displayName": "Max"
+                    },
+                    {
+                      "fieldName": "stddev(cumulativeReturn)",
+                      "cellType": "text",
+                      "displayName": "Std Dev"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 7,
+            "width": 3,
+            "height": 6
+          }
+        },
+        {
+          "widget": {
+            "name": "1edd2ec4",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "7be39bb8",
+                  "fields": [
+                    {
+                      "name": "min(cumulativeReturn)",
+                      "expression": "MIN(`cumulativeReturn`)"
+                    },
+                    {
+                      "name": "q1(cumulativeReturn)",
+                      "expression": "PERCENTILE(`cumulativeReturn`, 0.25)"
+                    },
+                    {
+                      "name": "median(cumulativeReturn)",
+                      "expression": "MEDIAN(`cumulativeReturn`)"
+                    },
+                    {
+                      "name": "q3(cumulativeReturn)",
+                      "expression": "PERCENTILE(`cumulativeReturn`, 0.75)"
+                    },
+                    {
+                      "name": "max(cumulativeReturn)",
+                      "expression": "MAX(`cumulativeReturn`)"
+                    }
+                  ],
+                  "filters": [
+                    {
+                      "expression": "`Month` IN (120)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "box",
+              "encodings": {
+                "y": {
+                  "whiskerStart": {
+                    "fieldName": "min(cumulativeReturn)",
+                    "displayName": "Minimum cumulativeReturn"
+                  },
+                  "boxStart": {
+                    "fieldName": "q1(cumulativeReturn)",
+                    "displayName": "First Quartile of cumulativeReturn"
+                  },
+                  "boxMid": {
+                    "fieldName": "median(cumulativeReturn)",
+                    "displayName": "Median of cumulativeReturn"
+                  },
+                  "boxEnd": {
+                    "fieldName": "q3(cumulativeReturn)",
+                    "displayName": "Third Quartile of cumulativeReturn"
+                  },
+                  "whiskerEnd": {
+                    "fieldName": "max(cumulativeReturn)",
+                    "displayName": "Maximum cumulativeReturn"
+                  },
+                  "axis": {
+                    "title": "cumulativeReturn"
+                  },
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                }
+              }
+            }
+          },
+          "position": {
+            "x": 3,
+            "y": 7,
+            "width": 1,
+            "height": 6
+          }
+        },
+        {
+          "widget": {
+            "name": "b310a5ad",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "7be39bb8",
+                  "fields": [
+                    {
+                      "name": "min(cumulativeReturn)",
+                      "expression": "MIN(`cumulativeReturn`)"
+                    },
+                    {
+                      "name": "q1(cumulativeReturn)",
+                      "expression": "PERCENTILE(`cumulativeReturn`, 0.25)"
+                    },
+                    {
+                      "name": "median(cumulativeReturn)",
+                      "expression": "MEDIAN(`cumulativeReturn`)"
+                    },
+                    {
+                      "name": "q3(cumulativeReturn)",
+                      "expression": "PERCENTILE(`cumulativeReturn`, 0.75)"
+                    },
+                    {
+                      "name": "max(cumulativeReturn)",
+                      "expression": "MAX(`cumulativeReturn`)"
+                    }
+                  ],
+                  "filters": [
+                    {
+                      "expression": "`Month` IN (240)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "box",
+              "encodings": {
+                "y": {
+                  "whiskerStart": {
+                    "fieldName": "min(cumulativeReturn)",
+                    "displayName": "Minimum cumulativeReturn"
+                  },
+                  "boxStart": {
+                    "fieldName": "q1(cumulativeReturn)",
+                    "displayName": "First Quartile of cumulativeReturn"
+                  },
+                  "boxMid": {
+                    "fieldName": "median(cumulativeReturn)",
+                    "displayName": "Median of cumulativeReturn"
+                  },
+                  "boxEnd": {
+                    "fieldName": "q3(cumulativeReturn)",
+                    "displayName": "Third Quartile of cumulativeReturn"
+                  },
+                  "whiskerEnd": {
+                    "fieldName": "max(cumulativeReturn)",
+                    "displayName": "Maximum cumulativeReturn"
+                  },
+                  "axis": {
+                    "title": "cumulativeReturn"
+                  },
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                }
+              }
+            }
+          },
+          "position": {
+            "x": 4,
+            "y": 7,
+            "width": 1,
+            "height": 6
+          }
+        },
+        {
+          "widget": {
+            "name": "f21c359e",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "7be39bb8",
+                  "fields": [
+                    {
+                      "name": "min(cumulativeReturn)",
+                      "expression": "MIN(`cumulativeReturn`)"
+                    },
+                    {
+                      "name": "q1(cumulativeReturn)",
+                      "expression": "PERCENTILE(`cumulativeReturn`, 0.25)"
+                    },
+                    {
+                      "name": "median(cumulativeReturn)",
+                      "expression": "MEDIAN(`cumulativeReturn`)"
+                    },
+                    {
+                      "name": "q3(cumulativeReturn)",
+                      "expression": "PERCENTILE(`cumulativeReturn`, 0.75)"
+                    },
+                    {
+                      "name": "max(cumulativeReturn)",
+                      "expression": "MAX(`cumulativeReturn`)"
+                    }
+                  ],
+                  "filters": [
+                    {
+                      "expression": "`Month` IN (360)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "box",
+              "encodings": {
+                "y": {
+                  "whiskerStart": {
+                    "fieldName": "min(cumulativeReturn)",
+                    "displayName": "Minimum cumulativeReturn"
+                  },
+                  "boxStart": {
+                    "fieldName": "q1(cumulativeReturn)",
+                    "displayName": "First Quartile of cumulativeReturn"
+                  },
+                  "boxMid": {
+                    "fieldName": "median(cumulativeReturn)",
+                    "displayName": "Median of cumulativeReturn"
+                  },
+                  "boxEnd": {
+                    "fieldName": "q3(cumulativeReturn)",
+                    "displayName": "Third Quartile of cumulativeReturn"
+                  },
+                  "whiskerEnd": {
+                    "fieldName": "max(cumulativeReturn)",
+                    "displayName": "Maximum cumulativeReturn"
+                  },
+                  "axis": {
+                    "title": "cumulativeReturn"
+                  },
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                }
+              }
+            }
+          },
+          "position": {
+            "x": 5,
+            "y": 7,
+            "width": 1,
+            "height": 6
+          }
+        },
+        {
+          "widget": {
+            "name": "70c5c966",
+            "queries": [
+              {
+                "name": "dashboards/01ef9fe0214e1e94955a36806d4a810d/datasets/01efa0a946af140cb9162f2e85b50033_Portfolio",
+                "query": {
+                  "datasetName": "7be39bb8",
+                  "fields": [
+                    {
+                      "name": "Portfolio",
+                      "expression": "`Portfolio`"
+                    },
+                    {
+                      "name": "Portfolio_associativity",
+                      "expression": "COUNT_IF(`associative_filter_predicate_group`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "widgetType": "filter-single-select",
+              "encodings": {
+                "fields": [
+                  {
+                    "fieldName": "Portfolio",
+                    "displayName": "Portfolio",
+                    "queryName": "dashboards/01ef9fe0214e1e94955a36806d4a810d/datasets/01efa0a946af140cb9162f2e85b50033_Portfolio"
+                  }
+                ]
+              },
+              "frame": {
+                "showTitle": true,
+                "title": ""
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 1,
+            "width": 1,
+            "height": 2
+          }
+        },
+        {
+          "widget": {
+            "name": "b5b25f74",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "7be39bb8",
+                  "fields": [
+                    {
+                      "name": "countdistinct(rwpath)",
+                      "expression": "COUNT(DISTINCT `rwpath`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "countdistinct(rwpath)",
+                  "displayName": "Count of Unique rwpath"
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "Num. of Scenarios"
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 3,
+            "width": 1,
+            "height": 2
+          }
+        },
+        {
+          "widget": {
+            "name": "dbc18010",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "7be39bb8",
+                  "fields": [
+                    {
+                      "name": "max(Month)",
+                      "expression": "MAX(`Month`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "max(Month)",
+                  "displayName": "Maximum Month"
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "Project horizon (months)"
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 5,
+            "width": 1,
+            "height": 2
+          }
+        }
+      ],
+      "pageType": "PAGE_TYPE_CANVAS"
+    },
+    {
+      "name": "738ff2c4",
+      "displayName": "Payoff Projection",
+      "layout": [
+        {
+          "widget": {
+            "name": "b5b0ae9f",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "62860eac",
+                  "fields": [
+                    {
+                      "name": "Portfolio",
+                      "expression": "`Portfolio`"
+                    },
+                    {
+                      "name": "Month",
+                      "expression": "`Month`"
+                    },
+                    {
+                      "name": "cumulativeReturn",
+                      "expression": "`cumulativeReturn`"
+                    }
+                  ],
+                  "disaggregated": true
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "line",
+              "encodings": {
+                "x": {
+                  "fieldName": "Month",
+                  "scale": {
+                    "type": "quantitative"
+                  },
+                  "displayName": "Month"
+                },
+                "y": {
+                  "fieldName": "cumulativeReturn",
+                  "scale": {
+                    "type": "quantitative"
+                  },
+                  "displayName": "cumulativeReturn"
+                },
+                "color": {
+                  "fieldName": "Portfolio",
+                  "scale": {
+                    "type": "categorical"
+                  },
+                  "displayName": "Portfolio"
+                }
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 27,
+            "width": 2,
+            "height": 7
+          }
+        },
+        {
+          "widget": {
+            "name": "d981932e",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "29545b54",
+                  "fields": [
+                    {
+                      "name": "rwpath",
+                      "expression": "`rwpath`"
+                    },
+                    {
+                      "name": "sum(sumPV)",
+                      "expression": "SUM(`sumPV`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "bar",
+              "encodings": {
+                "x": {
+                  "fieldName": "rwpath",
+                  "scale": {
+                    "type": "quantitative"
+                  },
+                  "displayName": "rwpath"
+                },
+                "y": {
+                  "fieldName": "sum(sumPV)",
+                  "scale": {
+                    "type": "quantitative"
+                  },
+                  "displayName": "Sum of sumPV"
+                }
+              }
+            }
+          },
+          "position": {
+            "x": 2,
+            "y": 19,
+            "width": 4,
+            "height": 7
+          }
+        },
+        {
+          "widget": {
+            "name": "555d6627",
+            "queries": [
+              {
+                "name": "dashboards/01f011626cec15748c95c05915f7419b/datasets/01f011626cec1acb86bc2877892cc531_productType",
+                "query": {
+                  "datasetName": "5099c69c",
+                  "fields": [
+                    {
+                      "name": "productType",
+                      "expression": "`productType`"
+                    },
+                    {
+                      "name": "productType_associativity",
+                      "expression": "COUNT_IF(`associative_filter_predicate_group`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              },
+              {
+                "name": "dashboards/01f011626cec15748c95c05915f7419b/datasets/01f011626cec1b21825257bf972d8fb2_productType",
+                "query": {
+                  "datasetName": "29545b54",
+                  "fields": [
+                    {
+                      "name": "productType",
+                      "expression": "`productType`"
+                    },
+                    {
+                      "name": "productType_associativity",
+                      "expression": "COUNT_IF(`associative_filter_predicate_group`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              },
+              {
+                "name": "parameter_dashboards/01f011626cec15748c95c05915f7419b/datasets/01f011626cec1b77881a9fb621ac4493_product_type",
+                "query": {
+                  "datasetName": "88772dbd",
+                  "parameters": [
+                    {
+                      "name": "product_type",
+                      "keyword": "product_type"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "widgetType": "filter-single-select",
+              "encodings": {
+                "fields": [
+                  {
+                    "parameterName": "product_type",
+                    "queryName": "parameter_dashboards/01f011626cec15748c95c05915f7419b/datasets/01f011626cec1b77881a9fb621ac4493_product_type"
+                  },
+                  {
+                    "fieldName": "productType",
+                    "displayName": "productType",
+                    "queryName": "dashboards/01f011626cec15748c95c05915f7419b/datasets/01f011626cec1acb86bc2877892cc531_productType"
+                  },
+                  {
+                    "fieldName": "productType",
+                    "displayName": "productType",
+                    "queryName": "dashboards/01f011626cec15748c95c05915f7419b/datasets/01f011626cec1b21825257bf972d8fb2_productType"
+                  }
+                ]
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "Product Type"
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 10,
+            "width": 2,
+            "height": 2
+          }
+        },
+        {
+          "widget": {
+            "name": "c2461cb0",
+            "queries": [
+              {
+                "name": "dashboards/01ef9fe0214e1e94955a36806d4a810d/datasets/01efa044e5951043836bc951059777fa_rwpath",
+                "query": {
+                  "datasetName": "62860eac",
+                  "fields": [
+                    {
+                      "name": "rwpath",
+                      "expression": "`rwpath`"
+                    },
+                    {
+                      "name": "rwpath_associativity",
+                      "expression": "COUNT_IF(`associative_filter_predicate_group`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "widgetType": "filter-single-select",
+              "encodings": {
+                "fields": [
+                  {
+                    "fieldName": "rwpath",
+                    "displayName": "rwpath",
+                    "queryName": "dashboards/01ef9fe0214e1e94955a36806d4a810d/datasets/01efa044e5951043836bc951059777fa_rwpath"
+                  }
+                ]
+              },
+              "frame": {
+                "showTitle": true,
+                "title": ""
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 26,
+            "width": 2,
+            "height": 1
+          }
+        },
+        {
+          "widget": {
+            "name": "62234131",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "88772dbd",
+                  "fields": [
+                    {
+                      "name": "avg(pv_payoff)",
+                      "expression": "AVG(`pv_payoff`)"
+                    }
+                  ],
+                  "filters": [
+                    {
+                      "expression": "`in_top_pct` IN (TRUE)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "avg(pv_payoff)",
+                  "format": {
+                    "type": "number-currency",
+                    "currencyCode": "USD",
+                    "abbreviation": "compact",
+                    "decimalPlaces": {
+                      "type": "max",
+                      "places": 2
+                    }
+                  },
+                  "displayName": "Average pv_payoff"
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "CTE PV of Rider Payoff"
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 13,
+            "width": 2,
+            "height": 3
+          }
+        },
+        {
+          "widget": {
+            "name": "e0cbd807",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "5099c69c",
+                  "fields": [
+                    {
+                      "name": "sum(AssetValue)",
+                      "expression": "SUM(`AssetValue`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "sum(AssetValue)",
+                  "format": {
+                    "type": "number-currency",
+                    "currencyCode": "USD",
+                    "abbreviation": "compact",
+                    "decimalPlaces": {
+                      "type": "max",
+                      "places": 2
+                    }
+                  },
+                  "displayName": "Sum of AssetValue"
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "Fund Value at T0"
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 16,
+            "width": 2,
+            "height": 3
+          }
+        },
+        {
+          "widget": {
+            "name": "f800d47d",
+            "queries": [
+              {
+                "name": "parameter_dashboards/01f011626cec15748c95c05915f7419b/datasets/01f011626cec1b77881a9fb621ac4493_var_pct",
+                "query": {
+                  "datasetName": "88772dbd",
+                  "parameters": [
+                    {
+                      "name": "var_pct",
+                      "keyword": "var_pct"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "widgetType": "filter-single-select",
+              "encodings": {
+                "fields": [
+                  {
+                    "parameterName": "var_pct",
+                    "queryName": "parameter_dashboards/01f011626cec15748c95c05915f7419b/datasets/01f011626cec1b77881a9fb621ac4493_var_pct"
+                  }
+                ]
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "CTE"
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 12,
+            "width": 2,
+            "height": 1
+          }
+        },
+        {
+          "widget": {
+            "name": "4df0beeb",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "88772dbd",
+                  "fields": [
+                    {
+                      "name": "rank",
+                      "expression": "`rank`"
+                    },
+                    {
+                      "name": "rwpath",
+                      "expression": "`rwpath`"
+                    },
+                    {
+                      "name": "pv_payoff",
+                      "expression": "`pv_payoff`"
+                    }
+                  ],
+                  "filters": [
+                    {
+                      "expression": "`in_top_pct` IN (TRUE)"
+                    }
+                  ],
+                  "disaggregated": true
+                }
+              }
+            ],
+            "spec": {
+              "version": 1,
+              "widgetType": "table",
+              "encodings": {
+                "columns": [
+                  {
+                    "fieldName": "rank",
+                    "numberFormat": "0",
+                    "booleanValues": [
+                      "false",
+                      "true"
+                    ],
+                    "imageUrlTemplate": "{{ @ }}",
+                    "imageTitleTemplate": "{{ @ }}",
+                    "imageWidth": "",
+                    "imageHeight": "",
+                    "linkUrlTemplate": "{{ @ }}",
+                    "linkTextTemplate": "{{ @ }}",
+                    "linkTitleTemplate": "{{ @ }}",
+                    "linkOpenInNewTab": true,
+                    "type": "integer",
+                    "displayAs": "number",
+                    "visible": true,
+                    "order": 0,
+                    "title": "rank",
+                    "allowSearch": false,
+                    "alignContent": "right",
+                    "allowHTML": false,
+                    "highlightLinks": false,
+                    "useMonospaceFont": false,
+                    "preserveWhitespace": false,
+                    "displayName": "rank"
+                  },
+                  {
+                    "fieldName": "rwpath",
+                    "numberFormat": "0",
+                    "booleanValues": [
+                      "false",
+                      "true"
+                    ],
+                    "imageUrlTemplate": "{{ @ }}",
+                    "imageTitleTemplate": "{{ @ }}",
+                    "imageWidth": "",
+                    "imageHeight": "",
+                    "linkUrlTemplate": "{{ @ }}",
+                    "linkTextTemplate": "{{ @ }}",
+                    "linkTitleTemplate": "{{ @ }}",
+                    "linkOpenInNewTab": true,
+                    "type": "integer",
+                    "displayAs": "number",
+                    "visible": true,
+                    "order": 1,
+                    "title": "rwpath",
+                    "allowSearch": false,
+                    "alignContent": "right",
+                    "allowHTML": false,
+                    "highlightLinks": false,
+                    "useMonospaceFont": false,
+                    "preserveWhitespace": false,
+                    "displayName": "rwpath"
+                  },
+                  {
+                    "fieldName": "pv_payoff",
+                    "numberFormat": "‘0.0a’",
+                    "booleanValues": [
+                      "false",
+                      "true"
+                    ],
+                    "imageUrlTemplate": "{{ @ }}",
+                    "imageTitleTemplate": "{{ @ }}",
+                    "imageWidth": "",
+                    "imageHeight": "",
+                    "linkUrlTemplate": "{{ @ }}",
+                    "linkTextTemplate": "{{ @ }}",
+                    "linkTitleTemplate": "{{ @ }}",
+                    "linkOpenInNewTab": true,
+                    "type": "float",
+                    "displayAs": "number",
+                    "visible": true,
+                    "order": 2,
+                    "title": "pv_payoff",
+                    "allowSearch": false,
+                    "alignContent": "right",
+                    "allowHTML": false,
+                    "highlightLinks": false,
+                    "useMonospaceFont": false,
+                    "preserveWhitespace": false,
+                    "cellFormat": {
+                      "default": {
+                        "foregroundColor": null
+                      },
+                      "rules": []
+                    },
+                    "displayName": "pv_payoff"
+                  }
+                ]
+              },
+              "invisibleColumns": [
+                {
+                  "booleanValues": [
+                    "false",
+                    "true"
+                  ],
+                  "imageUrlTemplate": "{{ @ }}",
+                  "imageTitleTemplate": "{{ @ }}",
+                  "imageWidth": "",
+                  "imageHeight": "",
+                  "linkUrlTemplate": "{{ @ }}",
+                  "linkTextTemplate": "{{ @ }}",
+                  "linkTitleTemplate": "{{ @ }}",
+                  "linkOpenInNewTab": true,
+                  "name": "in_top_pct",
+                  "type": "boolean",
+                  "displayAs": "boolean",
+                  "order": 3,
+                  "title": "in_top_pct",
+                  "allowSearch": false,
+                  "alignContent": "right",
+                  "allowHTML": false,
+                  "highlightLinks": false,
+                  "useMonospaceFont": false,
+                  "preserveWhitespace": false
+                }
+              ],
+              "allowHTMLByDefault": false,
+              "itemsPerPage": 25,
+              "paginationSize": "default",
+              "condensed": true,
+              "withRowNumber": false,
+              "frame": {
+                "showTitle": true,
+                "title": "Worst Scenarios"
+              }
+            }
+          },
+          "position": {
+            "x": 2,
+            "y": 10,
+            "width": 2,
+            "height": 9
+          }
+        },
+        {
+          "widget": {
+            "name": "d6e516a8",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "88772dbd",
+                  "fields": [
+                    {
+                      "name": "rank",
+                      "expression": "`rank`"
+                    },
+                    {
+                      "name": "rwpath",
+                      "expression": "`rwpath`"
+                    },
+                    {
+                      "name": "pv_payoff",
+                      "expression": "`pv_payoff`"
+                    },
+                    {
+                      "name": "in_top_pct",
+                      "expression": "`in_top_pct`"
+                    }
+                  ],
+                  "filters": [
+                    {
+                      "expression": "`rank` IN (500, 499, 498, 497, 496, 495, 494, 493, 492, 491, 490, 489, 488, 487, 486, 485)"
+                    }
+                  ],
+                  "disaggregated": true
+                }
+              }
+            ],
+            "spec": {
+              "version": 1,
+              "widgetType": "table",
+              "encodings": {
+                "columns": [
+                  {
+                    "fieldName": "rank",
+                    "numberFormat": "0",
+                    "booleanValues": [
+                      "false",
+                      "true"
+                    ],
+                    "imageUrlTemplate": "{{ @ }}",
+                    "imageTitleTemplate": "{{ @ }}",
+                    "imageWidth": "",
+                    "imageHeight": "",
+                    "linkUrlTemplate": "{{ @ }}",
+                    "linkTextTemplate": "{{ @ }}",
+                    "linkTitleTemplate": "{{ @ }}",
+                    "linkOpenInNewTab": true,
+                    "type": "integer",
+                    "displayAs": "number",
+                    "visible": true,
+                    "order": 0,
+                    "title": "rank",
+                    "allowSearch": false,
+                    "alignContent": "right",
+                    "allowHTML": false,
+                    "highlightLinks": false,
+                    "useMonospaceFont": false,
+                    "preserveWhitespace": false,
+                    "displayName": "rank"
+                  },
+                  {
+                    "fieldName": "rwpath",
+                    "numberFormat": "0",
+                    "booleanValues": [
+                      "false",
+                      "true"
+                    ],
+                    "imageUrlTemplate": "{{ @ }}",
+                    "imageTitleTemplate": "{{ @ }}",
+                    "imageWidth": "",
+                    "imageHeight": "",
+                    "linkUrlTemplate": "{{ @ }}",
+                    "linkTextTemplate": "{{ @ }}",
+                    "linkTitleTemplate": "{{ @ }}",
+                    "linkOpenInNewTab": true,
+                    "type": "integer",
+                    "displayAs": "number",
+                    "visible": true,
+                    "order": 1,
+                    "title": "rwpath",
+                    "allowSearch": false,
+                    "alignContent": "right",
+                    "allowHTML": false,
+                    "highlightLinks": false,
+                    "useMonospaceFont": false,
+                    "preserveWhitespace": false,
+                    "displayName": "rwpath"
+                  },
+                  {
+                    "fieldName": "pv_payoff",
+                    "numberFormat": "‘0.0a’",
+                    "booleanValues": [
+                      "false",
+                      "true"
+                    ],
+                    "imageUrlTemplate": "{{ @ }}",
+                    "imageTitleTemplate": "{{ @ }}",
+                    "imageWidth": "",
+                    "imageHeight": "",
+                    "linkUrlTemplate": "{{ @ }}",
+                    "linkTextTemplate": "{{ @ }}",
+                    "linkTitleTemplate": "{{ @ }}",
+                    "linkOpenInNewTab": true,
+                    "type": "float",
+                    "displayAs": "number",
+                    "visible": true,
+                    "order": 2,
+                    "title": "pv_payoff",
+                    "allowSearch": false,
+                    "alignContent": "right",
+                    "allowHTML": false,
+                    "highlightLinks": false,
+                    "useMonospaceFont": false,
+                    "preserveWhitespace": false,
+                    "cellFormat": {
+                      "default": {
+                        "foregroundColor": null
+                      },
+                      "rules": []
+                    },
+                    "displayName": "pv_payoff"
+                  },
+                  {
+                    "fieldName": "in_top_pct",
+                    "booleanValues": [
+                      "false",
+                      "true"
+                    ],
+                    "imageUrlTemplate": "{{ @ }}",
+                    "imageTitleTemplate": "{{ @ }}",
+                    "imageWidth": "",
+                    "imageHeight": "",
+                    "linkUrlTemplate": "{{ @ }}",
+                    "linkTextTemplate": "{{ @ }}",
+                    "linkTitleTemplate": "{{ @ }}",
+                    "linkOpenInNewTab": true,
+                    "type": "boolean",
+                    "displayAs": "boolean",
+                    "visible": true,
+                    "order": 3,
+                    "title": "in_top_pct",
+                    "allowSearch": false,
+                    "alignContent": "right",
+                    "allowHTML": false,
+                    "highlightLinks": false,
+                    "useMonospaceFont": false,
+                    "preserveWhitespace": false,
+                    "cellFormat": {
+                      "default": {
+                        "foregroundColor": null
+                      },
+                      "rules": []
+                    },
+                    "displayName": "in_top_pct"
+                  }
+                ]
+              },
+              "invisibleColumns": [],
+              "allowHTMLByDefault": false,
+              "itemsPerPage": 25,
+              "paginationSize": "default",
+              "condensed": true,
+              "withRowNumber": false,
+              "frame": {
+                "showTitle": true,
+                "title": "Best Scenarios"
+              }
+            }
+          },
+          "position": {
+            "x": 4,
+            "y": 10,
+            "width": 2,
+            "height": 9
+          }
+        },
+        {
+          "widget": {
+            "name": "c706579c",
+            "queries": [
+              {
+                "name": "dashboards/01f011626cec15748c95c05915f7419b/datasets/01f011626cec1b90b26e25d28a882a8d_rwpath",
+                "query": {
+                  "datasetName": "6be58135",
+                  "fields": [
+                    {
+                      "name": "rwpath",
+                      "expression": "`rwpath`"
+                    },
+                    {
+                      "name": "rwpath_associativity",
+                      "expression": "COUNT_IF(`associative_filter_predicate_group`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "widgetType": "filter-single-select",
+              "encodings": {
+                "fields": [
+                  {
+                    "fieldName": "rwpath",
+                    "displayName": "rwpath",
+                    "queryName": "dashboards/01f011626cec15748c95c05915f7419b/datasets/01f011626cec1b90b26e25d28a882a8d_rwpath"
+                  }
+                ]
+              },
+              "frame": {
+                "showTitle": true,
+                "title": ""
+              }
+            }
+          },
+          "position": {
+            "x": 2,
+            "y": 26,
+            "width": 2,
+            "height": 1
+          }
+        },
+        {
+          "widget": {
+            "name": "81133243",
+            "queries": [
+              {
+                "name": "dashboards/01ef9fe0214e1e94955a36806d4a810d/datasets/01efa1256df4171c9c7432c3dc7a7a67_rwpath",
+                "query": {
+                  "datasetName": "2c15fe9d",
+                  "fields": [
+                    {
+                      "name": "rwpath",
+                      "expression": "`rwpath`"
+                    },
+                    {
+                      "name": "rwpath_associativity",
+                      "expression": "COUNT_IF(`associative_filter_predicate_group`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "widgetType": "filter-single-select",
+              "encodings": {
+                "fields": [
+                  {
+                    "fieldName": "rwpath",
+                    "displayName": "rwpath",
+                    "queryName": "dashboards/01ef9fe0214e1e94955a36806d4a810d/datasets/01efa1256df4171c9c7432c3dc7a7a67_rwpath"
+                  }
+                ]
+              },
+              "frame": {
+                "showTitle": true,
+                "title": ""
+              }
+            }
+          },
+          "position": {
+            "x": 4,
+            "y": 26,
+            "width": 2,
+            "height": 1
+          }
+        },
+        {
+          "widget": {
+            "name": "9db00b80",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "6be58135",
+                  "fields": [
+                    {
+                      "name": "Portfolio",
+                      "expression": "`Portfolio`"
+                    },
+                    {
+                      "name": "Month",
+                      "expression": "`Month`"
+                    },
+                    {
+                      "name": "cumulativeReturn",
+                      "expression": "`cumulativeReturn`"
+                    }
+                  ],
+                  "disaggregated": true
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "line",
+              "encodings": {
+                "x": {
+                  "fieldName": "Month",
+                  "scale": {
+                    "type": "quantitative"
+                  },
+                  "displayName": "Month"
+                },
+                "y": {
+                  "fieldName": "cumulativeReturn",
+                  "scale": {
+                    "type": "quantitative"
+                  },
+                  "displayName": "cumulativeReturn"
+                },
+                "color": {
+                  "fieldName": "Portfolio",
+                  "scale": {
+                    "type": "categorical"
+                  },
+                  "displayName": "Portfolio"
+                }
+              }
+            }
+          },
+          "position": {
+            "x": 2,
+            "y": 27,
+            "width": 2,
+            "height": 7
+          }
+        },
+        {
+          "widget": {
+            "name": "2140dc2e",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "2c15fe9d",
+                  "fields": [
+                    {
+                      "name": "Portfolio",
+                      "expression": "`Portfolio`"
+                    },
+                    {
+                      "name": "Month",
+                      "expression": "`Month`"
+                    },
+                    {
+                      "name": "cumulativeReturn",
+                      "expression": "`cumulativeReturn`"
+                    }
+                  ],
+                  "disaggregated": true
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "line",
+              "encodings": {
+                "x": {
+                  "fieldName": "Month",
+                  "scale": {
+                    "type": "quantitative"
+                  },
+                  "displayName": "Month"
+                },
+                "y": {
+                  "fieldName": "cumulativeReturn",
+                  "scale": {
+                    "type": "quantitative"
+                  },
+                  "displayName": "cumulativeReturn"
+                },
+                "color": {
+                  "fieldName": "Portfolio",
+                  "scale": {
+                    "type": "categorical"
+                  },
+                  "displayName": "Portfolio"
+                }
+              }
+            }
+          },
+          "position": {
+            "x": 4,
+            "y": 27,
+            "width": 2,
+            "height": 7
+          }
+        },
+        {
+          "widget": {
+            "name": "f267f524",
+            "multilineTextboxSpec": {
+              "lines": [
+                "# Projected Rider Payoffs\n",
+                "Rider payoff is calculated as guarantee benefits payout (death benefits and living benefit), minus rider chargers. CTE of the present value of rider payoffs are determined at a product level.\n",
+                "Values are rounded to the nearest million, and floored at zero."
+              ]
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 0,
+            "width": 6,
+            "height": 2
+          }
+        },
+        {
+          "widget": {
+            "name": "6293b32e",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "7cba9100",
+                  "fields": [
+                    {
+                      "name": "Month",
+                      "expression": "`Month`"
+                    },
+                    {
+                      "name": "DiscFactor",
+                      "expression": "`DiscFactor`"
+                    }
+                  ],
+                  "disaggregated": true
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "area",
+              "encodings": {
+                "x": {
+                  "fieldName": "Month",
+                  "scale": {
+                    "type": "quantitative"
+                  },
+                  "displayName": "Month"
+                },
+                "y": {
+                  "fieldName": "DiscFactor",
+                  "scale": {
+                    "type": "quantitative"
+                  },
+                  "displayName": "DiscFactor"
+                }
+              },
+              "frame": {
+                "title": "Discount Factors",
+                "showTitle": true
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 19,
+            "width": 2,
+            "height": 7
+          }
+        },
+        {
+          "widget": {
+            "name": "609e5ded",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "5f0b4736",
+                  "fields": [
+                    {
+                      "name": "productType",
+                      "expression": "`productType`"
+                    },
+                    {
+                      "name": "CTE_75",
+                      "expression": "`CTE_75`"
+                    }
+                  ],
+                  "disaggregated": true
+                }
+              }
+            ],
+            "spec": {
+              "version": 1,
+              "widgetType": "table",
+              "encodings": {
+                "columns": [
+                  {
+                    "fieldName": "productType",
+                    "booleanValues": [
+                      "false",
+                      "true"
+                    ],
+                    "imageUrlTemplate": "{{ @ }}",
+                    "imageTitleTemplate": "{{ @ }}",
+                    "imageWidth": "",
+                    "imageHeight": "",
+                    "linkUrlTemplate": "{{ @ }}",
+                    "linkTextTemplate": "{{ @ }}",
+                    "linkTitleTemplate": "{{ @ }}",
+                    "linkOpenInNewTab": true,
+                    "type": "string",
+                    "displayAs": "string",
+                    "visible": true,
+                    "order": 100000,
+                    "title": "productType",
+                    "allowSearch": false,
+                    "alignContent": "left",
+                    "allowHTML": false,
+                    "highlightLinks": false,
+                    "useMonospaceFont": false,
+                    "preserveWhitespace": false,
+                    "displayName": "productType"
+                  },
+                  {
+                    "fieldName": "CTE_75",
+                    "numberFormat": "0,0",
+                    "booleanValues": [
+                      "false",
+                      "true"
+                    ],
+                    "imageUrlTemplate": "{{ @ }}",
+                    "imageTitleTemplate": "{{ @ }}",
+                    "imageWidth": "",
+                    "imageHeight": "",
+                    "linkUrlTemplate": "{{ @ }}",
+                    "linkTextTemplate": "{{ @ }}",
+                    "linkTitleTemplate": "{{ @ }}",
+                    "linkOpenInNewTab": true,
+                    "type": "float",
+                    "displayAs": "number",
+                    "visible": true,
+                    "order": 100001,
+                    "title": "Payoffs",
+                    "allowSearch": false,
+                    "alignContent": "right",
+                    "allowHTML": false,
+                    "highlightLinks": false,
+                    "useMonospaceFont": false,
+                    "preserveWhitespace": false,
+                    "displayName": "CTE_75"
+                  }
+                ]
+              },
+              "invisibleColumns": [
+                {
+                  "numberFormat": "0.0a",
+                  "booleanValues": [
+                    "false",
+                    "true"
+                  ],
+                  "imageUrlTemplate": "{{ @ }}",
+                  "imageTitleTemplate": "{{ @ }}",
+                  "imageWidth": "",
+                  "imageHeight": "",
+                  "linkUrlTemplate": "{{ @ }}",
+                  "linkTextTemplate": "{{ @ }}",
+                  "linkTitleTemplate": "{{ @ }}",
+                  "linkOpenInNewTab": true,
+                  "name": "CTE_90",
+                  "type": "float",
+                  "displayAs": "number",
+                  "order": 100002,
+                  "title": "CTE_90",
+                  "allowSearch": false,
+                  "alignContent": "right",
+                  "allowHTML": false,
+                  "highlightLinks": false,
+                  "useMonospaceFont": false,
+                  "preserveWhitespace": false
+                },
+                {
+                  "numberFormat": "0.00",
+                  "booleanValues": [
+                    "false",
+                    "true"
+                  ],
+                  "imageUrlTemplate": "{{ @ }}",
+                  "imageTitleTemplate": "{{ @ }}",
+                  "imageWidth": "",
+                  "imageHeight": "",
+                  "linkUrlTemplate": "{{ @ }}",
+                  "linkTextTemplate": "{{ @ }}",
+                  "linkTitleTemplate": "{{ @ }}",
+                  "linkOpenInNewTab": true,
+                  "name": "CTE_95",
+                  "type": "float",
+                  "displayAs": "number",
+                  "order": 100003,
+                  "title": "CTE_95",
+                  "allowSearch": false,
+                  "alignContent": "right",
+                  "allowHTML": false,
+                  "highlightLinks": false,
+                  "useMonospaceFont": false,
+                  "preserveWhitespace": false
+                }
+              ],
+              "allowHTMLByDefault": false,
+              "itemsPerPage": 25,
+              "paginationSize": "default",
+              "condensed": true,
+              "withRowNumber": false,
+              "frame": {
+                "showTitle": true,
+                "title": "CTE 75"
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 2,
+            "width": 2,
+            "height": 7
+          }
+        },
+        {
+          "widget": {
+            "name": "07bd748b",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "5f0b4736",
+                  "fields": [
+                    {
+                      "name": "productType",
+                      "expression": "`productType`"
+                    },
+                    {
+                      "name": "CTE_90",
+                      "expression": "`CTE_90`"
+                    }
+                  ],
+                  "disaggregated": true
+                }
+              }
+            ],
+            "spec": {
+              "version": 1,
+              "widgetType": "table",
+              "encodings": {
+                "columns": [
+                  {
+                    "fieldName": "productType",
+                    "booleanValues": [
+                      "false",
+                      "true"
+                    ],
+                    "imageUrlTemplate": "{{ @ }}",
+                    "imageTitleTemplate": "{{ @ }}",
+                    "imageWidth": "",
+                    "imageHeight": "",
+                    "linkUrlTemplate": "{{ @ }}",
+                    "linkTextTemplate": "{{ @ }}",
+                    "linkTitleTemplate": "{{ @ }}",
+                    "linkOpenInNewTab": true,
+                    "type": "string",
+                    "displayAs": "string",
+                    "visible": true,
+                    "order": 100000,
+                    "title": "productType",
+                    "allowSearch": false,
+                    "alignContent": "left",
+                    "allowHTML": false,
+                    "highlightLinks": false,
+                    "useMonospaceFont": false,
+                    "preserveWhitespace": false,
+                    "displayName": "productType"
+                  },
+                  {
+                    "fieldName": "CTE_90",
+                    "numberFormat": "0,0",
+                    "booleanValues": [
+                      "false",
+                      "true"
+                    ],
+                    "imageUrlTemplate": "{{ @ }}",
+                    "imageTitleTemplate": "{{ @ }}",
+                    "imageWidth": "",
+                    "imageHeight": "",
+                    "linkUrlTemplate": "{{ @ }}",
+                    "linkTextTemplate": "{{ @ }}",
+                    "linkTitleTemplate": "{{ @ }}",
+                    "linkOpenInNewTab": true,
+                    "type": "float",
+                    "displayAs": "number",
+                    "visible": true,
+                    "order": 100002,
+                    "title": "Payoffs",
+                    "allowSearch": false,
+                    "alignContent": "right",
+                    "allowHTML": false,
+                    "highlightLinks": false,
+                    "useMonospaceFont": false,
+                    "preserveWhitespace": false,
+                    "displayName": "CTE_90"
+                  }
+                ]
+              },
+              "invisibleColumns": [
+                {
+                  "numberFormat": "0.00",
+                  "booleanValues": [
+                    "false",
+                    "true"
+                  ],
+                  "imageUrlTemplate": "{{ @ }}",
+                  "imageTitleTemplate": "{{ @ }}",
+                  "imageWidth": "",
+                  "imageHeight": "",
+                  "linkUrlTemplate": "{{ @ }}",
+                  "linkTextTemplate": "{{ @ }}",
+                  "linkTitleTemplate": "{{ @ }}",
+                  "linkOpenInNewTab": true,
+                  "name": "CTE_75",
+                  "type": "float",
+                  "displayAs": "number",
+                  "order": 100001,
+                  "title": "CTE_75",
+                  "allowSearch": false,
+                  "alignContent": "right",
+                  "allowHTML": false,
+                  "highlightLinks": false,
+                  "useMonospaceFont": false,
+                  "preserveWhitespace": false
+                },
+                {
+                  "numberFormat": "0.00",
+                  "booleanValues": [
+                    "false",
+                    "true"
+                  ],
+                  "imageUrlTemplate": "{{ @ }}",
+                  "imageTitleTemplate": "{{ @ }}",
+                  "imageWidth": "",
+                  "imageHeight": "",
+                  "linkUrlTemplate": "{{ @ }}",
+                  "linkTextTemplate": "{{ @ }}",
+                  "linkTitleTemplate": "{{ @ }}",
+                  "linkOpenInNewTab": true,
+                  "name": "CTE_95",
+                  "type": "float",
+                  "displayAs": "number",
+                  "order": 100003,
+                  "title": "CTE_95",
+                  "allowSearch": false,
+                  "alignContent": "right",
+                  "allowHTML": false,
+                  "highlightLinks": false,
+                  "useMonospaceFont": false,
+                  "preserveWhitespace": false
+                }
+              ],
+              "allowHTMLByDefault": false,
+              "itemsPerPage": 25,
+              "paginationSize": "default",
+              "condensed": true,
+              "withRowNumber": false,
+              "frame": {
+                "showTitle": true,
+                "title": "CTE 90"
+              }
+            }
+          },
+          "position": {
+            "x": 2,
+            "y": 2,
+            "width": 2,
+            "height": 7
+          }
+        },
+        {
+          "widget": {
+            "name": "c5b92db8",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "5f0b4736",
+                  "fields": [
+                    {
+                      "name": "productType",
+                      "expression": "`productType`"
+                    },
+                    {
+                      "name": "CTE_95",
+                      "expression": "`CTE_95`"
+                    }
+                  ],
+                  "disaggregated": true
+                }
+              }
+            ],
+            "spec": {
+              "version": 1,
+              "widgetType": "table",
+              "encodings": {
+                "columns": [
+                  {
+                    "fieldName": "productType",
+                    "booleanValues": [
+                      "false",
+                      "true"
+                    ],
+                    "imageUrlTemplate": "{{ @ }}",
+                    "imageTitleTemplate": "{{ @ }}",
+                    "imageWidth": "",
+                    "imageHeight": "",
+                    "linkUrlTemplate": "{{ @ }}",
+                    "linkTextTemplate": "{{ @ }}",
+                    "linkTitleTemplate": "{{ @ }}",
+                    "linkOpenInNewTab": true,
+                    "type": "string",
+                    "displayAs": "string",
+                    "visible": true,
+                    "order": 0,
+                    "title": "productType",
+                    "allowSearch": false,
+                    "alignContent": "left",
+                    "allowHTML": false,
+                    "highlightLinks": false,
+                    "useMonospaceFont": false,
+                    "preserveWhitespace": false,
+                    "displayName": "productType"
+                  },
+                  {
+                    "fieldName": "CTE_95",
+                    "numberFormat": "0,0",
+                    "booleanValues": [
+                      "false",
+                      "true"
+                    ],
+                    "imageUrlTemplate": "{{ @ }}",
+                    "imageTitleTemplate": "{{ @ }}",
+                    "imageWidth": "",
+                    "imageHeight": "",
+                    "linkUrlTemplate": "{{ @ }}",
+                    "linkTextTemplate": "{{ @ }}",
+                    "linkTitleTemplate": "{{ @ }}",
+                    "linkOpenInNewTab": true,
+                    "type": "float",
+                    "displayAs": "number",
+                    "visible": true,
+                    "order": 3,
+                    "title": "Payoffs",
+                    "allowSearch": false,
+                    "alignContent": "right",
+                    "allowHTML": false,
+                    "highlightLinks": false,
+                    "useMonospaceFont": false,
+                    "preserveWhitespace": false,
+                    "displayName": "CTE_95"
+                  }
+                ]
+              },
+              "invisibleColumns": [
+                {
+                  "numberFormat": "000,000.00",
+                  "booleanValues": [
+                    "false",
+                    "true"
+                  ],
+                  "imageUrlTemplate": "{{ @ }}",
+                  "imageTitleTemplate": "{{ @ }}",
+                  "imageWidth": "",
+                  "imageHeight": "",
+                  "linkUrlTemplate": "{{ @ }}",
+                  "linkTextTemplate": "{{ @ }}",
+                  "linkTitleTemplate": "{{ @ }}",
+                  "linkOpenInNewTab": true,
+                  "name": "CTE_90",
+                  "type": "float",
+                  "displayAs": "number",
+                  "order": 1,
+                  "title": "CTE_90",
+                  "allowSearch": false,
+                  "alignContent": "right",
+                  "allowHTML": false,
+                  "highlightLinks": false,
+                  "useMonospaceFont": false,
+                  "preserveWhitespace": false
+                },
+                {
+                  "numberFormat": "0.00",
+                  "booleanValues": [
+                    "false",
+                    "true"
+                  ],
+                  "imageUrlTemplate": "{{ @ }}",
+                  "imageTitleTemplate": "{{ @ }}",
+                  "imageWidth": "",
+                  "imageHeight": "",
+                  "linkUrlTemplate": "{{ @ }}",
+                  "linkTextTemplate": "{{ @ }}",
+                  "linkTitleTemplate": "{{ @ }}",
+                  "linkOpenInNewTab": true,
+                  "name": "CTE_75",
+                  "type": "float",
+                  "displayAs": "number",
+                  "order": 2,
+                  "title": "CTE_75",
+                  "allowSearch": false,
+                  "alignContent": "right",
+                  "allowHTML": false,
+                  "highlightLinks": false,
+                  "useMonospaceFont": false,
+                  "preserveWhitespace": false
+                }
+              ],
+              "allowHTMLByDefault": false,
+              "itemsPerPage": 25,
+              "paginationSize": "default",
+              "condensed": true,
+              "withRowNumber": false,
+              "frame": {
+                "showTitle": true,
+                "title": "CTE 95"
+              }
+            }
+          },
+          "position": {
+            "x": 4,
+            "y": 2,
+            "width": 2,
+            "height": 7
+          }
+        },
+        {
+          "widget": {
+            "name": "9d54af86",
+            "multilineTextboxSpec": {
+              "lines": [
+                "## Product-specific Payoffs"
+              ]
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 9,
+            "width": 6,
+            "height": 1
+          }
+        }
+      ],
+      "pageType": "PAGE_TYPE_CANVAS"
+    }
+  ],
+  "uiSettings": {
+    "theme": {
+      "widgetHeaderAlignment": "ALIGNMENT_UNSPECIFIED"
+    },
+    "genieSpace": {
+      "isEnabled": true,
+      "overrideId": "01f0bb43abcf19bdac413766c306041f",
+      "enablementMode": "ENABLED"
+    }
+  }
+}

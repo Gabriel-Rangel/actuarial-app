@@ -1,0 +1,11 @@
+productType,description,GMDB,GMIB,GMMB,GMWB
+DBRP,GMDB with return of premium,true,false,false,false
+IBRP,GMIB with return of premium,false,true,false,false
+IBSU,GMIB with annual ratchet,false,true,false,false
+DBIB,GMDB + GMIB with annual ratchet,true,true,false,false
+MBRP,GMMB with return of premium,false,false,true,false
+DBWB,GMDB + GMWB with annual ratchet,true,false,false,true
+WBSU,GMWB with annual ratchet,false,false,false,true
+WBRP,GMWB with return of premium,false,false,false,true
+WBRU,GMWB with annual roll-up,false,false,false,true
+DBRU,GMDB with annual roll-up,true,false,false,false

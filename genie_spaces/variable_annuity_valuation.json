@@ -1,0 +1,10 @@
+{
+    "name": "Variable Annuity Valuation",
+    "schema": "variable_annuity",
+    "description": "Genie space for variable annuity rider payoff valuation",
+    "instructions": [
+        "* The worst scenario is defined as having highest present value of payoff",
+        "* present value of payoff is calculated as payoff from T0 to T360, cross multiply with T0 to T360 in va_disc_fac"
+    ],
+    "env_var": "DATABRICKS_GENIE_SPACE_VA_ID"
+}

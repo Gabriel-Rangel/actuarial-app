@@ -1,0 +1,17 @@
+{
+    "name": "LTC experience study",
+    "schema": "long_term_care",
+    "description": "Genie room for LTC experience study on incidence and claim termination",
+    "instructions": [
+        "* Unless specified, use incurred age for age, total exposure for exposure, total claim count for incidence, and total termination for termination",
+        "* The different incurred age buckets are: ' 0-49', '50-54', '55-59', '60-64', '65-69', '70-74', '75-79', '80-84', '85-89','90+",
+        "* Ignore records with unknown incurred and issue ages, policy year, and issue year",
+        "* Define incidence rate as claim count over total exposure",
+        "* Define termination/death/benefit expiry/recovery rate as termination/death/benefit expiry/recovery over exposure",
+        "* If a question requires treating incurred age or issue age as numeric values, use the bucket ending age",
+        "* When asked about claim duration, covert it in years, rounded to the nearest integer",
+        "* Always sort incurred age, issue age, claim duration, policy year, issue year",
+        "* Define base incidence rate as the incidence rate by incurred age bucket and gender"
+    ],
+    "env_var": "DATABRICKS_GENIE_SPACE_LTC_ID"
+}

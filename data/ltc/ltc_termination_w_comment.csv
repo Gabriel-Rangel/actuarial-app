@@ -1,0 +1,1001 @@
+Gender,Incurred_Age_Bucket,Incurred_Year_Bucket,Claim_Type,Region,Diagnosis_Category,Claim_Duration,Exposure,Deaths,Recovery,Terminations,Benefit_Expiry,Others_Terminations
+Female,Unknown,2009-2010,HCC,Unknown,Unknown, 80,77,0,2,2,1,0
+Female,Unknown,2003-2004,NH,Unknown,Unknown, 86,49,1,0,1,0,0
+Female,Unknown,2005-2006,Other,Unknown,Unknown, 88,16,1,0,1,0,0
+Female,Unknown,2003-2004,ALF,Unknown,Unknown,114,29,1,0,1,0,0
+Female,Unknown, < 2001,NH,Unknown,Unknown,  4,56,5,1,6,0,0
+Female,Unknown, < 2001,HCC,Unknown,Unknown,  1,68,4,5,9,0,0
+Male,Unknown,2011-2012,Other,Unknown,Unknown, 50,30,0,0,1,0,1
+Female,Unknown,2011-2012,ALF,Unknown,Unknown,  4,58,0,0,0,1,0
+Female,Unknown,2009-2010,ALF,Unknown,Unknown, 83,32,1,0,1,0,0
+Male,Unknown,2015-2016,HCC,Unknown,Unknown, 18,68,2,0,3,0,1
+Female,Unknown,2009-2010,NH,Unknown,Unknown, 41,51,1,1,2,1,0
+Female,Unknown,2007-2008,Other,Unknown,Unknown, 15,42,2,0,2,0,0
+Male,Unknown, < 2001,NH,Unknown,Unknown, 32,57,1,0,1,0,0
+Male,Unknown,Unknown,Other,Unknown,Unknown,161,19,0,0,0,0,0
+Female,Unknown,Unknown,Other,Unknown,Unknown,157,35,0,0,0,0,0
+Male,Unknown,2001-2002,Other,Unknown,Unknown, 62,21,1,0,1,0,0
+Male,Unknown,2007-2008,Other,Unknown,Unknown, 87,16,0,0,0,0,0
+Male,Unknown,Unknown,Other,Unknown,Unknown,207,10,0,0,0,0,0
+Male,Unknown, < 2001,HCC,Unknown,Unknown, 16,66,0,1,1,0,0
+Female,Unknown,2009-2010,NH,Unknown,Unknown,  2,40,2,1,3,0,0
+Female,Unknown,2003-2004,Other,Unknown,Unknown, 33,26,0,1,1,0,0
+Female,Unknown, < 2001,Other,Unknown,Unknown, 22,39,0,0,0,0,0
+Male,Unknown,Unknown,NH,Unknown,Unknown,205,15,0,0,0,0,0
+Female,Unknown,2003-2004,ALF,Unknown,Unknown, 29,48,0,0,0,0,0
+Female,Unknown,2005-2006,ALF,Unknown,Unknown, 91,46,0,0,0,0,0
+Male,Unknown,2005-2006,Other,Unknown,Unknown, 41,17,0,0,0,0,0
+Female,Unknown,Unknown,NH,Unknown,Unknown,162,75,3,1,4,0,0
+Male,Unknown,2003-2004,NH,Unknown,Unknown, 37,64,0,0,0,0,0
+Female,Unknown,2011-2012,ALF,Unknown,Unknown, 39,44,0,0,0,1,0
+Female,Unknown,2009-2010,NH,Unknown,Unknown, 22,44,1,0,1,0,0
+Male,Unknown,2005-2006,HCC,Unknown,Unknown, 35,64,2,1,3,0,0
+Female,Unknown,2001-2002,ALF,Unknown,Unknown,112,30,0,0,0,0,0
+Female,Unknown,2001-2002,ALF,Unknown,Unknown, 99,42,2,0,2,0,0
+Male,Unknown,2003-2004,ALF,Unknown,Unknown, 43,52,1,1,2,0,0
+Female,Unknown,Unknown,Other,Unknown,Unknown,174,17,0,0,0,0,0
+Male,Unknown,2015-2016,NH,Unknown,Unknown, 15,50,1,0,1,0,0
+Female,Unknown,2009-2010,HCC,Unknown,Unknown, 27,59,0,1,1,0,0
+Male,Unknown,2003-2004,ALF,Unknown,Unknown,106,21,1,0,1,0,0
+Male,Unknown,2009-2010,HCC,Unknown,Unknown, 53,74,1,2,3,0,0
+Male,Unknown,Unknown,HCC,Unknown,Unknown,150,94,0,0,0,2,0
+Male,Unknown,2001-2002,NH,Unknown,Unknown, 23,46,1,0,1,0,0
+Female,Unknown, < 2001,Other,Unknown,Unknown,  2,52,0,4,4,0,0
+Female,Unknown,2003-2004,NH,Unknown,Unknown,  3,55,3,0,3,0,0
+Male,Unknown,2005-2006,Other,Unknown,Unknown,117,10,0,0,0,0,0
+Female,Unknown,Unknown,HCC,Unknown,Unknown,125,228,4,1,7,0,2
+Male,Unknown,2005-2006,NH,Unknown,Unknown,101,49,0,0,0,0,0
+Male,Unknown,2003-2004,NH,Unknown,Unknown, 73,57,1,0,1,0,0
+Male,Unknown, < 2001,ALF,Unknown,Unknown, 49,28,1,0,1,0,0
+Male,Unknown, < 2001,ALF,Unknown,Unknown, 73,31,1,0,1,0,0
+Female,Unknown, < 2001,HCC,Unknown,Unknown, 13,73,2,1,3,0,0
+Female,Unknown,2003-2004,NH,Unknown,Unknown, 17,55,0,0,0,0,0
+Male,Unknown,2007-2008,HCC,Unknown,Unknown, 55,84,1,0,1,0,0
+Male,Unknown,2005-2006,NH,Unknown,Unknown, 25,61,2,0,2,0,0
+Female,Unknown,2003-2004,NH,Unknown,Unknown, 74,51,2,1,3,2,0
+Male,Unknown,2009-2010,ALF,Unknown,Unknown, 67,42,1,0,1,0,0
+Male,Unknown,2001-2002,HCC,Unknown,Unknown,  8,65,3,1,4,0,0
+Male,Unknown,2005-2006,HCC,Unknown,Unknown, 24,57,0,0,0,0,0
+Male,Unknown,2003-2004,NH,Unknown,Unknown, 69,58,0,0,0,0,0
+Female,Unknown, < 2001,ALF,Unknown,Unknown, 29,36,1,0,1,1,0
+Male,Unknown,2003-2004,HCC,Unknown,Unknown, 89,56,1,0,1,0,0
+Male,Unknown, < 2001,Other,Unknown,Unknown, 53,43,0,0,0,0,0
+Female,Unknown,2011-2012,Other,Unknown,Unknown, 44,35,1,1,2,0,0
+Male,Unknown,2007-2008,ALF,Unknown,Unknown, 61,52,0,0,0,0,0
+Female,Unknown,2003-2004,HCC,Unknown,Unknown,  4,65,1,2,4,0,1
+Female,Unknown,2001-2002,Other,Unknown,Unknown, 65,17,0,1,1,0,0
+Male,Unknown,2011-2012,ALF,Unknown,Unknown, 23,58,1,0,1,0,0
+Female,Unknown,2007-2008,HCC,Unknown,Unknown, 26,65,0,2,2,0,0
+Male,Unknown,2003-2004,HCC,Unknown,Unknown,116,48,0,0,0,0,0
+Male,Unknown, < 2001,HCC,Unknown,Unknown, 21,60,0,2,2,0,0
+Female,Unknown,2003-2004,Other,Unknown,Unknown, 45,27,2,1,3,0,0
+Female,Unknown,2005-2006,NH,Unknown,Unknown, 58,57,0,0,0,0,0
+Female,Unknown,2007-2008,ALF,Unknown,Unknown, 71,39,0,0,0,0,0
+Female,Unknown,2013-2014,HCC,Unknown,Unknown, 24,55,1,0,2,0,1
+Male,Unknown,2011-2012,Other,Unknown,Unknown, 41,35,1,1,2,0,0
+Male,Unknown,2001-2002,ALF,Unknown,Unknown, 84,28,1,0,1,0,0
+Female,Unknown,2007-2008,Other,Unknown,Unknown, 64,19,0,0,0,0,0
+Male,Unknown,Unknown,ALF,Unknown,Unknown,183,5,0,0,0,0,0
+Male,Unknown, < 2001,Other,Unknown,Unknown,117,26,0,0,0,0,0
+Male,Unknown,2001-2002,HCC,Unknown,Unknown, 21,69,0,0,1,0,1
+Female,Unknown,2009-2010,Other,Unknown,Unknown, 22,40,1,0,1,0,0
+Female,Unknown,2005-2006,ALF,Unknown,Unknown,110,39,0,0,0,0,0
+Male,Unknown,2015-2016,HCC,Unknown,Unknown,  4,53,1,1,2,0,0
+Male,Unknown,Unknown,Other,Unknown,Unknown,158,18,0,0,0,0,0
+Male,Unknown, < 2001,NH,Unknown,Unknown, 23,58,0,0,0,0,0
+Female,Unknown,2003-2004,NH,Unknown,Unknown, 27,62,0,0,0,1,0
+Female,Unknown,2005-2006,HCC,Unknown,Unknown, 38,73,1,0,1,0,0
+Female,Unknown,2009-2010,NH,Unknown,Unknown, 50,49,0,0,0,0,0
+Male,Unknown,2001-2002,ALF,Unknown,Unknown, 57,35,0,0,0,0,0
+Male,Unknown,Unknown,ALF,Unknown,Unknown,204,4,0,0,0,0,0
+Female,Unknown,2001-2002,HCC,Unknown,Unknown,103,59,0,0,0,1,0
+Male,Unknown,2005-2006,NH,Unknown,Unknown, 40,55,1,0,1,0,0
+Male,Unknown,Unknown,Other,Unknown,Unknown,181,3,0,0,0,0,0
+Female,Unknown,2005-2006,ALF,Unknown,Unknown, 39,47,0,0,0,0,0
+Female,Unknown,2009-2010,HCC,Unknown,Unknown, 93,45,1,0,2,0,1
+Male,Unknown, < 2001,NH,Unknown,Unknown,  1,53,3,2,5,0,0
+Female,Unknown, < 2001,HCC,Unknown,Unknown, 32,60,1,0,1,0,0
+Male,Unknown,2009-2010,HCC,Unknown,Unknown, 14,61,1,1,2,0,0
+Male,Unknown,2009-2010,ALF,Unknown,Unknown, 39,46,2,0,2,0,0
+Female,Unknown,2001-2002,NH,Unknown,Unknown,108,31,1,0,1,0,0
+Female,Unknown,2011-2012,NH,Unknown,Unknown, 72,19,0,0,0,0,0
+Male,Unknown,2007-2008,NH,Unknown,Unknown,  5,49,1,3,4,0,0
+Male,Unknown,Unknown,Other,Unknown,Unknown,263,4,0,0,0,0,0
+Female,Unknown, < 2001,HCC,Unknown,Unknown, 62,46,1,0,1,0,0
+Female,Unknown,2005-2006,HCC,Unknown,Unknown, 48,76,0,1,1,0,0
+Male,Unknown,2007-2008,HCC,Unknown,Unknown, 44,77,1,0,1,0,0
+Female,Unknown,2013-2014,Other,Unknown,Unknown, 25,55,2,1,3,0,0
+Female,Unknown,2005-2006,ALF,Unknown,Unknown, 75,41,1,0,1,0,0
+Female,Unknown,2013-2014,ALF,Unknown,Unknown, 32,50,1,1,3,1,1
+Female,Unknown,2007-2008,Other,Unknown,Unknown, 54,27,0,0,0,0,0
+Male,Unknown,2001-2002,HCC,Unknown,Unknown, 47,65,0,0,0,0,0
+Female,Unknown,2007-2008,HCC,Unknown,Unknown, 18,68,2,1,3,0,0
+Female,Unknown,2007-2008,NH,Unknown,Unknown, 10,43,1,0,1,0,0
+Male,Unknown,2009-2010,Other,Unknown,Unknown, 89,10,0,0,0,0,0
+Female,Unknown,2001-2002,NH,Unknown,Unknown, 26,51,3,0,3,1,0
+Male,Unknown,2003-2004,NH,Unknown,Unknown, 49,57,2,0,2,0,0
+Male,Unknown,2005-2006,Other,Unknown,Unknown, 22,24,1,0,1,0,0
+Female,Unknown,Unknown,Other,Unknown,Unknown,182,17,0,0,0,0,0
+Male,Unknown, < 2001,HCC,Unknown,Unknown, 11,64,2,0,2,0,0
+Male,Unknown, < 2001,NH,Unknown,Unknown, 42,47,1,0,1,0,0
+Female,Unknown,2005-2006,NH,Unknown,Unknown, 68,53,0,0,0,0,0
+Female,Unknown, < 2001,HCC,Unknown,Unknown,109,40,2,0,2,0,0
+Female,Unknown,2005-2006,HCC,Unknown,Unknown, 26,67,2,0,2,0,0
+Female,Unknown,2011-2012,NH,Unknown,Unknown, 57,58,2,0,2,1,0
+Female,Unknown,2005-2006,ALF,Unknown,Unknown, 67,42,0,0,0,0,0
+Female,Unknown,2009-2010,Other,Unknown,Unknown, 41,36,0,0,0,0,0
+Female,Unknown,2005-2006,Other,Unknown,Unknown, 70,21,0,0,0,0,0
+Female,Unknown,2005-2006,Other,Unknown,Unknown,  5,54,1,2,3,0,0
+Male,Unknown,2005-2006,ALF,Unknown,Unknown, 61,48,1,0,1,1,0
+Female,Unknown,2001-2002,Other,Unknown,Unknown, 98,15,1,0,1,0,0
+Male,Unknown,2011-2012,Other,Unknown,Unknown, 60,22,0,0,0,0,0
+Male,Unknown, < 2001,Other,Unknown,Unknown, 36,43,0,0,0,0,0
+Female,Unknown,2009-2010,HCC,Unknown,Unknown, 20,56,1,0,1,0,0
+Female,Unknown,2005-2006,HCC,Unknown,Unknown, 82,71,1,0,1,0,0
+Female,Unknown, < 2001,ALF,Unknown,Unknown, 50,31,1,0,1,0,0
+Male,Unknown,2007-2008,NH,Unknown,Unknown, 67,52,2,0,2,0,0
+Female,Unknown,2011-2012,ALF,Unknown,Unknown, 59,50,1,0,1,0,0
+Female,Unknown,2013-2014,HCC,Unknown,Unknown, 42,61,0,0,0,0,0
+Female,Unknown, < 2001,ALF,Unknown,Unknown, 21,34,0,0,0,0,0
+Female,Unknown,2005-2006,NH,Unknown,Unknown, 79,50,1,0,1,0,0
+Female,Unknown, < 2001,NH,Unknown,Unknown,115,37,0,0,0,0,0
+Female,Unknown, < 2001,HCC,Unknown,Unknown,  7,75,0,2,2,0,0
+Male,Unknown, < 2001,ALF,Unknown,Unknown,116,12,0,0,0,0,0
+Male,Unknown, < 2001,Other,Unknown,Unknown,  2,42,3,2,6,0,1
+Male,Unknown,2009-2010,Other,Unknown,Unknown, 95,5,0,0,0,0,0
+Female,Unknown,2007-2008,NH,Unknown,Unknown,108,34,1,0,1,0,0
+Male,Unknown,2009-2010,ALF,Unknown,Unknown, 65,41,0,0,0,0,0
+Male,Unknown,Unknown,HCC,Unknown,Unknown,129,162,2,0,2,0,0
+Male,Unknown,Unknown,Other,Unknown,Unknown,120,56,1,0,1,1,0
+Female,Unknown, < 2001,NH,Unknown,Unknown, 13,50,1,1,2,0,0
+Male,Unknown,2011-2012,HCC,Unknown,Unknown, 67,42,1,1,4,0,2
+Male,Unknown,2009-2010,ALF,Unknown,Unknown, 88,21,1,0,1,0,0
+Female,Unknown,2003-2004,HCC,Unknown,Unknown, 18,77,0,0,0,0,0
+Female,Unknown,2007-2008,NH,Unknown,Unknown, 13,45,0,0,0,0,0
+Male,Unknown,2001-2002,NH,Unknown,Unknown, 52,43,0,1,1,0,0
+Female,Unknown,2007-2008,ALF,Unknown,Unknown, 50,44,0,0,0,0,0
+Female,Unknown,2005-2006,Other,Unknown,Unknown,110,12,1,0,1,0,0
+Female,Unknown,2013-2014,ALF,Unknown,Unknown, 26,51,0,0,0,1,0
+Male,Unknown,2001-2002,ALF,Unknown,Unknown, 97,14,1,0,1,1,0
+Female,Unknown,2005-2006,NH,Unknown,Unknown,106,43,1,0,1,0,0
+Female,Unknown,2005-2006,NH,Unknown,Unknown, 43,58,1,0,1,0,0
+Female,Unknown,2001-2002,NH,Unknown,Unknown,  7,68,1,0,1,0,0
+Male,Unknown,2007-2008,ALF,Unknown,Unknown,  2,74,2,0,2,0,0
+Male,Unknown,2003-2004,Other,Unknown,Unknown,  8,55,3,1,4,0,0
+Female,Unknown,2007-2008,Other,Unknown,Unknown, 45,31,2,0,2,0,0
+Female,Unknown,2001-2002,NH,Unknown,Unknown,109,32,0,0,0,0,0
+Female,Unknown,2009-2010,NH,Unknown,Unknown, 53,51,1,0,1,0,0
+Male,Unknown,2009-2010,Other,Unknown,Unknown, 86,13,0,0,0,0,0
+Female,Unknown,2013-2014,ALF,Unknown,Unknown, 48,18,0,0,0,0,0
+Male,Unknown,2007-2008,HCC,Unknown,Unknown,105,53,1,1,2,0,0
+Male,Unknown,2005-2006,ALF,Unknown,Unknown, 16,62,0,0,0,0,0
+Female,Unknown, < 2001,NH,Unknown,Unknown, 26,48,1,0,1,0,0
+Female,Unknown,2005-2006,HCC,Unknown,Unknown,115,67,1,0,1,0,0
+Female,Unknown,2005-2006,Other,Unknown,Unknown, 67,24,0,0,0,0,0
+Female,Unknown,2013-2014,ALF,Unknown,Unknown, 13,49,1,1,2,0,0
+Male,Unknown,Unknown,NH,Unknown,Unknown,171,22,1,0,1,0,0
+Male,Unknown,Unknown,HCC,Unknown,Unknown,183,29,1,0,1,0,0
+Male,Unknown,2005-2006,NH,Unknown,Unknown, 98,51,2,0,2,0,0
+Male,Unknown, < 2001,Other,Unknown,Unknown, 41,38,0,0,0,0,0
+Male,Unknown,2003-2004,HCC,Unknown,Unknown, 95,54,0,0,0,1,0
+Female,Unknown,2013-2014,Other,Unknown,Unknown, 40,23,1,0,1,1,0
+Male,Unknown,2011-2012,Other,Unknown,Unknown,  8,51,2,1,3,0,0
+Female,Unknown,2009-2010,ALF,Unknown,Unknown, 37,53,0,2,2,0,0
+Female,Unknown,2001-2002,NH,Unknown,Unknown, 18,56,0,1,1,0,0
+Female,Unknown,2007-2008,ALF,Unknown,Unknown,  9,58,0,2,2,0,0
+Female,Unknown,2009-2010,Other,Unknown,Unknown, 46,32,1,0,1,0,0
+Female,Unknown,2005-2006,HCC,Unknown,Unknown, 59,76,0,0,0,0,0
+Female,Unknown, < 2001,Other,Unknown,Unknown, 14,47,0,0,0,0,0
+Male,Unknown, < 2001,ALF,Unknown,Unknown, 69,31,1,0,2,1,1
+Male,Unknown,2001-2002,NH,Unknown,Unknown,109,31,0,0,0,0,0
+Male,Unknown, < 2001,HCC,Unknown,Unknown, 50,45,0,0,0,0,0
+Female,Unknown,2003-2004,ALF,Unknown,Unknown, 19,61,3,0,3,0,0
+Female,Unknown,2003-2004,ALF,Unknown,Unknown,  6,52,1,0,1,0,0
+Male,Unknown,2011-2012,NH,Unknown,Unknown, 15,49,1,0,1,0,0
+Female,Unknown,2005-2006,HCC,Unknown,Unknown, 91,69,2,0,2,0,0
+Female,Unknown,2003-2004,HCC,Unknown,Unknown, 38,86,2,0,2,0,0
+Male,Unknown,2007-2008,NH,Unknown,Unknown,110,25,0,0,0,0,0
+Male,Unknown,2005-2006,HCC,Unknown,Unknown, 26,66,1,0,1,0,0
+Male,Unknown,Unknown,Other,Unknown,Unknown,243,11,0,0,0,0,0
+Female,Unknown,2013-2014,Other,Unknown,Unknown, 33,45,2,0,2,0,0
+Male,Unknown,2005-2006,ALF,Unknown,Unknown, 41,51,1,1,2,1,0
+Male,Unknown,2011-2012,Other,Unknown,Unknown, 53,30,0,1,2,0,1
+Male,Unknown,2003-2004,Other,Unknown,Unknown, 81,17,0,0,0,0,0
+Male,Unknown,2007-2008,Other,Unknown,Unknown, 92,15,0,0,0,0,0
+Female,Unknown,2007-2008,ALF,Unknown,Unknown, 84,37,0,0,0,0,0
+Male,Unknown, < 2001,ALF,Unknown,Unknown, 27,35,0,0,0,0,0
+Male,Unknown,2003-2004,Other,Unknown,Unknown, 47,27,0,0,0,0,0
+Male,Unknown,2009-2010,HCC,Unknown,Unknown, 46,71,1,0,1,1,0
+Male,Unknown,2007-2008,ALF,Unknown,Unknown, 14,52,0,0,0,0,0
+Female,Unknown,Unknown,ALF,Unknown,Unknown,124,115,2,0,2,0,0
+Female,Unknown, < 2001,NH,Unknown,Unknown, 82,37,0,1,1,0,0
+Male,Unknown,2009-2010,NH,Unknown,Unknown, 94,15,0,1,1,0,0
+Male,Unknown,2005-2006,Other,Unknown,Unknown, 36,19,0,0,0,0,0
+Female,Unknown,2005-2006,ALF,Unknown,Unknown,  4,55,0,1,1,0,0
+Male,Unknown,2003-2004,Other,Unknown,Unknown, 29,23,0,0,0,0,0
+Male,Unknown,2011-2012,HCC,Unknown,Unknown, 10,58,2,0,3,0,1
+Female,Unknown,2003-2004,NH,Unknown,Unknown,113,49,3,0,3,0,0
+Female,Unknown,2005-2006,HCC,Unknown,Unknown,  4,53,1,0,1,0,0
+Male,Unknown,2005-2006,ALF,Unknown,Unknown, 81,32,1,0,1,0,0
+Male,Unknown,2007-2008,NH,Unknown,Unknown, 76,49,1,0,1,1,0
+Male,Unknown,2013-2014,Other,Unknown,Unknown, 48,10,0,0,0,0,0
+Male,Unknown, < 2001,ALF,Unknown,Unknown, 74,30,0,0,0,0,0
+Male,Unknown,2005-2006,HCC,Unknown,Unknown,  1,50,2,2,4,0,0
+Female,Unknown,2003-2004,HCC,Unknown,Unknown, 10,64,0,1,1,0,0
+Female,Unknown,2009-2010,HCC,Unknown,Unknown, 28,56,0,1,1,1,0
+Male,Unknown,2015-2016,ALF,Unknown,Unknown, 24,20,0,0,0,0,0
+Male,Unknown, < 2001,Other,Unknown,Unknown, 50,42,0,1,1,0,0
+Male,Unknown,2001-2002,Other,Unknown,Unknown, 10,40,0,0,0,0,0
+Female,Unknown,2005-2006,Other,Unknown,Unknown, 76,22,0,0,0,0,0
+Male,Unknown,Unknown,Other,Unknown,Unknown,271,3,0,0,0,0,0
+Female,Unknown,2009-2010,ALF,Unknown,Unknown, 73,50,1,0,1,0,0
+Male,Unknown,Unknown,HCC,Unknown,Unknown,145,102,1,0,1,0,0
+Male,Unknown,2001-2002,NH,Unknown,Unknown, 32,48,0,0,0,0,0
+Female,Unknown,2003-2004,Other,Unknown,Unknown, 54,24,0,0,0,0,0
+Male,Unknown,2015-2016,HCC,Unknown,Unknown,  7,67,0,0,1,0,1
+Male,Unknown,Unknown,ALF,Unknown,Unknown,182,5,0,0,0,0,0
+Male,Unknown,2007-2008,NH,Unknown,Unknown, 85,44,1,0,1,0,0
+Female,Unknown,2009-2010,NH,Unknown,Unknown, 36,40,1,0,1,0,0
+Female,Unknown,2001-2002,Other,Unknown,Unknown, 64,17,1,0,1,0,0
+Female,Unknown,2007-2008,HCC,Unknown,Unknown, 42,73,1,1,2,0,0
+Female,Unknown,2015-2016,Other,Unknown,Unknown, 12,64,3,5,8,0,0
+Male,Unknown, < 2001,HCC,Unknown,Unknown, 60,47,0,0,0,0,0
+Female,Unknown,2003-2004,Other,Unknown,Unknown, 25,38,1,1,2,0,0
+Male,Unknown, < 2001,NH,Unknown,Unknown,108,28,0,0,0,0,0
+Male,Unknown,Unknown,ALF,Unknown,Unknown,157,13,0,0,0,0,0
+Male,Unknown,2011-2012,HCC,Unknown,Unknown,  4,51,1,0,1,0,0
+Male,Unknown,2001-2002,NH,Unknown,Unknown, 26,51,2,1,3,0,0
+Male,Unknown,2009-2010,NH,Unknown,Unknown, 63,53,2,0,2,0,0
+Male,Unknown,2007-2008,ALF,Unknown,Unknown, 56,47,0,0,0,0,0
+Female,Unknown,2005-2006,ALF,Unknown,Unknown,115,38,0,0,0,0,0
+Male,Unknown,2003-2004,NH,Unknown,Unknown, 86,40,1,0,1,0,0
+Male,Unknown,2005-2006,NH,Unknown,Unknown,100,50,2,0,2,0,0
+Female,Unknown,2001-2002,HCC,Unknown,Unknown, 45,58,0,0,0,1,0
+Male,Unknown,Unknown,ALF,Unknown,Unknown,124,59,1,1,2,1,0
+Female,Unknown, < 2001,NH,Unknown,Unknown, 38,49,0,1,1,1,0
+Male,Unknown,2009-2010,NH,Unknown,Unknown, 87,38,0,0,0,0,0
+Female,Unknown,2009-2010,Other,Unknown,Unknown, 66,30,0,1,1,0,0
+Male,Unknown, < 2001,NH,Unknown,Unknown, 26,56,1,0,1,0,0
+Female,Unknown,2001-2002,ALF,Unknown,Unknown, 94,40,1,0,1,0,0
+Male,Unknown,2003-2004,ALF,Unknown,Unknown, 46,50,1,1,2,0,0
+Female,Unknown,2011-2012,ALF,Unknown,Unknown, 38,43,0,0,0,0,0
+Male,Unknown,2005-2006,NH,Unknown,Unknown, 45,65,0,0,0,0,0
+Female,Unknown,2001-2002,HCC,Unknown,Unknown,100,58,0,0,0,0,0
+Female,Unknown, < 2001,ALF,Unknown,Unknown, 81,24,1,0,1,0,0
+Male,Unknown,2009-2010,HCC,Unknown,Unknown, 56,76,1,0,1,0,0
+Male,Unknown,2001-2002,NH,Unknown,Unknown,108,32,1,0,1,0,0
+Female,Unknown,2005-2006,ALF,Unknown,Unknown, 76,41,0,0,0,0,0
+Male,Unknown, < 2001,HCC,Unknown,Unknown,  9,58,0,0,0,0,0
+Female,Unknown,2009-2010,Other,Unknown,Unknown, 56,25,0,0,0,0,0
+Male,Unknown,2001-2002,HCC,Unknown,Unknown, 19,71,0,0,1,0,1
+Male,Unknown,Unknown,Other,Unknown,Unknown,268,4,0,0,0,0,0
+Female,Unknown,2001-2002,NH,Unknown,Unknown, 32,52,0,1,1,0,0
+Female,Unknown,2005-2006,ALF,Unknown,Unknown,  5,55,3,0,3,0,0
+Male,Unknown,2001-2002,Other,Unknown,Unknown, 55,20,0,1,1,0,0
+Female,Unknown,2009-2010,HCC,Unknown,Unknown, 31,54,0,0,0,0,0
+Female,Unknown,2001-2002,Other,Unknown,Unknown, 15,39,0,1,1,0,0
+Male,Unknown,2011-2012,NH,Unknown,Unknown, 17,46,2,0,2,0,0
+Male,Unknown, < 2001,HCC,Unknown,Unknown, 19,63,1,0,1,0,0
+Female,Unknown,2001-2002,NH,Unknown,Unknown, 23,52,1,0,1,0,0
+Female,Unknown,2009-2010,ALF,Unknown,Unknown, 17,59,4,0,4,0,0
+Female,Unknown,2001-2002,ALF,Unknown,Unknown,102,35,1,0,1,0,0
+Male,Unknown,2005-2006,NH,Unknown,Unknown, 33,59,3,1,4,0,0
+Male,Unknown,2007-2008,NH,Unknown,Unknown, 75,49,2,0,2,0,0
+Female,Unknown, < 2001,HCC,Unknown,Unknown,108,38,0,0,0,0,0
+Female,Unknown,2007-2008,NH,Unknown,Unknown, 75,51,0,0,0,0,0
+Female,Unknown,Unknown,HCC,Unknown,Unknown,191,36,0,0,0,0,0
+Male,Unknown,2015-2016,Other,Unknown,Unknown, 13,48,0,3,4,0,1
+Male,Unknown, < 2001,ALF,Unknown,Unknown, 86,21,0,0,0,1,0
+Female,Unknown,2005-2006,Other,Unknown,Unknown,  4,53,3,5,8,0,0
+Female,Unknown, < 2001,HCC,Unknown,Unknown, 26,64,0,0,1,0,1
+Female,Unknown,2011-2012,HCC,Unknown,Unknown, 66,59,3,0,4,1,1
+Male,Unknown,Unknown,ALF,Unknown,Unknown,174,7,0,0,0,0,0
+Male,Unknown,2005-2006,HCC,Unknown,Unknown, 42,67,1,0,1,0,0
+Male,Unknown,Unknown,HCC,Unknown,Unknown,209,20,0,0,0,0,0
+Female,Unknown,2007-2008,NH,Unknown,Unknown,  4,43,1,2,3,0,0
+Female,Unknown,2003-2004,Other,Unknown,Unknown,101,21,0,0,0,0,0
+Female,Unknown,2003-2004,NH,Unknown,Unknown, 37,72,1,0,1,0,0
+Male,Unknown,2009-2010,NH,Unknown,Unknown, 77,46,0,0,0,0,0
+Female,Unknown,Unknown,NH,Unknown,Unknown,180,41,0,0,0,0,0
+Male,Unknown, < 2001,HCC,Unknown,Unknown, 72,40,0,0,0,0,0
+Female,Unknown,2005-2006,Other,Unknown,Unknown, 75,22,0,0,0,0,0
+Male,Unknown,2013-2014,HCC,Unknown,Unknown, 33,59,0,0,0,0,0
+Female,Unknown,Unknown,HCC,Unknown,Unknown,179,62,0,1,1,0,0
+Female,Unknown,2005-2006,ALF,Unknown,Unknown, 96,40,0,0,0,0,0
+Male,Unknown,2003-2004,HCC,Unknown,Unknown, 74,55,1,0,1,0,0
+Male,Unknown,Unknown,Other,Unknown,Unknown,164,18,0,0,0,0,0
+Male,Unknown,2011-2012,Other,Unknown,Unknown, 71,10,3,0,3,0,0
+Male,Unknown,2015-2016,HCC,Unknown,Unknown, 13,79,3,2,5,0,0
+Male,Unknown,2011-2012,Other,Unknown,Unknown, 11,46,1,1,2,0,0
+Male,Unknown,2003-2004,ALF,Unknown,Unknown, 79,27,1,0,1,0,0
+Female,Unknown,2001-2002,NH,Unknown,Unknown, 82,45,0,0,0,0,0
+Male,Unknown,2007-2008,ALF,Unknown,Unknown, 66,49,0,0,0,0,0
+Male,Unknown,2011-2012,HCC,Unknown,Unknown, 39,71,1,0,1,1,0
+Male,Unknown,2007-2008,NH,Unknown,Unknown, 96,35,0,0,0,0,0
+Female,Unknown,2001-2002,NH,Unknown,Unknown, 62,46,2,0,2,1,0
+Female,Unknown, < 2001,NH,Unknown,Unknown, 48,52,1,0,1,0,0
+Female,Unknown, < 2001,Other,Unknown,Unknown, 29,40,0,0,0,0,0
+Female,Unknown, < 2001,NH,Unknown,Unknown,109,39,1,0,1,1,0
+Male,Unknown,2009-2010,Other,Unknown,Unknown,  3,58,5,1,6,0,0
+Female,Unknown,2007-2008,ALF,Unknown,Unknown, 11,55,1,2,3,0,0
+Male,Unknown,2009-2010,Other,Unknown,Unknown, 90,12,0,0,0,0,0
+Female,Unknown,2009-2010,ALF,Unknown,Unknown, 86,30,2,1,3,0,0
+Female,Unknown,2005-2006,HCC,Unknown,Unknown, 85,65,0,1,1,0,0
+Male,Unknown,2001-2002,HCC,Unknown,Unknown, 72,59,0,1,1,0,0
+Male,Unknown,2009-2010,ALF,Unknown,Unknown, 85,23,1,0,1,1,0
+Female,Unknown, < 2001,ALF,Unknown,Unknown, 47,32,0,0,0,1,0
+Female,Unknown,2013-2014,ALF,Unknown,Unknown,  7,50,0,0,0,0,0
+Female,Unknown,2007-2008,HCC,Unknown,Unknown, 13,62,3,0,3,0,0
+Female,Unknown,2007-2008,ALF,Unknown,Unknown, 19,53,1,0,1,0,0
+Male,Unknown,2007-2008,Other,Unknown,Unknown, 84,21,0,0,0,0,0
+Male,Unknown,2001-2002,Other,Unknown,Unknown, 63,20,1,0,1,0,0
+Female,Unknown,2009-2010,HCC,Unknown,Unknown, 49,69,1,1,2,1,0
+Male,Unknown,2005-2006,HCC,Unknown,Unknown, 32,67,3,0,3,0,0
+Female,Unknown,2003-2004,HCC,Unknown,Unknown, 52,81,0,0,0,0,0
+Male,Unknown,2001-2002,ALF,Unknown,Unknown, 47,37,1,0,1,0,0
+Female,Unknown,2007-2008,NH,Unknown,Unknown, 18,48,1,0,1,0,0
+Female,Unknown,2009-2010,Other,Unknown,Unknown, 60,30,0,0,0,0,0
+Female,Unknown, < 2001,Other,Unknown,Unknown, 21,42,0,1,1,0,0
+Male,Unknown,2007-2008,Other,Unknown,Unknown, 57,26,0,0,0,0,0
+Male,Unknown,2003-2004,HCC,Unknown,Unknown,111,50,0,0,0,0,0
+Male,Unknown,Unknown,ALF,Unknown,Unknown,162,11,0,0,0,0,0
+Male,Unknown,2011-2012,ALF,Unknown,Unknown, 26,57,2,0,2,0,0
+Female,Unknown,2007-2008,ALF,Unknown,Unknown,114,23,1,1,2,0,0
+Male,Unknown,2003-2004,NH,Unknown,Unknown, 74,56,2,0,2,1,0
+Male,Unknown,2015-2016,Other,Unknown,Unknown, 23,16,4,1,5,0,0
+Male,Unknown,2015-2016,Other,Unknown,Unknown,  1,73,12,10,22,0,0
+Female,Unknown,2003-2004,NH,Unknown,Unknown, 49,55,0,1,1,0,0
+Male,Unknown, < 2001,NH,Unknown,Unknown, 24,57,1,0,1,0,0
+Female,Unknown,2003-2004,ALF,Unknown,Unknown,  8,50,1,1,2,0,0
+Male,Unknown,Unknown,NH,Unknown,Unknown,181,12,0,0,0,0,0
+Female,Unknown,Unknown,HCC,Unknown,Unknown,122,223,3,0,3,0,0
+Female,Unknown,2011-2012,ALF,Unknown,Unknown,  5,57,0,0,0,0,0
+Male,Unknown,2003-2004,HCC,Unknown,Unknown, 86,58,1,0,1,0,0
+Female,Unknown, < 2001,NH,Unknown,Unknown,  7,47,0,0,0,0,0
+Female,Unknown,2013-2014,NH,Unknown,Unknown, 15,44,1,0,1,1,0
+Male,Unknown,2011-2012,ALF,Unknown,Unknown, 52,48,1,1,2,1,0
+Male,Unknown,2001-2002,HCC,Unknown,Unknown, 29,68,0,0,0,0,0
+Female,Unknown,2001-2002,Other,Unknown,Unknown, 20,35,0,1,1,0,0
+Male,Unknown,Unknown,NH,Unknown,Unknown,176,14,0,0,0,0,0
+Female,Unknown,2001-2002,HCC,Unknown,Unknown, 33,71,2,1,3,0,0
+Female,Unknown,2003-2004,Other,Unknown,Unknown, 40,29,0,1,1,0,0
+Male,Unknown,2003-2004,NH,Unknown,Unknown, 27,64,0,0,0,0,0
+Female,Unknown,2003-2004,ALF,Unknown,Unknown, 16,61,1,1,2,0,0
+Male,Unknown,2007-2008,Other,Unknown,Unknown, 97,18,0,0,0,0,0
+Male,Unknown,2015-2016,NH,Unknown,Unknown, 20,51,3,0,3,0,0
+Male,Unknown,2011-2012,ALF,Unknown,Unknown, 62,37,0,1,1,0,0
+Female,Unknown,2013-2014,Other,Unknown,Unknown, 30,55,0,0,0,0,0
+Female,Unknown,Unknown,HCC,Unknown,Unknown,142,175,6,0,7,1,1
+Female,Unknown, < 2001,Other,Unknown,Unknown,  8,51,0,0,0,0,0
+Female,Unknown,2013-2014,HCC,Unknown,Unknown, 10,54,0,0,2,1,2
+Male,Unknown, < 2001,Other,Unknown,Unknown, 22,43,0,0,0,0,0
+Male,Unknown,Unknown,Other,Unknown,Unknown,246,10,0,0,0,0,0
+Male,Unknown,2001-2002,ALF,Unknown,Unknown, 81,29,0,0,0,0,0
+Female,Unknown,2003-2004,HCC,Unknown,Unknown, 62,72,1,1,2,0,0
+Female,Unknown,2007-2008,HCC,Unknown,Unknown, 52,73,0,1,1,0,0
+Female,Unknown, < 2001,NH,Unknown,Unknown,108,40,1,0,1,0,0
+Female,Unknown,2003-2004,ALF,Unknown,Unknown,  9,53,0,1,1,0,0
+Female,Unknown,2009-2010,ALF,Unknown,Unknown, 69,59,2,1,3,0,0
+Male,Unknown, < 2001,HCC,Unknown,Unknown,114,35,0,0,0,1,0
+Male,Unknown,2003-2004,Other,Unknown,Unknown, 84,17,0,0,0,0,0
+Female,Unknown,2003-2004,HCC,Unknown,Unknown, 82,86,1,0,1,0,0
+Female,Unknown,2003-2004,NH,Unknown,Unknown,116,45,0,0,0,0,0
+Male,Unknown,2005-2006,Other,Unknown,Unknown, 53,21,1,0,1,0,0
+Female,Unknown,2005-2006,Other,Unknown,Unknown,115,14,0,0,0,0,0
+Female,Unknown,2007-2008,ALF,Unknown,Unknown, 16,49,0,0,0,0,0
+Male,Unknown,2011-2012,Other,Unknown,Unknown, 61,23,1,0,1,0,0
+Female,Unknown,2009-2010,ALF,Unknown,Unknown, 74,51,0,0,0,2,0
+Male,Unknown,2011-2012,HCC,Unknown,Unknown, 59,66,2,1,3,0,0
+Female,Unknown,2005-2006,HCC,Unknown,Unknown, 18,72,1,0,1,0,0
+Male,Unknown,2001-2002,HCC,Unknown,Unknown,114,43,0,0,0,0,0
+Female,Unknown,2005-2006,Other,Unknown,Unknown,103,12,0,0,0,1,0
+Female,Unknown,2003-2004,ALF,Unknown,Unknown, 50,44,1,1,2,0,0
+Female,Unknown,2011-2012,HCC,Unknown,Unknown, 43,50,1,0,1,0,0
+Female,Unknown,2009-2010,ALF,Unknown,Unknown,  3,57,2,0,2,0,0
+Male,Unknown,Unknown,NH,Unknown,Unknown,188,12,0,0,0,0,0
+Female,Unknown,2013-2014,NH,Unknown,Unknown, 20,46,1,0,1,0,0
+Female,Unknown,2005-2006,HCC,Unknown,Unknown,  7,57,0,3,3,0,0
+Female,Unknown,2011-2012,NH,Unknown,Unknown,  6,45,3,0,3,0,0
+Female,Unknown,2007-2008,NH,Unknown,Unknown, 26,41,0,0,0,0,0
+Male,Unknown, < 2001,ALF,Unknown,Unknown,113,15,3,0,3,0,0
+Female,Unknown,2007-2008,ALF,Unknown,Unknown, 60,43,0,0,0,1,0
+Female,Unknown,2001-2002,ALF,Unknown,Unknown, 44,52,1,0,1,0,0
+Female,Unknown,2007-2008,ALF,Unknown,Unknown, 72,40,0,0,0,0,0
+Female,Unknown,2003-2004,ALF,Unknown,Unknown, 72,42,0,0,0,0,0
+Female,Unknown,2013-2014,NH,Unknown,Unknown, 45,42,1,1,3,0,1
+Female,Unknown,2005-2006,HCC,Unknown,Unknown,109,71,0,0,0,0,0
+Male,Unknown,Unknown,Other,Unknown,Unknown,274,3,0,0,0,0,0
+Male,Unknown,2005-2006,HCC,Unknown,Unknown,108,66,3,0,3,0,0
+Female,Unknown, < 2001,NH,Unknown,Unknown, 18,43,2,0,2,0,0
+Female,Unknown, < 2001,ALF,Unknown,Unknown, 22,35,1,0,1,0,0
+Male,Unknown,2001-2002,HCC,Unknown,Unknown, 50,56,0,0,0,0,0
+Female,Unknown,2009-2010,ALF,Unknown,Unknown, 90,28,0,1,1,0,0
+Male,Unknown,2007-2008,HCC,Unknown,Unknown, 78,79,0,0,0,0,0
+Male,Unknown,2005-2006,NH,Unknown,Unknown, 54,60,0,1,1,0,0
+Male,Unknown,2001-2002,Other,Unknown,Unknown, 13,33,1,1,2,0,0
+Male,Unknown,2007-2008,Other,Unknown,Unknown,112,8,0,0,0,0,0
+Female,Unknown,2013-2014,ALF,Unknown,Unknown, 23,55,0,0,0,0,0
+Female,Unknown, < 2001,ALF,Unknown,Unknown, 71,24,0,0,0,0,0
+Female,Unknown,2003-2004,Other,Unknown,Unknown, 51,27,0,0,0,0,0
+Female,Unknown,2003-2004,NH,Unknown,Unknown, 83,49,2,0,2,0,0
+Male,Unknown, < 2001,NH,Unknown,Unknown,109,28,0,0,0,0,0
+Male,Unknown,2003-2004,Other,Unknown,Unknown, 19,38,1,0,1,0,0
+Female,Unknown,2003-2004,NH,Unknown,Unknown, 58,52,0,1,1,0,0
+Male,Unknown,2005-2006,Other,Unknown,Unknown, 46,15,1,0,1,0,0
+Female,Unknown,2005-2006,ALF,Unknown,Unknown, 88,44,0,0,0,0,0
+Male,Unknown,2007-2008,NH,Unknown,Unknown, 39,48,1,0,1,1,0
+Male,Unknown,2001-2002,ALF,Unknown,Unknown, 92,16,1,0,1,0,0
+Female,Unknown,Unknown,HCC,Unknown,Unknown,189,42,2,0,2,0,0
+Male,Unknown, < 2001,HCC,Unknown,Unknown, 29,58,0,0,0,0,0
+Female,Unknown, < 2001,NH,Unknown,Unknown, 10,50,0,0,0,0,0
+Male,Unknown,2001-2002,NH,Unknown,Unknown, 42,43,1,0,1,0,0
+Male,Unknown,2007-2008,NH,Unknown,Unknown, 88,38,2,0,2,0,0
+Female,Unknown,2009-2010,HCC,Unknown,Unknown, 83,79,2,2,4,0,0
+Male,Unknown,2003-2004,ALF,Unknown,Unknown, 56,49,0,0,0,0,0
+Male,Unknown,2011-2012,Other,Unknown,Unknown, 19,41,0,0,0,0,0
+Male,Unknown,2003-2004,HCC,Unknown,Unknown,  3,70,5,0,6,0,1
+Female,Unknown,2009-2010,Other,Unknown,Unknown, 61,32,0,1,1,0,0
+Female,Unknown,2003-2004,HCC,Unknown,Unknown,115,69,1,0,1,0,0
+Male,Unknown,2009-2010,Other,Unknown,Unknown, 58,21,1,0,1,0,0
+Male,Unknown,2005-2006,ALF,Unknown,Unknown, 11,61,0,0,0,0,0
+Male,Unknown,2003-2004,HCC,Unknown,Unknown, 90,55,0,0,0,0,0
+Male,Unknown,2009-2010,ALF,Unknown,Unknown, 91,14,0,1,1,0,0
+Male,Unknown,2001-2002,NH,Unknown,Unknown, 24,46,1,1,2,0,0
+Female,Unknown,2011-2012,HCC,Unknown,Unknown, 56,56,2,1,3,1,0
+Male,Unknown,Unknown,Other,Unknown,Unknown,195,14,0,0,0,0,0
+Female,Unknown,2003-2004,HCC,Unknown,Unknown, 42,86,0,0,0,0,0
+Female,Unknown,2001-2002,NH,Unknown,Unknown, 13,56,0,0,0,0,0
+Male,Unknown,Unknown,NH,Unknown,Unknown,170,22,0,0,0,0,0
+Female,Unknown,2013-2014,HCC,Unknown,Unknown, 18,64,2,0,2,0,0
+Female,Unknown,2013-2014,Other,Unknown,Unknown, 45,15,1,1,2,0,0
+Female,Unknown,Unknown,ALF,Unknown,Unknown,150,51,1,0,1,0,0
+Female,Unknown, < 2001,NH,Unknown,Unknown, 70,49,0,0,0,1,0
+Female,Unknown, < 2001,HCC,Unknown,Unknown, 18,70,1,0,3,0,2
+Male,Unknown,2011-2012,ALF,Unknown,Unknown, 13,58,0,2,2,0,0
+Female,Unknown,2001-2002,ALF,Unknown,Unknown,105,35,0,0,0,0,0
+Female,Unknown,2005-2006,Other,Unknown,Unknown, 39,30,0,0,0,0,0
+Male,Unknown,2011-2012,ALF,Unknown,Unknown, 42,45,1,0,1,2,0
+Male,Unknown,2011-2012,NH,Unknown,Unknown, 12,45,0,1,1,0,0
+Male,Unknown, < 2001,HCC,Unknown,Unknown,  8,61,2,1,3,0,0
+Female,Unknown,2007-2008,NH,Unknown,Unknown,  7,43,0,0,0,0,0
+Male,Unknown,2003-2004,ALF,Unknown,Unknown,117,17,0,0,0,0,0
+Male,Unknown, < 2001,Other,Unknown,Unknown, 46,43,0,0,0,0,0
+Male,Unknown,Unknown,HCC,Unknown,Unknown,180,31,0,0,0,0,0
+Male,Unknown, < 2001,ALF,Unknown,Unknown, 37,36,0,0,0,0,0
+Male,Unknown,2005-2006,HCC,Unknown,Unknown, 23,56,1,0,1,0,0
+Male,Unknown,2009-2010,HCC,Unknown,Unknown, 61,87,0,0,0,0,0
+Male,Unknown,2015-2016,ALF,Unknown,Unknown, 10,54,0,0,0,0,0
+Male,Unknown,2001-2002,HCC,Unknown,Unknown,  9,64,0,0,1,0,1
+Male,Unknown,Unknown,Other,Unknown,Unknown,130,38,0,0,0,0,0
+Male,Unknown,2007-2008,HCC,Unknown,Unknown,112,39,1,0,2,0,1
+Female,Unknown,2007-2008,ALF,Unknown,Unknown,  8,58,1,2,3,0,0
+Male,Unknown,2011-2012,ALF,Unknown,Unknown, 24,57,1,1,2,1,0
+Female,Unknown, < 2001,HCC,Unknown,Unknown, 23,64,0,0,0,0,0
+Male,Unknown,2001-2002,Other,Unknown,Unknown,109,9,0,0,0,0,0
+Male,Unknown, < 2001,HCC,Unknown,Unknown, 53,49,1,0,1,1,0
+Male,Unknown,Unknown,HCC,Unknown,Unknown,202,30,0,0,1,0,1
+Female,Unknown, < 2001,NH,Unknown,Unknown, 65,50,1,0,1,0,0
+Male,Unknown, < 2001,ALF,Unknown,Unknown, 51,29,0,0,0,0,0
+Female,Unknown,Unknown,ALF,Unknown,Unknown,152,54,1,0,2,0,1
+Male,Unknown,2011-2012,ALF,Unknown,Unknown, 39,49,1,0,1,1,0
+Male,Unknown,2007-2008,ALF,Unknown,Unknown, 47,54,1,0,1,0,0
+Male,Unknown,2009-2010,HCC,Unknown,Unknown, 79,67,0,1,1,0,0
+Female,Unknown,2011-2012,Other,Unknown,Unknown, 18,44,1,0,1,0,0
+Female,Unknown,2003-2004,HCC,Unknown,Unknown, 39,86,1,0,1,0,0
+Female,Unknown,2001-2002,Other,Unknown,Unknown, 12,43,0,1,1,0,0
+Female,Unknown,Unknown,HCC,Unknown,Unknown,148,133,1,0,1,1,0
+Male,Unknown,2005-2006,ALF,Unknown,Unknown, 89,27,0,0,0,0,0
+Male,Unknown,2011-2012,Other,Unknown,Unknown, 72,5,1,0,1,0,0
+Female,Unknown,2005-2006,ALF,Unknown,Unknown, 42,47,0,0,0,0,0
+Female,Unknown,2005-2006,NH,Unknown,Unknown, 41,59,0,0,0,0,0
+Female,Unknown,2003-2004,NH,Unknown,Unknown, 20,54,0,0,0,0,0
+Female,Unknown,2001-2002,HCC,Unknown,Unknown, 48,55,0,0,0,1,0
+Female,Unknown,2007-2008,HCC,Unknown,Unknown, 76,69,0,0,0,0,0
+Female,Unknown,2001-2002,HCC,Unknown,Unknown,109,57,2,0,2,1,0
+Female,Unknown,2001-2002,HCC,Unknown,Unknown, 82,55,0,0,0,0,0
+Male,Unknown,2001-2002,HCC,Unknown,Unknown, 53,55,0,0,0,0,0
+Female,Unknown,2011-2012,NH,Unknown,Unknown, 19,49,1,2,3,0,0
+Female,Unknown,2007-2008,NH,Unknown,Unknown, 52,41,0,1,1,1,0
+Male,Unknown,2003-2004,Other,Unknown,Unknown, 14,37,0,1,1,0,0
+Male,Unknown,2009-2010,HCC,Unknown,Unknown, 93,28,1,0,1,0,0
+Male,Unknown,2001-2002,Other,Unknown,Unknown,110,9,0,0,0,0,0
+Male,Unknown,2013-2014,NH,Unknown,Unknown, 28,51,3,1,5,0,1
+Female,Unknown,2001-2002,Other,Unknown,Unknown, 31,30,0,0,0,0,0
+Male,Unknown,2007-2008,ALF,Unknown,Unknown, 81,38,1,0,1,3,0
+Female,Unknown,2007-2008,NH,Unknown,Unknown,102,38,3,0,3,1,0
+Male,Unknown,2005-2006,NH,Unknown,Unknown, 59,65,3,0,3,1,0
+Male,Unknown,2001-2002,Other,Unknown,Unknown, 82,16,0,0,0,0,0
+Female,Unknown, < 2001,NH,Unknown,Unknown, 85,39,0,0,0,1,0
+Female,Unknown,Unknown,NH,Unknown,Unknown,145,105,2,0,2,0,0
+Female,Unknown,2001-2002,Other,Unknown,Unknown, 28,33,1,0,1,0,0
+Female,Unknown, < 2001,ALF,Unknown,Unknown, 66,19,0,0,0,0,0
+Female,Unknown,2009-2010,HCC,Unknown,Unknown, 15,51,0,1,1,0,0
+Male,Unknown,2003-2004,Other,Unknown,Unknown, 22,33,2,0,3,0,1
+Female,Unknown,2005-2006,NH,Unknown,Unknown, 50,61,0,0,0,0,0
+Male,Unknown,2003-2004,ALF,Unknown,Unknown, 50,45,0,0,0,0,0
+Male,Unknown,2007-2008,ALF,Unknown,Unknown, 71,47,1,0,1,0,0
+Female,Unknown,Unknown,ALF,Unknown,Unknown,177,16,1,0,1,0,0
+Male,Unknown,2003-2004,NH,Unknown,Unknown, 89,39,0,1,1,0,0
+Male,Unknown,2013-2014,NH,Unknown,Unknown, 12,51,1,0,1,1,0
+Male,Unknown,2007-2008,NH,Unknown,Unknown, 30,53,0,0,0,0,0
+Female,Unknown,2001-2002,Other,Unknown,Unknown, 83,19,0,0,0,0,0
+Female,Unknown,2009-2010,HCC,Unknown,Unknown, 64,87,0,0,0,0,0
+Female,Unknown,2003-2004,NH,Unknown,Unknown, 54,54,0,0,0,0,0
+Male,Unknown,2005-2006,HCC,Unknown,Unknown,102,65,1,0,1,0,0
+Male,Unknown,2001-2002,Other,Unknown,Unknown, 38,20,1,0,1,0,0
+Male,Unknown,2013-2014,HCC,Unknown,Unknown,  7,46,0,2,2,0,0
+Male,Unknown,2003-2004,Other,Unknown,Unknown,  2,63,5,3,8,0,0
+Male,Unknown,2007-2008,ALF,Unknown,Unknown,  8,64,1,0,1,0,0
+Male,Unknown,2003-2004,HCC,Unknown,Unknown, 61,67,3,0,3,0,0
+Male,Unknown,2005-2006,HCC,Unknown,Unknown, 87,70,0,0,0,0,0
+Female,Unknown,2011-2012,ALF,Unknown,Unknown, 65,45,1,0,1,1,0
+Male,Unknown, < 2001,Other,Unknown,Unknown, 47,41,0,0,0,0,0
+Female,Unknown,2001-2002,NH,Unknown,Unknown,115,36,0,0,0,0,0
+Female,Unknown,2001-2002,ALF,Unknown,Unknown, 72,43,0,0,0,0,0
+Male,Unknown,2005-2006,ALF,Unknown,Unknown,117,19,0,0,0,0,0
+Female,Unknown,2003-2004,HCC,Unknown,Unknown, 67,70,0,1,1,0,0
+Female,Unknown,Unknown,ALF,Unknown,Unknown,190,11,0,0,0,0,0
+Female,Unknown, < 2001,HCC,Unknown,Unknown,112,40,1,0,1,0,0
+Female,Unknown,2009-2010,Other,Unknown,Unknown, 81,22,0,0,0,0,0
+Female,Unknown,2003-2004,Other,Unknown,Unknown,100,21,0,0,0,0,0
+Male,Unknown,2007-2008,HCC,Unknown,Unknown, 18,57,2,0,2,0,0
+Male,Unknown,Unknown,NH,Unknown,Unknown,151,39,0,0,0,1,0
+Male,Unknown,2005-2006,HCC,Unknown,Unknown, 77,55,1,0,1,1,0
+Female,Unknown,2007-2008,Other,Unknown,Unknown,  5,56,3,1,4,0,0
+Male,Unknown,Unknown,NH,Unknown,Unknown,128,107,1,0,1,0,0
+Male,Unknown,2005-2006,NH,Unknown,Unknown,103,44,0,0,0,0,0
+Female,Unknown,2001-2002,Other,Unknown,Unknown,113,18,0,0,0,0,0
+Female,Unknown,2015-2016,Other,Unknown,Unknown, 15,45,0,3,4,0,1
+Male,Unknown, < 2001,NH,Unknown,Unknown, 78,37,0,0,0,0,0
+Male,Unknown,2009-2010,ALF,Unknown,Unknown, 12,56,0,1,1,0,0
+Male,Unknown,2003-2004,Other,Unknown,Unknown, 61,21,0,0,0,0,0
+Male,Unknown, < 2001,ALF,Unknown,Unknown, 25,36,0,0,0,0,0
+Female,Unknown,2009-2010,Other,Unknown,Unknown, 71,20,0,0,1,0,1
+Female,Unknown,2009-2010,ALF,Unknown,Unknown, 51,48,0,1,1,0,0
+Female,Unknown,2011-2012,ALF,Unknown,Unknown, 33,48,2,0,2,0,0
+Male,Unknown,2001-2002,ALF,Unknown,Unknown,  2,35,0,0,0,0,0
+Female,Unknown,2001-2002,HCC,Unknown,Unknown, 38,66,1,1,2,0,0
+Female,Unknown,Unknown,HCC,Unknown,Unknown,175,68,1,0,1,0,0
+Male,Unknown,2003-2004,ALF,Unknown,Unknown, 41,49,1,0,1,0,0
+Female,Unknown,2001-2002,ALF,Unknown,Unknown, 97,42,1,1,2,0,0
+Male,Unknown,2001-2002,Other,Unknown,Unknown, 88,12,0,0,0,1,0
+Female,Unknown, < 2001,NH,Unknown,Unknown, 39,50,0,0,1,0,1
+Female,Unknown,2011-2012,HCC,Unknown,Unknown, 69,56,0,2,2,0,0
+Female,Unknown,2003-2004,NH,Unknown,Unknown,107,47,0,0,0,2,0
+Male,Unknown,2015-2016,Other,Unknown,Unknown,  6,59,4,5,9,0,0
+Male,Unknown,2009-2010,Other,Unknown,Unknown,  2,55,4,2,8,0,2
+Male,Unknown,2009-2010,Other,Unknown,Unknown, 22,26,1,0,1,0,0
+Female,Unknown,2009-2010,NH,Unknown,Unknown, 58,53,1,0,1,0,0
+Female,Unknown,2009-2010,HCC,Unknown,Unknown, 30,57,2,0,2,0,0
+Female,Unknown, < 2001,Other,Unknown,Unknown, 81,40,1,0,1,0,0
+Female,Unknown,Unknown,HCC,Unknown,Unknown,165,83,1,0,1,0,0
+Male,Unknown,2007-2008,Other,Unknown,Unknown, 47,30,0,0,0,0,0
+Male,Unknown,2013-2014,NH,Unknown,Unknown, 31,49,1,0,1,1,0
+Female,Unknown,2011-2012,HCC,Unknown,Unknown, 37,47,0,0,0,0,0
+Male,Unknown,2007-2008,NH,Unknown,Unknown, 64,48,1,0,1,0,0
+Female,Unknown,2005-2006,HCC,Unknown,Unknown,108,69,1,0,1,0,0
+Male,Unknown, < 2001,Other,Unknown,Unknown,104,23,0,0,0,0,0
+Male,Unknown,2013-2014,ALF,Unknown,Unknown,  1,64,1,0,1,0,0
+Female,Unknown,2005-2006,Other,Unknown,Unknown, 54,26,2,0,2,0,0
+Male,Unknown,2009-2010,NH,Unknown,Unknown,  9,55,1,0,1,0,0
+Female,Unknown,2009-2010,Other,Unknown,Unknown, 92,10,0,0,0,0,0
+Male,Unknown,2005-2006,NH,Unknown,Unknown, 48,60,1,1,2,0,0
+Male,Unknown,2011-2012,ALF,Unknown,Unknown, 67,27,0,1,1,0,0
+Female,Unknown,2001-2002,HCC,Unknown,Unknown, 59,59,1,0,1,0,0
+Female,Unknown,2005-2006,Other,Unknown,Unknown, 64,26,1,0,1,0,0
+Female,Unknown,2003-2004,ALF,Unknown,Unknown,105,35,0,0,0,0,0
+Female,Unknown,2015-2016,Other,Unknown,Unknown, 20,21,1,0,1,0,0
+Male,Unknown, < 2001,HCC,Unknown,Unknown, 14,64,0,0,0,0,0
+Female,Unknown,2007-2008,HCC,Unknown,Unknown,  5,50,1,0,1,0,0
+Female,Unknown, < 2001,Other,Unknown,Unknown,104,35,0,0,0,0,0
+Male,Unknown,Unknown,NH,Unknown,Unknown,193,10,0,0,0,0,0
+Female,Unknown,Unknown,NH,Unknown,Unknown,133,130,5,0,5,2,0
+Male,Unknown,2005-2006,NH,Unknown,Unknown, 67,48,2,1,3,0,0
+Female,Unknown,2001-2002,NH,Unknown,Unknown, 85,47,1,0,1,0,0
+Female,Unknown,2003-2004,ALF,Unknown,Unknown, 77,50,3,0,3,0,0
+Female,Unknown, < 2001,ALF,Unknown,Unknown, 36,36,2,0,2,0,0
+Male,Unknown,2011-2012,Other,Unknown,Unknown,  9,48,1,2,3,0,0
+Male,Unknown,2003-2004,ALF,Unknown,Unknown, 60,46,0,1,1,0,0
+Female,Unknown,2015-2016,ALF,Unknown,Unknown, 24,40,1,2,3,0,0
+Female,Unknown,Unknown,NH,Unknown,Unknown,150,104,2,0,2,0,0
+Female,Unknown,2005-2006,NH,Unknown,Unknown, 60,56,2,1,3,1,0
+Male,Unknown,2009-2010,ALF,Unknown,Unknown, 31,54,2,0,2,0,0
+Male,Unknown,2001-2002,NH,Unknown,Unknown, 34,52,0,0,0,0,0
+Female,Unknown,2005-2006,HCC,Unknown,Unknown, 63,71,0,0,0,1,0
+Male,Unknown, < 2001,ALF,Unknown,Unknown, 15,36,0,0,0,0,0
+Female,Unknown,2013-2014,NH,Unknown,Unknown, 39,54,0,1,1,1,0
+Female,Unknown, < 2001,Other,Unknown,Unknown, 57,42,0,0,0,0,0
+Male,Unknown, < 2001,NH,Unknown,Unknown, 57,39,1,0,1,1,0
+Male,Unknown,2007-2008,Other,Unknown,Unknown, 81,17,0,0,0,0,0
+Female,Unknown,2001-2002,Other,Unknown,Unknown, 37,28,1,1,2,0,0
+Male,Unknown,2001-2002,HCC,Unknown,Unknown, 22,69,1,2,3,0,0
+Male,Unknown,Unknown,Other,Unknown,Unknown,167,17,0,1,1,0,0
+Male,Unknown,2009-2010,ALF,Unknown,Unknown, 28,49,0,0,0,0,0
+Female,Unknown,2001-2002,NH,Unknown,Unknown, 38,48,0,0,0,1,0
+Female,Unknown,2011-2012,NH,Unknown,Unknown, 21,48,2,0,2,0,0
+Male,Unknown,2013-2014,HCC,Unknown,Unknown, 39,68,3,1,4,0,0
+Female,Unknown,2001-2002,Other,Unknown,Unknown,  3,53,4,3,7,0,0
+Female,Unknown,2007-2008,Other,Unknown,Unknown, 91,13,0,0,0,0,0
+Female,Unknown, < 2001,NH,Unknown,Unknown, 91,41,0,0,0,1,0
+Female,Unknown,2003-2004,HCC,Unknown,Unknown,110,80,0,1,1,1,0
+Male,Unknown,2005-2006,NH,Unknown,Unknown, 76,48,0,0,0,1,0
+Female,Unknown,2005-2006,NH,Unknown,Unknown, 56,57,2,0,2,0,0
+Male,Unknown,2007-2008,NH,Unknown,Unknown, 12,49,0,1,1,0,0
+Female,Unknown,2007-2008,Other,Unknown,Unknown, 96,16,0,0,0,0,0
+Male,Unknown,2001-2002,NH,Unknown,Unknown,102,34,1,0,1,0,0
+Male,Unknown,Unknown,NH,Unknown,Unknown,198,25,0,0,0,0,0
+Female,Unknown,2011-2012,ALF,Unknown,Unknown, 54,50,0,0,0,0,0
+Female,Unknown,2007-2008,Other,Unknown,Unknown, 67,15,0,0,0,0,0
+Male,Unknown,2011-2012,ALF,Unknown,Unknown, 70,16,0,0,1,0,1
+Male,Unknown,2007-2008,ALF,Unknown,Unknown, 21,50,0,0,0,0,0
+Male,Unknown,2003-2004,HCC,Unknown,Unknown,  2,69,4,2,6,0,0
+Female,Unknown,2005-2006,Other,Unknown,Unknown, 45,32,1,1,2,0,0
+Male,Unknown,2007-2008,Other,Unknown,Unknown, 61,22,2,0,2,0,0
+Female,Unknown,2001-2002,ALF,Unknown,Unknown, 81,34,0,0,0,0,0
+Female,Unknown,2009-2010,ALF,Unknown,Unknown, 40,52,0,0,0,4,0
+Male,Unknown,2001-2002,ALF,Unknown,Unknown,  8,35,0,0,0,0,0
+Female,Unknown,2001-2002,ALF,Unknown,Unknown,104,34,0,0,0,0,0
+Female,Unknown,Unknown,ALF,Unknown,Unknown,192,9,0,0,0,0,0
+Female,Unknown,2003-2004,NH,Unknown,Unknown, 15,57,1,0,1,0,0
+Female,Unknown,2007-2008,HCC,Unknown,Unknown,110,66,0,0,0,0,0
+Female,Unknown,2005-2006,HCC,Unknown,Unknown, 62,72,2,0,2,0,0
+Female,Unknown,2011-2012,Other,Unknown,Unknown, 10,56,0,1,1,0,0
+Female,Unknown,2003-2004,NH,Unknown,Unknown, 31,62,1,0,1,0,0
+Male,Unknown,2009-2010,ALF,Unknown,Unknown, 30,53,0,0,0,0,0
+Male,Unknown,Unknown,Other,Unknown,Unknown,199,13,0,0,0,0,0
+Male,Unknown,2001-2002,NH,Unknown,Unknown, 78,37,0,0,0,0,0
+Male,Unknown,Unknown,NH,Unknown,Unknown,212,12,0,0,0,0,0
+Female,Unknown, < 2001,ALF,Unknown,Unknown,  2,40,0,0,0,0,0
+Male,Unknown, < 2001,NH,Unknown,Unknown, 35,52,2,0,2,0,0
+Male,Unknown,2007-2008,NH,Unknown,Unknown, 98,34,0,0,0,0,0
+Female,Unknown,2001-2002,Other,Unknown,Unknown, 17,37,1,0,1,0,0
+Male,Unknown,2007-2008,Other,Unknown,Unknown, 41,27,0,0,0,0,0
+Male,Unknown,2005-2006,Other,Unknown,Unknown, 50,24,1,1,2,0,0
+Female,Unknown,2001-2002,ALF,Unknown,Unknown, 47,49,0,0,0,0,0
+Male,Unknown,2009-2010,NH,Unknown,Unknown, 16,60,2,0,2,0,0
+Male,Unknown,2003-2004,Other,Unknown,Unknown, 21,33,1,0,1,0,0
+Male,Unknown,2013-2014,NH,Unknown,Unknown, 27,52,0,0,0,0,0
+Male,Unknown, < 2001,HCC,Unknown,Unknown, 61,46,1,0,1,0,0
+Male,Unknown,2007-2008,ALF,Unknown,Unknown, 92,37,1,0,1,0,0
+Female,Unknown, < 2001,Other,Unknown,Unknown, 92,37,0,0,0,0,0
+Male,Unknown,Unknown,ALF,Unknown,Unknown,129,53,0,0,0,0,0
+Female,Unknown,2011-2012,NH,Unknown,Unknown, 14,48,1,1,2,0,0
+Male,Unknown,2005-2006,HCC,Unknown,Unknown, 34,62,1,0,1,0,0
+Female,Unknown, < 2001,ALF,Unknown,Unknown, 41,31,0,0,0,0,0
+Female,Unknown,2013-2014,ALF,Unknown,Unknown,  1,53,0,0,0,0,0
+Female,Unknown,2007-2008,Other,Unknown,Unknown,110,8,0,0,0,0,0
+Female,Unknown,2005-2006,HCC,Unknown,Unknown, 13,65,1,1,2,0,0
+Male,Unknown,2011-2012,Other,Unknown,Unknown, 16,37,1,0,1,0,0
+Male,Unknown,2003-2004,ALF,Unknown,Unknown, 53,50,1,1,2,1,0
+Female,Unknown,2011-2012,Other,Unknown,Unknown, 55,21,1,0,1,0,0
+Female,Unknown,2009-2010,Other,Unknown,Unknown, 16,44,0,0,0,0,0
+Female,Unknown,2009-2010,HCC,Unknown,Unknown, 65,84,2,1,3,0,0
+Female,Unknown,2011-2012,NH,Unknown,Unknown,  9,50,2,0,2,0,0
+Female,Unknown,2007-2008,NH,Unknown,Unknown, 44,47,1,0,1,0,0
+Male,Unknown,2009-2010,HCC,Unknown,Unknown, 95,14,0,0,0,0,0
+Male,Unknown,Unknown,ALF,Unknown,Unknown,216,3,0,0,0,0,0
+Female,Unknown,2007-2008,NH,Unknown,Unknown, 35,50,0,0,0,0,0
+Female,Unknown,2005-2006,NH,Unknown,Unknown,117,37,2,0,2,0,0
+Female,Unknown,2003-2004,NH,Unknown,Unknown, 80,44,0,0,0,1,0
+Male,Unknown,2009-2010,ALF,Unknown,Unknown,  5,53,1,0,1,0,0
+Male,Unknown,2001-2002,Other,Unknown,Unknown, 70,19,0,0,0,0,0
+Female,Unknown, < 2001,NH,Unknown,Unknown, 59,46,2,0,2,0,0
+Male,Unknown,2013-2014,Other,Unknown,Unknown, 40,24,2,0,2,0,0
+Female,Unknown,2007-2008,ALF,Unknown,Unknown, 77,38,0,0,0,0,0
+Male,Unknown,2003-2004,NH,Unknown,Unknown, 66,58,1,0,1,0,0
+Female,Unknown,2001-2002,Other,Unknown,Unknown,107,12,0,0,0,0,0
+Female,Unknown, < 2001,NH,Unknown,Unknown, 33,46,1,0,1,0,0
+Male,Unknown,2003-2004,HCC,Unknown,Unknown, 66,59,1,1,2,1,0
+Male,Unknown,2007-2008,ALF,Unknown,Unknown,  9,64,0,0,0,1,0
+Male,Unknown,Unknown,HCC,Unknown,Unknown,190,18,0,0,0,0,0
+Female,Unknown,2013-2014,HCC,Unknown,Unknown, 34,53,1,0,1,0,0
+Female,Unknown,2003-2004,HCC,Unknown,Unknown,  5,64,1,2,3,0,0
+Male,Unknown,2009-2010,NH,Unknown,Unknown, 72,49,1,1,2,0,0
+Male,Unknown,2013-2014,HCC,Unknown,Unknown, 18,57,3,0,3,0,0
+Male,Unknown,Unknown,HCC,Unknown,Unknown,146,100,2,1,3,0,0
+Male,Unknown, < 2001,NH,Unknown,Unknown, 77,37,1,0,1,1,0
+Female,Unknown,2011-2012,ALF,Unknown,Unknown, 15,52,0,1,1,0,0
+Female,Unknown,2011-2012,Other,Unknown,Unknown,  7,75,4,1,5,0,0
+Male,Unknown, < 2001,ALF,Unknown,Unknown, 20,38,0,0,0,0,0
+Female,Unknown,2013-2014,ALF,Unknown,Unknown, 24,53,2,0,2,0,0
+Male,Unknown,2007-2008,ALF,Unknown,Unknown, 19,53,2,0,2,0,0
+Female,Unknown,2005-2006,Other,Unknown,Unknown, 98,15,0,0,0,0,0
+Male,Unknown,2005-2006,NH,Unknown,Unknown, 96,47,2,0,2,0,0
+Female,Unknown,2013-2014,HCC,Unknown,Unknown, 44,58,0,0,0,0,0
+Female,Unknown,2011-2012,ALF,Unknown,Unknown, 30,48,0,0,0,0,0
+Female,Unknown, < 2001,HCC,Unknown,Unknown, 87,43,0,0,0,0,0
+Female,Unknown,2007-2008,HCC,Unknown,Unknown, 67,74,2,0,2,1,0
+Male,Unknown,2007-2008,HCC,Unknown,Unknown, 13,58,5,1,7,0,1
+Female,Unknown,2013-2014,NH,Unknown,Unknown,  5,47,1,0,1,1,0
+Female,Unknown,2009-2010,ALF,Unknown,Unknown, 54,56,0,0,0,2,0
+Female,Unknown,2009-2010,NH,Unknown,Unknown, 86,38,0,1,1,0,0
+Male,Unknown,2001-2002,Other,Unknown,Unknown, 18,33,1,1,2,0,0
+Male,Unknown,2003-2004,Other,Unknown,Unknown, 66,22,0,1,1,0,0
+Female,Unknown,2007-2008,HCC,Unknown,Unknown,103,63,0,0,0,0,0
+Female,Unknown,2007-2008,ALF,Unknown,Unknown, 97,36,0,1,1,0,0
+Female,Unknown,2001-2002,Other,Unknown,Unknown, 80,20,0,0,0,0,0
+Male,Unknown, < 2001,NH,Unknown,Unknown, 63,38,2,0,2,1,0
+Female,Unknown,2005-2006,ALF,Unknown,Unknown, 10,54,0,0,0,0,0
+Female,Unknown, < 2001,NH,Unknown,Unknown, 88,41,1,0,1,0,0
+Female,Unknown, < 2001,ALF,Unknown,Unknown, 89,24,0,0,0,0,0
+Female,Unknown,2005-2006,NH,Unknown,Unknown, 11,54,2,0,2,0,0
+Female,Unknown,2005-2006,Other,Unknown,Unknown, 65,26,0,0,0,0,0
+Male,Unknown,2011-2012,ALF,Unknown,Unknown,  5,56,0,2,2,0,0
+Female,Unknown,2011-2012,Other,Unknown,Unknown, 62,14,1,0,1,0,0
+Male,Unknown,2009-2010,ALF,Unknown,Unknown, 20,59,0,1,1,0,0
+Female,Unknown,2001-2002,ALF,Unknown,Unknown, 87,37,0,0,0,1,0
+Female,Unknown,2011-2012,NH,Unknown,Unknown,  8,46,0,0,0,0,0
+Female,Unknown,2001-2002,NH,Unknown,Unknown, 59,47,1,1,2,0,0
+Female,Unknown, < 2001,HCC,Unknown,Unknown, 63,42,1,1,2,0,0
+Female,Unknown,Unknown,Other,Unknown,Unknown,121,86,2,0,2,0,0
+Male,Unknown,2003-2004,Other,Unknown,Unknown, 36,25,1,0,1,0,0
+Male,Unknown,2007-2008,NH,Unknown,Unknown, 65,51,1,0,1,2,0
+Male,Unknown,2009-2010,HCC,Unknown,Unknown, 90,44,1,1,2,0,0
+Female,Unknown,Unknown,HCC,Unknown,Unknown,168,71,1,0,1,0,0
+Female,Unknown,Unknown,Other,Unknown,Unknown,185,16,0,0,0,0,0
+Female,Unknown,2001-2002,HCC,Unknown,Unknown, 26,67,1,0,1,0,0
+Female,Unknown,2011-2012,NH,Unknown,Unknown, 71,29,0,0,1,0,1
+Male,Unknown,2011-2012,Other,Unknown,Unknown,  6,57,5,1,6,0,0
+Female,Unknown,Unknown,NH,Unknown,Unknown,136,130,4,0,4,0,0
+Male,Unknown,Unknown,NH,Unknown,Unknown,143,62,2,0,2,0,0
+Male,Unknown,2011-2012,NH,Unknown,Unknown, 54,49,0,0,1,0,1
+Female,Unknown,2011-2012,Other,Unknown,Unknown, 52,30,0,0,1,0,1
+Female,Unknown,2005-2006,HCC,Unknown,Unknown, 23,71,1,1,2,0,0
+Female,Unknown,2015-2016,ALF,Unknown,Unknown, 23,42,2,5,9,0,2
+Male,Unknown,2003-2004,ALF,Unknown,Unknown, 71,29,1,0,1,0,0
+Male,Unknown,2009-2010,NH,Unknown,Unknown,  6,53,2,0,2,0,0
+Male,Unknown,2005-2006,HCC,Unknown,Unknown, 99,66,1,0,1,0,0
+Male,Unknown,2009-2010,HCC,Unknown,Unknown, 68,80,1,0,1,0,0
+Female,Unknown,2005-2006,HCC,Unknown,Unknown,  1,50,3,1,4,0,0
+Male,Unknown,2007-2008,NH,Unknown,Unknown, 28,59,2,2,4,0,0
+Female,Unknown,2003-2004,ALF,Unknown,Unknown,104,36,1,0,1,0,0
+Female,Unknown,2011-2012,NH,Unknown,Unknown, 61,56,3,0,3,0,0
+Female,Unknown,2007-2008,NH,Unknown,Unknown, 34,52,1,0,1,0,0
+Female,Unknown,2001-2002,Other,Unknown,Unknown,116,17,0,0,0,0,0
+Male,Unknown,2005-2006,ALF,Unknown,Unknown, 66,43,1,0,1,0,0
+Male,Unknown,2001-2002,NH,Unknown,Unknown, 35,53,0,0,0,0,0
+Male,Unknown,2013-2014,Other,Unknown,Unknown, 45,11,1,0,1,0,0
+Female,Unknown,2003-2004,ALF,Unknown,Unknown, 78,46,0,0,0,0,0
+Male,Unknown, < 2001,Other,Unknown,Unknown, 72,40,0,0,0,0,0
+Male,Unknown,2005-2006,HCC,Unknown,Unknown, 57,59,3,2,5,0,0
+Female,Unknown,2011-2012,Other,Unknown,Unknown, 13,50,5,3,9,0,1
+Female,Unknown,2009-2010,ALF,Unknown,Unknown, 45,53,0,0,0,0,0
+Male,Unknown,2007-2008,ALF,Unknown,Unknown,114,10,0,0,0,0,0
+Female,Unknown,2011-2012,NH,Unknown,Unknown, 53,56,0,0,0,0,0
+Male,Unknown,2007-2008,HCC,Unknown,Unknown, 62,77,0,0,0,0,0
+Female,Unknown,2011-2012,NH,Unknown,Unknown, 16,54,0,0,0,0,0
+Female,Unknown,Unknown,HCC,Unknown,Unknown,147,138,3,0,3,0,0
+Male,Unknown,2003-2004,NH,Unknown,Unknown, 95,34,1,0,1,0,0
+Male,Unknown,2005-2006,ALF,Unknown,Unknown, 36,57,1,2,3,0,0
+Female,Unknown,2001-2002,Other,Unknown,Unknown, 93,19,0,0,0,0,0
+Female,Unknown,2015-2016,ALF,Unknown,Unknown,  1,53,1,1,2,0,0
+Female,Unknown,2013-2014,ALF,Unknown,Unknown, 35,60,1,1,2,0,0
+Male,Unknown,2007-2008,HCC,Unknown,Unknown,  7,49,2,0,2,0,0
+Male,Unknown,Unknown,HCC,Unknown,Unknown,136,144,0,0,0,1,0
+Male,Unknown,2001-2002,HCC,Unknown,Unknown, 56,53,0,0,0,0,0
+Male,Unknown,2003-2004,NH,Unknown,Unknown, 46,57,0,0,0,0,0
+Male,Unknown,2003-2004,ALF,Unknown,Unknown, 11,48,2,0,2,0,0
+Female,Unknown,2009-2010,ALF,Unknown,Unknown, 64,48,2,0,2,0,0
+Male,Unknown,2007-2008,Other,Unknown,Unknown, 22,27,1,0,2,0,1
+Female,Unknown,2009-2010,Other,Unknown,Unknown,  6,54,2,2,4,0,0
+Female,Unknown,Unknown,Other,Unknown,Unknown,154,37,0,0,0,0,0
+Female,Unknown,2007-2008,HCC,Unknown,Unknown, 75,68,0,0,0,2,0
+Male,Unknown,2011-2012,NH,Unknown,Unknown, 45,47,0,1,1,1,0
+Male,Unknown,2001-2002,NH,Unknown,Unknown, 55,52,3,0,3,0,0
+Female,Unknown,2009-2010,NH,Unknown,Unknown, 95,20,0,0,0,0,0
+Female,Unknown,2005-2006,NH,Unknown,Unknown, 46,56,0,0,0,0,0
+Male,Unknown,2001-2002,Other,Unknown,Unknown, 26,30,0,0,0,0,0
+Female,Unknown,2005-2006,ALF,Unknown,Unknown, 18,46,0,0,0,0,0
+Male,Unknown,Unknown,NH,Unknown,Unknown,200,23,0,0,0,0,0
+Male,Unknown,2005-2006,ALF,Unknown,Unknown, 43,49,3,0,3,0,0
+Female,Unknown, < 2001,HCC,Unknown,Unknown, 77,39,0,1,1,0,0
+Male,Unknown,Unknown,Other,Unknown,Unknown,256,7,0,0,0,0,0
+Male,Unknown,2009-2010,Other,Unknown,Unknown, 66,21,0,0,0,0,0
+Female,Unknown, < 2001,Other,Unknown,Unknown, 97,41,1,0,1,0,0
+Male,Unknown,2013-2014,ALF,Unknown,Unknown, 24,54,1,0,1,0,0
+Female,Unknown,2001-2002,ALF,Unknown,Unknown, 71,42,0,0,0,0,0
+Male,Unknown,Unknown,HCC,Unknown,Unknown,126,176,3,1,4,1,0
+Male,Unknown,2007-2008,ALF,Unknown,Unknown, 84,38,2,0,2,1,0
+Male,Unknown,Unknown,Other,Unknown,Unknown,228,18,0,0,0,0,0
+Male,Unknown,Unknown,ALF,Unknown,Unknown,134,47,1,0,1,0,0
+Male,Unknown,2011-2012,NH,Unknown,Unknown, 64,37,0,0,0,0,0
+Male,Unknown,2005-2006,ALF,Unknown,Unknown,106,26,0,0,0,0,0
+Male,Unknown,2007-2008,HCC,Unknown,Unknown, 52,85,2,1,3,0,0
+Male,Unknown,2001-2002,Other,Unknown,Unknown, 85,15,1,0,1,0,0
+Male,Unknown,2005-2006,ALF,Unknown,Unknown, 95,29,0,0,0,0,0
+Male,Unknown, < 2001,NH,Unknown,Unknown, 87,33,1,1,2,0,0
+Male,Unknown,2007-2008,ALF,Unknown,Unknown, 29,61,0,0,0,0,0
+Female,Unknown,2009-2010,NH,Unknown,Unknown, 46,48,1,0,1,1,0
+Male,Unknown, < 2001,NH,Unknown,Unknown,102,30,1,0,1,0,0
+Female,Unknown,2011-2012,HCC,Unknown,Unknown, 17,44,2,1,3,0,0
+Male,Unknown,2001-2002,Other,Unknown,Unknown, 39,19,0,0,0,0,0
+Male,Unknown,Unknown,Other,Unknown,Unknown,136,37,2,0,2,0,0
+Female,Unknown,2001-2002,NH,Unknown,Unknown, 48,48,0,1,1,0,0
+Female,Unknown,2007-2008,ALF,Unknown,Unknown,  6,55,1,0,1,0,0
+Female,Unknown,2011-2012,ALF,Unknown,Unknown, 64,49,1,0,1,0,0
+Male,Unknown,Unknown,Other,Unknown,Unknown,277,3,0,0,0,1,0
+Male,Unknown,2013-2014,HCC,Unknown,Unknown,  4,48,1,1,2,0,0
+Female,Unknown,Unknown,NH,Unknown,Unknown,146,106,1,1,2,0,0
+Female,Unknown,2005-2006,ALF,Unknown,Unknown, 52,48,1,0,1,0,0
+Female,Unknown, < 2001,Other,Unknown,Unknown, 47,35,0,0,0,0,0
+Male,Unknown,2009-2010,ALF,Unknown,Unknown, 15,60,0,0,0,0,0
+Male,Unknown,2001-2002,HCC,Unknown,Unknown,  2,59,3,3,7,0,1
+Male,Unknown,2013-2014,HCC,Unknown,Unknown,  5,49,0,1,1,0,0
+Male,Unknown,2013-2014,NH,Unknown,Unknown, 20,57,1,0,1,0,0
+Female,Unknown,2001-2002,ALF,Unknown,Unknown, 92,40,0,1,1,0,0
+Male,Unknown,2001-2002,Other,Unknown,Unknown,  6,41,3,0,3,0,0
+Male,Unknown, < 2001,Other,Unknown,Unknown,  6,46,0,0,0,0,0
+Male,Unknown,2009-2010,Other,Unknown,Unknown, 21,29,2,1,3,0,0
+Female,Unknown,2013-2014,Other,Unknown,Unknown, 28,57,2,1,3,0,0
+Male,Unknown,2001-2002,ALF,Unknown,Unknown, 14,40,1,0,1,0,0
+Female,Unknown,2011-2012,HCC,Unknown,Unknown, 68,49,2,0,2,0,0
+Male,Unknown,2009-2010,NH,Unknown,Unknown, 19,56,1,0,1,0,0
+Male,Unknown,Unknown,NH,Unknown,Unknown,123,131,5,0,5,0,0
+Male,Unknown,2005-2006,HCC,Unknown,Unknown, 78,54,1,0,1,0,0
+Male,Unknown,2003-2004,HCC,Unknown,Unknown, 11,75,2,1,3,0,0
+Male,Unknown,2005-2006,ALF,Unknown,Unknown, 46,42,0,0,0,0,0
+Male,Unknown, < 2001,ALF,Unknown,Unknown, 28,37,0,0,0,0,0
+Male,Unknown, < 2001,NH,Unknown,Unknown, 34,52,0,0,0,1,0
+Male,Unknown,2007-2008,ALF,Unknown,Unknown, 11,62,2,0,2,0,0
+Male,Unknown,2005-2006,Other,Unknown,Unknown, 16,27,0,0,0,0,0
+Male,Unknown, < 2001,HCC,Unknown,Unknown, 66,45,0,0,0,0,0
+Male,Unknown,2003-2004,HCC,Unknown,Unknown, 36,74,0,0,0,0,0
+Female,Unknown,2007-2008,ALF,Unknown,Unknown, 87,42,0,0,0,0,0
+Male,Unknown,Unknown,ALF,Unknown,Unknown,126,57,0,0,0,0,0
+Female,Unknown,2001-2002,NH,Unknown,Unknown,  4,61,1,1,2,0,0
+Male,Unknown,2003-2004,NH,Unknown,Unknown, 43,55,1,0,1,0,0
+Male,Unknown,2005-2006,Other,Unknown,Unknown, 72,18,0,0,0,0,0
+Female,Unknown,2003-2004,NH,Unknown,Unknown, 64,56,0,0,0,0,0
+Female,Unknown,2009-2010,NH,Unknown,Unknown, 90,31,1,0,2,0,1
+Male,Unknown,2009-2010,Other,Unknown,Unknown, 41,24,0,0,1,0,1
+Male,Unknown,Unknown,ALF,Unknown,Unknown,133,46,0,0,0,0,0
+Male,Unknown,Unknown,Other,Unknown,Unknown,146,29,1,0,1,0,0
+Female,Unknown,2007-2008,Other,Unknown,Unknown,103,14,0,0,0,0,0
+Male,Unknown,2009-2010,Other,Unknown,Unknown, 36,32,1,1,2,0,0
+Male,Unknown,2001-2002,ALF,Unknown,Unknown, 61,28,1,0,1,0,0
+Female,Unknown,2003-2004,Other,Unknown,Unknown, 59,25,1,0,1,0,0
+Male,Unknown,2003-2004,ALF,Unknown,Unknown, 61,47,0,1,1,0,0
+Female,Unknown,2005-2006,ALF,Unknown,Unknown, 70,44,1,0,1,0,0
+Male,Unknown,2007-2008,Other,Unknown,Unknown, 71,19,0,1,1,0,0
+Female,Unknown, < 2001,HCC,Unknown,Unknown, 97,39,0,0,0,0,0
+Female,Unknown,2003-2004,Other,Unknown,Unknown,103,21,0,0,0,0,0
+Female,Unknown,2009-2010,HCC,Unknown,Unknown, 33,49,0,0,0,0,0
+Male,Unknown,2009-2010,NH,Unknown,Unknown, 71,54,2,0,2,1,0
+Female,Unknown,2011-2012,NH,Unknown,Unknown, 60,57,2,2,5,0,1
+Male,Unknown, < 2001,ALF,Unknown,Unknown, 54,32,1,1,2,1,0
+Male,Unknown,2003-2004,ALF,Unknown,Unknown, 19,50,2,0,2,0,0
+Female,Unknown,2007-2008,ALF,Unknown,Unknown, 94,38,1,0,1,1,0
+Male,Unknown,2007-2008,Other,Unknown,Unknown, 60,22,1,0,1,0,0
+Male,Unknown,2007-2008,NH,Unknown,Unknown, 20,54,1,0,1,0,0
+Male,Unknown,Unknown,ALF,Unknown,Unknown,217,3,0,0,0,0,0
+Male,Unknown,Unknown,Other,Unknown,Unknown,177,7,0,0,0,0,0
+Female,Unknown,2007-2008,ALF,Unknown,Unknown,112,22,1,1,2,0,0
+Male,Unknown,2009-2010,HCC,Unknown,Unknown, 74,69,0,0,1,0,1
+Male,Unknown,2013-2014,HCC,Unknown,Unknown, 38,72,2,2,4,0,0
+Male,Unknown,2011-2012,ALF,Unknown,Unknown,  4,56,1,1,2,0,0
+Male,Unknown,2009-2010,NH,Unknown,Unknown, 84,52,3,0,3,0,0
+Male,Unknown,2009-2010,ALF,Unknown,Unknown, 64,45,0,0,1,2,1
+Female,Unknown,2009-2010,HCC,Unknown,Unknown, 25,55,0,0,0,0,0
+Female,Unknown,2011-2012,HCC,Unknown,Unknown,  3,43,0,1,1,0,0
+Male,Unknown,2007-2008,HCC,Unknown,Unknown, 10,51,2,0,2,0,0
+Male,Unknown,2001-2002,Other,Unknown,Unknown,115,9,1,0,1,0,0
+Male,Unknown,2007-2008,HCC,Unknown,Unknown, 70,76,0,0,0,0,0
+Male,Unknown,2001-2002,NH,Unknown,Unknown, 99,35,0,0,0,0,0
+Female,Unknown,2011-2012,NH,Unknown,Unknown, 11,50,1,0,2,0,1
+Female,Unknown,2001-2002,HCC,Unknown,Unknown, 85,58,1,0,1,0,0
+Male,Unknown,2001-2002,HCC,Unknown,Unknown, 14,71,1,0,1,0,0
+Female,Unknown,2003-2004,HCC,Unknown,Unknown, 91,86,1,0,1,0,0
+Male,Unknown,2007-2008,NH,Unknown,Unknown, 15,58,2,0,2,0,0
+Female,Unknown,Unknown,ALF,Unknown,Unknown,167,29,0,0,0,0,0
+Female,Unknown,2011-2012,Other,Unknown,Unknown, 63,14,0,1,1,0,0
+Male,Unknown,2011-2012,HCC,Unknown,Unknown, 42,67,1,0,1,0,0
+Female,Unknown,2005-2006,NH,Unknown,Unknown, 53,59,0,0,0,1,0
+Female,Unknown,2005-2006,HCC,Unknown,Unknown, 32,71,1,0,1,0,0
+Female,Unknown,Unknown,ALF,Unknown,Unknown,129,107,1,0,1,0,0
+Male,Unknown,2009-2010,HCC,Unknown,Unknown, 43,63,1,0,1,0,0
+Female,Unknown,2001-2002,ALF,Unknown,Unknown, 84,36,2,0,2,0,0
+Male,Unknown,2009-2010,Other,Unknown,Unknown, 50,21,0,0,0,1,0
+Male,Unknown,2011-2012,HCC,Unknown,Unknown, 24,48,3,1,4,0,0
+Female,Unknown, < 2001,ALF,Unknown,Unknown, 79,24,0,0,0,0,0
+Female,Unknown,2003-2004,NH,Unknown,Unknown, 12,64,5,0,5,0,0
+Female,Unknown, < 2001,NH,Unknown,Unknown, 96,46,0,0,0,0,0
+Male,Unknown,2007-2008,NH,Unknown,Unknown, 31,50,4,0,4,0,0
+Female,Unknown,2009-2010,ALF,Unknown,Unknown, 12,56,0,0,0,0,0
+Female,Unknown,2009-2010,Other,Unknown,Unknown, 84,18,0,1,1,0,0
+Female,Unknown,2003-2004,Other,Unknown,Unknown, 91,22,0,0,0,0,0
+Female,Unknown,2001-2002,Other,Unknown,Unknown, 49,21,0,1,1,0,0
+Female,Unknown,2001-2002,Other,Unknown,Unknown, 27,33,0,0,0,0,0
+Female,Unknown,2011-2012,ALF,Unknown,Unknown, 25,52,1,2,3,0,0
+Male,Unknown,2001-2002,NH,Unknown,Unknown, 77,40,0,0,0,0,0
+Male,Unknown,2009-2010,HCC,Unknown,Unknown, 69,77,0,0,0,0,0
+Male,Unknown,2007-2008,ALF,Unknown,Unknown, 60,50,0,0,0,0,0
+Male,Unknown,2003-2004,NH,Unknown,Unknown,117,34,1,0,1,0,0
+Male,Unknown,2003-2004,ALF,Unknown,Unknown,  9,49,1,1,2,0,0
+Female,Unknown,2013-2014,Other,Unknown,Unknown, 32,53,1,0,1,0,0
+Male,Unknown,2009-2010,NH,Unknown,Unknown, 91,33,0,0,0,0,0
+Male,Unknown,2001-2002,HCC,Unknown,Unknown, 24,69,3,0,3,0,0
+Male,Unknown,2003-2004,HCC,Unknown,Unknown, 47,74,2,2,4,0,0
+Female,Unknown,2013-2014,Other,Unknown,Unknown, 13,61,0,3,3,0,0
+Female,Unknown,2007-2008,Other,Unknown,Unknown, 79,15,0,0,0,0,0
+Male,Unknown,2001-2002,ALF,Unknown,Unknown, 42,41,1,0,1,0,0
+Female,Unknown,2015-2016,NH,Unknown,Unknown,  8,53,0,0,0,0,0
+Male,Unknown,2003-2004,ALF,Unknown,Unknown, 72,29,1,0,1,0,0
+Male,Unknown,Unknown,ALF,Unknown,Unknown,218,3,0,0,0,0,0
+Male,Unknown,2003-2004,HCC,Unknown,Unknown,  8,76,2,1,3,0,0
+Female,Unknown,2003-2004,ALF,Unknown,Unknown, 55,45,0,0,0,0,0
+Female,Unknown,2005-2006,Other,Unknown,Unknown, 15,45,0,1,1,0,0
+Female,Unknown,2009-2010,Other,Unknown,Unknown, 69,27,1,0,1,0,0
+Female,Unknown,2007-2008,NH,Unknown,Unknown, 15,46,1,0,1,0,0
+Female,Unknown,2007-2008,HCC,Unknown,Unknown, 54,76,1,1,2,0,0
+Female,Unknown,2003-2004,HCC,Unknown,Unknown, 12,66,2,0,2,0,0
+Male,Unknown,2007-2008,NH,Unknown,Unknown, 93,37,2,0,2,0,0
+Male,Unknown,2007-2008,Other,Unknown,Unknown,115,4,0,0,0,0,0
+Male,Unknown, < 2001,ALF,Unknown,Unknown, 22,39,0,0,0,0,0
+Male,Unknown,2003-2004,NH,Unknown,Unknown, 41,61,2,1,3,0,0
+Male,Unknown,2013-2014,ALF,Unknown,Unknown, 23,55,1,0,1,0,0
+Female,Unknown,2001-2002,NH,Unknown,Unknown,  6,66,2,1,3,0,0
+Male,Unknown, < 2001,HCC,Unknown,Unknown, 24,56,1,1,2,0,0
+Female,Unknown,2005-2006,ALF,Unknown,Unknown, 83,46,0,0,0,0,0
+Male,Unknown,2009-2010,ALF,Unknown,Unknown, 49,48,1,0,1,0,0
+Female,Unknown,2009-2010,HCC,Unknown,Unknown, 53,72,0,0,0,0,0
+Male,Unknown,2005-2006,HCC,Unknown,Unknown, 54,61,1,1,2,0,0
+Female,Unknown,2009-2010,Other,Unknown,Unknown, 37,37,1,0,1,0,0
+Female,Unknown,2003-2004,Other,Unknown,Unknown, 66,16,0,0,0,0,0
+Female,Unknown,2005-2006,ALF,Unknown,Unknown, 12,53,0,1,1,0,0
+Male,Unknown,2015-2016,HCC,Unknown,Unknown, 20,70,0,4,5,0,1
+Female,Unknown,2005-2006,HCC,Unknown,Unknown,107,70,0,0,0,0,0
+Female,Unknown,2005-2006,ALF,Unknown,Unknown, 49,46,0,0,0,0,0
+Male,Unknown,Unknown,NH,Unknown,Unknown,153,35,2,0,2,0,0
+Female,Unknown,2001-2002,NH,Unknown,Unknown, 77,48,2,0,2,0,0
+Female,Unknown,2007-2008,ALF,Unknown,Unknown, 62,46,2,1,3,1,0
+Female,Unknown,2015-2016,HCC,Unknown,Unknown,  3,43,1,0,1,0,0
+Male,Unknown,2003-2004,ALF,Unknown,Unknown,112,20,0,0,0,0,0
+Male,Unknown, < 2001,Other,Unknown,Unknown, 80,31,0,0,0,0,0
+Female,Unknown, < 2001,NH,Unknown,Unknown,112,42,0,0,0,0,0
+Female,Unknown,2003-2004,HCC,Unknown,Unknown, 28,73,2,0,2,0,0
+Male,Unknown,2005-2006,Other,Unknown,Unknown, 25,24,0,0,0,1,0
+Male,Unknown,2009-2010,ALF,Unknown,Unknown,  2,53,1,0,1,0,0
+Male,Unknown,2001-2002,Other,Unknown,Unknown, 92,10,0,0,0,0,0
+Male,Unknown,2003-2004,HCC,Unknown,Unknown, 81,59,1,1,2,2,0
+Female,Unknown,2005-2006,Other,Unknown,Unknown, 80,20,0,1,2,0,1
+Female,Unknown,2015-2016,NH,Unknown,Unknown, 16,60,1,0,2,0,1
+Male,Unknown, < 2001,ALF,Unknown,Unknown, 41,35,2,0,2,0,0
+Male,Unknown,2003-2004,NH,Unknown,Unknown, 22,61,2,0,2,0,0
+Male,Unknown,Unknown,ALF,Unknown,Unknown,139,33,0,0,0,0,0
+Female,Unknown,2015-2016,HCC,Unknown,Unknown, 17,63,2,0,2,0,0
+Female,Unknown,2001-2002,ALF,Unknown,Unknown, 39,55,2,0,2,0,0
+Male,Unknown, < 2001,Other,Unknown,Unknown,107,23,0,0,0,0,0
+Male,Unknown, < 2001,HCC,Unknown,Unknown, 35,59,5,0,5,0,0
+Male,Unknown,2007-2008,HCC,Unknown,Unknown, 96,69,2,0,2,0,0
+Male,Unknown,Unknown,HCC,Unknown,Unknown,158,73,0,0,0,1,0
+Female,Unknown,2011-2012,ALF,Unknown,Unknown, 28,50,0,1,1,0,0
+Male,Unknown,2007-2008,HCC,Unknown,Unknown,115,29,0,0,1,0,1
+Female,Unknown,2001-2002,Other,Unknown,Unknown, 58,24,0,1,1,0,0
+Female,Unknown,2001-2002,HCC,Unknown,Unknown, 69,64,0,0,0,0,0
+Female,Unknown,2001-2002,NH,Unknown,Unknown, 16,61,2,0,2,0,0
+Male,Unknown,2009-2010,ALF,Unknown,Unknown, 73,41,1,0,1,0,0
+Male,Unknown,2011-2012,Other,Unknown,Unknown, 68,15,0,0,0,0,0
+Male,Unknown, < 2001,HCC,Unknown,Unknown, 52,48,0,0,0,0,0
+Female,Unknown,2015-2016,NH,Unknown,Unknown, 14,68,3,1,4,0,0
+Female,Unknown,2007-2008,NH,Unknown,Unknown, 64,46,0,0,0,0,0
+Male,Unknown,2005-2006,ALF,Unknown,Unknown, 13,62,1,1,2,0,0
+Male,Unknown,2005-2006,NH,Unknown,Unknown,111,38,0,0,0,0,0
+Female,Unknown,2011-2012,HCC,Unknown,Unknown,  9,41,0,0,0,0,0
+Male,Unknown,2009-2010,NH,Unknown,Unknown, 82,50,1,0,1,0,0
+Female,Unknown, < 2001,NH,Unknown,Unknown,114,40,0,0,0,0,0
+Female,Unknown,2011-2012,Other,Unknown,Unknown, 36,40,0,0,0,0,0
+Female,Unknown,2007-2008,Other,Unknown,Unknown,116,10,0,0,0,1,0
+Male,Unknown,Unknown,HCC,Unknown,Unknown,171,42,1,0,1,0,0
+Female,Unknown,2001-2002,HCC,Unknown,Unknown,111,52,0,0,0,0,0
+Female,Unknown,2003-2004,NH,Unknown,Unknown, 21,54,0,0,0,0,0
+Male,Unknown,2007-2008,NH,Unknown,Unknown, 37,45,2,1,3,0,0
+Female,Unknown,Unknown,Other,Unknown,Unknown,164,26,0,0,0,0,0
+Female,Unknown,2013-2014,Other,Unknown,Unknown,  7,69,2,0,2,0,0
+Female,Unknown,2007-2008,HCC,Unknown,Unknown, 45,71,1,0,1,0,0
+Female,Unknown,Unknown,ALF,Unknown,Unknown,122,115,1,1,3,0,1
+Male,Unknown,2005-2006,NH,Unknown,Unknown, 79,48,0,0,0,0,0
+Female,Unknown,2007-2008,NH,Unknown,Unknown, 51,47,2,0,2,2,0
+Male,Unknown,Unknown,Other,Unknown,Unknown,186,3,0,0,0,0,0
+Male,Unknown,2003-2004,Other,Unknown,Unknown, 42,30,2,0,2,0,0
+Female,Unknown,2001-2002,NH,Unknown,Unknown, 71,48,3,0,3,0,0
+Female,Unknown,2001-2002,ALF,Unknown,Unknown, 59,43,1,0,1,0,0

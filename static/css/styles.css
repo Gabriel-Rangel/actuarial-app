@@ -1,0 +1,197 @@
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+}
+
+.table thead th,
+.table thead tr {
+  background-color: #4a8abd !important;
+  color: #fff !important;
+}
+
+/* Rounded corners for all .table-bordered tables */
+.table-bordered {
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 6px;
+  overflow: hidden; /* Ensures content doesn't spill outside rounded corners */
+  border: 1px solid #dee2e6;
+}
+
+/* Optional: Remove border from first and last cells to avoid double borders */
+.table-bordered th,
+.table-bordered td {
+  border: none;
+}
+
+/* Optional: Add box-shadow for a modern look */
+.table-bordered {
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  display: block;
+  padding: 20px;
+  width: 260px;
+  overflow-x: auto;
+  overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+  background-color: #f2f2f2;
+  border-right: 1px solid #eee;
+}
+
+.logo {
+    width: 80%;
+}
+
+.nav-link.active {
+  font-weight: bold;
+  background-color: #a3c5e8;
+}
+
+/* Chat Container */
+#chat-section {
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  padding: 16px;
+  height: 600px;
+  width: 100%;
+  max-width: 80%;
+  margin: auto;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Conversation History */
+#conversation-history {
+  flex-grow: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Aligns all messages to the left by default */
+}
+
+/* Chat Bubble Styles */
+.chat-bubble {
+  max-width: 70%;
+  padding: 12px;
+  border-radius: 16px;
+  word-wrap: break-word;
+  display: inline-block;
+}
+
+.chat-bubble.user {
+  align-self: flex-end; /* Ensures user messages align to the right */
+  background-color: #007bff;
+  color: white;
+  text-align: left;
+}
+
+.chat-bubble.bot {
+  align-self: flex-start; /* Align bot responses to the left */
+  background-color: #e9ecef; /* Light gray background for bot responses */
+  color: black;
+}
+
+/* Styling for rendered Markdown content */
+.chat-bubble.bot h1,
+.chat-bubble.bot h2,
+.chat-bubble.bot h3 {
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+.chat-bubble.bot p {
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+
+.chat-bubble.bot strong {
+  font-weight: bold;
+}
+
+.chat-bubble.bot em {
+  font-style: italic;
+}
+
+
+/* Input Section */
+#genie-form {
+  display: flex;
+  gap: 8px;
+  padding: 10px;
+  background: white;
+  border-radius: 8px;
+  position: sticky;
+  bottom: 0;
+  width: 100%;
+  border-top: 1px solid #ddd;
+}
+
+#user-query {
+  flex-grow: 1;
+  padding: 10px;
+  border-radius: 16px;
+  border: none;
+}
+
+#submit-query-btn {
+  padding: 10px;
+  border-radius: 16px;
+}
+
+/* Loading Bar */
+#loading-bar .progress-bar {
+  background-color: #007bff; /* Blue color for loading bar */
+}
+
+/* Welcome Message */
+#welcome-message {
+  padding: 16px;
+  border-radius: 8px;
+  background-color: #f9f9f9; /* Light gray background for welcome message */
+}
+
+/* Header */
+h1.h4 {
+  margin-bottom: 0;
+}
+
+/* Analytics Section (for second screenshot) */
+.analytics-container {
+  background-color: #ffffff; /* White background for analytics box */
+  border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px; /* Subtle shadow for card effect */
+  width: 100%; /* Ensure container spans full width */
+}
+
+.analytics-iframe {
+  width: 100%; /* Make iframe span full width */
+  height: 600px; /* Set fixed height */
+  border: none; /* Remove borders */
+}
+
+
+/* General Layout */
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  margin-left: 280px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  main {
+    padding: 10px;
+  }
+  #chat-section {
+    height: 400px;
+  }
+}

@@ -1,0 +1,11 @@
+FundNum,LargeCapEquity,SmallCapEquity,IntlEquity,FixedIncome,Money
+Fund1,1,0,0,0,0
+Fund2,0,1,0,0,0
+Fund3,0,0,1,0,0
+Fund4,0,0,0,1,0
+Fund5,0,0,0,0,1
+Fund6,0.6,0.4,0,0,0
+Fund7,0.5,0,0.5,0,0
+Fund8,0.5,0,0,0.5,0
+Fund9,0,0.3,0.7,0,0
+Fund10,0.2,0.2,0.2,0.2,0.2

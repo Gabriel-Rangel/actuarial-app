@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<main role="main" class="col-md-9 col-lg-10 px-md-4">
+    <!-- Header -->
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h1">Virtual Data Assistant 💡</h1>
+
+    </div>
+
+    <!-- Welcome Message -->
+    <div id="welcome-message" class="alert alert-light rounded shadow-sm p-4 mb-4">
+        Hi {{ user }}! 👋 Welcome to your personal data assistant. I'm here to help you explore and understand your data. Feel free to ask me anything related to {{ title_name }} data — what can I assist you with today?
+    </div>
+
+    <!-- Chat Section -->
+    <div id="chat-section" class="chat-container">
+        <!-- Conversation History -->
+        <div id="conversation-history" class="conversation-history"></div>
+
+        <!-- Loading Bar -->
+        <div id="loading-bar" style="display: none;">
+            <div class="progress">
+                <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
+            </div>
+        </div>
+
+        <!-- Input Section -->
+        <form id="genie-form">
+            <input type="text" id="user-query" placeholder="Ask a question..." required />
+            <button type="submit" id="submit-query-btn" class="btn btn-primary">Send</button>
+        </form>
+    </div>
+
+</main>
+
+<script src="/static/js/scripts.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+{% endblock %}

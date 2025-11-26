@@ -33,9 +33,9 @@ def is_token_valid(token):
 def get_genie_space_id(app):
     genie_id = None
     if app == 'va':
-       genie_id = os.getenv('DATABRICKS_GENIE_VA_SPACE_ID')
+       genie_id = os.getenv('DATABRICKS_GENIE_SPACE_VA_ID')
     elif app == 'ltc':
-       genie_id = os.getenv('DATABRICKS_GENIE_LTC_SPACE_ID')
+       genie_id = os.getenv('DATABRICKS_GENIE_SPACE_LTC_ID')
     return genie_id
 
 # Function for starting a new conversation with Genie   

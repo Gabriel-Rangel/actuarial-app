@@ -18,6 +18,8 @@ logging.basicConfig(level=logging.INFO)
 #load_dotenv()
 #databricks_host = "https://e2-demo-west.cloud.databricks.com"
 databricks_host = os.getenv('DATABRICKS_HOST')
+if databricks_host and not databricks_host.startswith('http'):
+    databricks_host = f"https://{databricks_host}"
 workspace_id = os.getenv('DATABRICKS_WORKSPACE_ID')
 
 w = WorkspaceClient()

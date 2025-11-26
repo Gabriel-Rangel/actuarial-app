@@ -3346,11 +3346,6 @@
   "uiSettings": {
     "theme": {
       "widgetHeaderAlignment": "ALIGNMENT_UNSPECIFIED"
-    },
-    "genieSpace": {
-      "isEnabled": true,
-      "overrideId": "01f0bb43abcf19bdac413766c306041f",
-      "enablementMode": "ENABLED"
     }
   }
 }

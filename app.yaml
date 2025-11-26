@@ -7,14 +7,14 @@ command: [
 
 env:
   - name: DATABRICKS_DASHBOARD_VA_ID
-    valueFrom: 'DATABRICKS_DASHBOARD_VA_ID'
+    value: 'DATABRICKS_DASHBOARD_VA_ID'
   - name: DATABRICKS_DASHBOARD_LTC_ID
-    valueFrom: 'DATABRICKS_DASHBOARD_LTC_ID'
+    value: 'DATABRICKS_DASHBOARD_LTC_ID'
   - name: DATABRICKS_GENIE_SPACE_VA_ID
-    valueFrom: 'DATABRICKS_GENIE_SPACE_VA_ID'
+    value: 'DATABRICKS_GENIE_SPACE_VA_ID'
   - name: DATABRICKS_GENIE_SPACE_LTC_ID
-    valueFrom: 'DATABRICKS_GENIE_SPACE_LTC_ID'
+    value: 'DATABRICKS_GENIE_SPACE_LTC_ID'
 
 # This APP uses User OAuth token generated when the user logs to the APP. If the OAuth token is disable, this will rely of the PAT token that should be placed here.    
   - name: DATABRICKS_PAT_TOKEN 
-    valueFrom: 'DATABRICKS_PAT_TOKEN'
+    value: 'DATABRICKS_PAT_TOKEN'

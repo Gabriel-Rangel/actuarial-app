@@ -39,11 +39,9 @@ def get_genie_space_id(app):
 def new_genie_conversation(space_id, content, token, databricks_host):
     # First, we check that the access token is valid
     #token = is_token_valid(token)
-    #databricks_host = "https://e2-demo-west.cloud.databricks.com"
     #databricks_host = os.getenv('DATABRICKS_HOST')
 
     # Then, we make an API request to the Genie space 
-    # url = f'https://e2-demo-west.cloud.databricks.com/api/2.0/genie/spaces/{space_id}/start-conversation'
     url = f'{databricks_host}/api/2.0/genie/spaces/{space_id}/start-conversation'
 
     headers = {

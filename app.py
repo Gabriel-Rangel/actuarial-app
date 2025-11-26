@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, jsonify, request
 from genie_embedding import new_genie_conversation, get_genie_space_id, get_databricks_oauth_token, continue_genie_conversation
-from dotenv import load_dotenv
+#from dotenv import load_dotenv
 import os
 import logging
 from databricks.sdk import WorkspaceClient
@@ -15,10 +15,10 @@ app = Flask(__name__)
 logging.basicConfig(level=logging.INFO)
 
 # Pull Environment Variables
-load_dotenv()
+#load_dotenv()
 #databricks_host = "https://e2-demo-west.cloud.databricks.com"
-databricks_host = os.environ['DATABRICKS_HOST']
-workspace_id = os.environ['DATABRICKS_WORKSPACE_ID']
+databricks_host = os.getenv('DATABRICKS_HOST')
+workspace_id = os.getenv('DATABRICKS_WORKSPACE_ID')
 
 w = WorkspaceClient()
 
@@ -65,6 +65,19 @@ def run_chain(question, answer, **kwargs):
     response = call_model_endpoint("databricks-meta-llama-3-1-8b-instruct", messages)
     return response
 
+@app.context_processor
+def inject_genie_urls():
+    try:
+        va_space_id = get_genie_space_id('va')
+        ltc_space_id = get_genie_space_id('ltc')
+        return dict(
+            genie_url_va=f"{databricks_host}/genie/rooms/{va_space_id}?o={workspace_id}",
+            genie_url_ltc=f"{databricks_host}/genie/rooms/{ltc_space_id}?o={workspace_id}"
+        )
+    except Exception as e:
+        logging.warning(f"Could not generate Genie URLs: {e}")
+        return dict(genie_url_va="#", genie_url_ltc="#")
+
 @app.route('/genie')
 def home():
     forwarded_email = request.headers.get('X-Forwarded-Email')
@@ -86,10 +99,10 @@ def analytics():
     # Pass the dashboard URL to the template for embedding
     app = request.args.get('app', 'va')  # Get app from query params, default to 'va'
     if app == 'va':
-        dashboard_id = os.environ['DATABRICKS_DASHBOARD_VA_ID']
+        dashboard_id = os.getenv('DATABRICKS_DASHBOARD_VA_ID')
         dashboard_name = 'Variable Annuity Valuation'
     else:
-        dashboard_id = os.environ['DATABRICKS_DASHBOARD_LTC_ID']
+        dashboard_id = os.getenv('DATABRICKS_DASHBOARD_LTC_ID')
         dashboard_name = 'Long Term Care Incidence'
     dashboard_url = f"{databricks_host}/embed/dashboardsv3/{dashboard_id}?o={workspace_id}"
     forwarded_user = request.headers.get('X-Forwarded-Preferred-Username')
@@ -140,7 +153,7 @@ def genie_start_conversation():
         logging.info(f"Using Genie Space ID: {space_id}")
 
         # Start a new conversation with Genie
-        databricks_host = os.environ['DATABRICKS_HOST']
+        databricks_host = os.getenv('DATABRICKS_HOST')
         first_response = new_genie_conversation(
             space_id=space_id,
             content=question,

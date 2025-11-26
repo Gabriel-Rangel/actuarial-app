@@ -1,18 +1,17 @@
 import os
 import requests
-from dotenv import load_dotenv
+#from dotenv import load_dotenv
 
 # Functino to
 def get_dashboard_embedding_oauth_token(external_data, external_viewer_id, dashboard_name):
     # Pull Environment Variables from .env file
-    load_dotenv()
+    # load_dotenv()
 
-    databricks_host = os.environ['DATABRICKS_HOST']
-    databricks_client_id = os.environ['DATABRICKS_CLIENT_ID']
-    databricks_client_secret = os.environ['DATABRICKS_CLIENT_SECRET']
+    databricks_host = os.getenv('DATABRICKS_HOST')
+    databricks_client_id = os.getenv('DATABRICKS_CLIENT_ID')
+    databricks_client_secret = os.getenv('DATABRICKS_CLIENT_SECRET')
     if dashboard_name == "defects":
-        dashboard_id = os.environ['DATABRICKS_DASHBOARD_ID']
-
+        dashboard_id = os.getenv('DATABRICKS_DASHBOARD_ID')
 
     oauth_scopes = "dashboards.query-execution dashboards.lakeview-embedded:read sql.redash-config:read settings:read"
     custom_claim = f'urn:aibi:external_data:{external_data}:{external_viewer_id}:{dashboard_id}'

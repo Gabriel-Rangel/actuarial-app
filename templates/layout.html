@@ -34,7 +34,7 @@
                                         <a class="nav-link {% if request.path == '/analytics' and request.args.get('app') == 'va' %}active{% endif %}" href="/analytics?app=va">Analytics</a>
                                     </li>
                                     <li>
-                                        <a class="nav-link {% if request.path == '/genie' and request.args.get('app') == 'va' %}active{% endif %}" href="https://e2-demo-west.cloud.databricks.com/genie/rooms/01f0116d36a815c2b4d3cf61d19349b6?o=2556758628403379" target="_blank">Data Assistant</a>
+                                        <a class="nav-link {% if request.path == '/genie' and request.args.get('app') == 'va' %}active{% endif %}" href="{{ genie_url_va }}" target="_blank">Data Assistant</a>
                                     </li>
                                     </li>
                                         <a class="nav-link {% if request.path == '/approval' %}active{% endif %}" href="/approval">Approval</a>
@@ -50,7 +50,7 @@
                                         <a class="nav-link {% if request.path == '/analytics' and request.args.get('app') == 'ltc' %}active{% endif %}" href="/analytics?app=ltc">Analytics</a>
                                     </li>
                                     <li>
-                                        <a class="nav-link {% if request.path == '/genie' and request.args.get('app') == 'ltc' %}active{% endif %}" href="https://e2-demo-west.cloud.databricks.com/genie/rooms/01ef7e8be4991ba3a06fdbf392979992?o=2556758628403379" target="_blank">Data Assistant</a>
+                                        <a class="nav-link {% if request.path == '/genie' and request.args.get('app') == 'ltc' %}active{% endif %}" href="{{ genie_url_ltc }}" target="_blank">Data Assistant</a>
                                     </li>
                                     </li>
                                         <a class="nav-link {% if request.path == '/approval_ltc' %}active{% endif %}" href="/approval_ltc">Approval</a>

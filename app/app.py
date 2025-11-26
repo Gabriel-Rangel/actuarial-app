@@ -1,6 +1,5 @@
 from flask import Flask, render_template, request, jsonify, request
 from genie_embedding import new_genie_conversation, get_genie_space_id, get_databricks_oauth_token, continue_genie_conversation
-#from dotenv import load_dotenv
 import os
 import logging
 from databricks.sdk import WorkspaceClient
@@ -15,8 +14,6 @@ app = Flask(__name__)
 logging.basicConfig(level=logging.INFO)
 
 # Pull Environment Variables
-#load_dotenv()
-#databricks_host = "https://e2-demo-west.cloud.databricks.com"
 databricks_host = os.getenv('DATABRICKS_HOST')
 if databricks_host and not databricks_host.startswith('http'):
     databricks_host = f"https://{databricks_host}"

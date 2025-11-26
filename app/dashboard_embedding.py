@@ -1,11 +1,10 @@
 import os
 import requests
-#from dotenv import load_dotenv
 
 # Functino to
 def get_dashboard_embedding_oauth_token(external_data, external_viewer_id, dashboard_name):
     # Pull Environment Variables from .env file
-    # load_dotenv()
+
 
     databricks_host = os.getenv('DATABRICKS_HOST')
     databricks_client_id = os.getenv('DATABRICKS_CLIENT_ID')

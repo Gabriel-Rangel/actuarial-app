@@ -2,12 +2,9 @@ import requests
 import json
 import time
 import pandas as pd
-#from dotenv import load_dotenv
 import os
 
-#databricks_host = "https://e2-demo-west.databricks.com"
-#load_dotenv()
-databricks_host = os.getenv('DATABRICKS_HOST')
+#databricks_host = os.getenv('DATABRICKS_HOST')
 
 # Function for retrieving a Databricks token which will be used to make API calls to Databricks
 def get_databricks_oauth_token():
@@ -43,7 +40,7 @@ def new_genie_conversation(space_id, content, token, databricks_host):
     # First, we check that the access token is valid
     #token = is_token_valid(token)
     #databricks_host = "https://e2-demo-west.cloud.databricks.com"
-    databricks_host = os.getenv('DATABRICKS_HOST')
+    #databricks_host = os.getenv('DATABRICKS_HOST')
 
     # Then, we make an API request to the Genie space 
     # url = f'https://e2-demo-west.cloud.databricks.com/api/2.0/genie/spaces/{space_id}/start-conversation'
@@ -76,8 +73,7 @@ def get_genie_message(space_id, conversation_id, message_id, token, databricks_h
     #token = is_token_valid(token)
 
     # Then, we make an API request to the Genie space 
-    # url = f"https://e2-demo-west.cloud.databricks.com/api/2.0/genie/spaces/{space_id}/conversations/{conversation_id}/messages/{message_id}"
-    databricks_host = os.getenv('DATABRICKS_HOST')
+    #databricks_host = os.getenv('DATABRICKS_HOST')
     url = f"{databricks_host}/api/2.0/genie/spaces/{space_id}/conversations/{conversation_id}/messages/{message_id}"
 
     headers = {
@@ -135,10 +131,8 @@ def get_genie_message(space_id, conversation_id, message_id, token, databricks_h
 def get_genie_message_query_result(space_id, conversation_id, message_id, token, databricks_host):
     #token = is_token_valid(token)
     # Construct the URL
-    #databricks_host = "https://e2-demo-west.databricks.com"
-    databricks_host = os.getenv('DATABRICKS_HOST')
+    #databricks_host = os.getenv('DATABRICKS_HOST')
 
-    # url = f"https://e2-demo-west.cloud.databricks.com/api/2.0/genie/spaces/{space_id}/conversations/{conversation_id}/messages/{message_id}/query-result"
     url = f"{databricks_host}/api/2.0/genie/spaces/{space_id}/conversations/{conversation_id}/messages/{message_id}/query-result"
 
     # Set up the headers
@@ -189,12 +183,9 @@ def get_genie_message_query_result(space_id, conversation_id, message_id, token,
 def get_genie_message_query_result_updated(space_id, conversation_id, message_id, attachment_id, token, databricks_host):
     # First, we check that the access token is valid
     #token = is_token_valid(token)
-    #databricks_host = "https://e2-demo-west.databricks.com"
-    databricks_host = os.getenv('DATABRICKS_HOST')
+    #databricks_host = os.getenv('DATABRICKS_HOST')
 
     # Then, we make an API request to the Genie space 
-
-    # url = f"https://e2-demo-west.cloud.databricks.com/api/2.0/genie/spaces/{space_id}/conversations/{conversation_id}/messages/{message_id}/query-result/{attachment_id}"
     url = f"{databricks_host}/api/2.0/genie/spaces/{space_id}/conversations/{conversation_id}/messages/{message_id}/query-result/{attachment_id}"
 
     headers = {
@@ -256,12 +247,9 @@ def get_genie_message_query_result_updated(space_id, conversation_id, message_id
 def continue_genie_conversation(space_id, content, conversation_id, token, databricks_host):
     # First, we check that the access token is valid
     #token = is_token_valid(token)
-    #databricks_host = "https://e2-demo-west.databricks.com"
-    databricks_host = os.getenv('DATABRICKS_HOST')
+    #databricks_host = os.getenv('DATABRICKS_HOST')
 
     # Then, we make an API request to the Genie space 
-    
-    # url = f"https://e2-demo-west.cloud.databricks.com/api/2.0/genie/spaces/{space_id}/conversations/{conversation_id}/messages"
     url = f"{databricks_host}/api/2.0/genie/spaces/{space_id}/conversations/{conversation_id}/messages"
 
     headers = {
